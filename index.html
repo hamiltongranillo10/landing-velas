@@ -65,7 +65,7 @@
         .old { text-decoration: line-through; color: #9ca3af; font-size: 18px; }
         .new { font-size: clamp(45px, 8vw, 65px); color: var(--primary); font-weight: 800; display: block; margin: 5px 0; }
         
-        /* BOTÓN CON EFECTO VIDRIO REFLEJANTE (SHINE) */
+        /* BOTÓN CON ANIMACIONES: VIDRIO + FLOTE + PULSO */
         .btn { 
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); 
             color: white !important; 
@@ -74,18 +74,19 @@
             text-decoration: none; 
             font-weight: 800; 
             display: inline-block; 
-            font-size: clamp(15px, 4.5vw, 19px);
+            font-size: clamp(14px, 4.5vw, 19px);
             box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4); 
             transition: 0.3s; 
             cursor: pointer; 
             border: none;
             position: relative;
-            overflow: hidden; /* Necesario para que el brillo no se salga */
+            overflow: hidden; 
             width: auto;
             max-width: 95%;
+            animation: floatBtn 3s ease-in-out infinite, pulse 2.5s infinite;
         }
 
-        /* El reflejo de luz */
+        /* Efecto Vidrio (Brillo) */
         .btn::after {
             content: "";
             position: absolute;
@@ -93,42 +94,49 @@
             left: -100%;
             width: 50%;
             height: 200%;
-            background: linear-gradient(
-                to right, 
-                rgba(255, 255, 255, 0) 0%, 
-                rgba(255, 255, 255, 0.4) 50%, 
-                rgba(255, 255, 255, 0) 100%
-            );
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0) 100%);
             transform: rotate(25deg);
-            animation: glassShine 3.5s infinite;
+            animation: glassShine 4s infinite;
         }
 
-        @keyframes glassShine {
-            0% { left: -100%; }
-            20% { left: 150%; }
-            100% { left: 150%; }
+        /* Vibración al scroll */
+        .vibrate { animation: shake 0.4s !important; }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-4px); }
+            50% { transform: translateX(4px); }
+            75% { transform: translateX(-4px); }
         }
 
-        .btn:hover { transform: translateY(-3px) scale(1.02); }
+        .btn-temario {
+            background: #6b7280;
+            color: white !important;
+            padding: 12px 25px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            font-size: 14px;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+
+        @keyframes glassShine { 0% { left: -120%; } 15% { left: 150%; } 100% { left: 150%; } }
+        @keyframes floatBtn { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.02); } }
 
         .timer { color: var(--accent); font-weight: 700; margin: 15px 0; display: inline-block; padding: 6px 15px; background: #fee2e2; border-radius: 50px; font-size: 14px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-top: 30px; text-align: left; }
         .card { background: white; padding: 15px; border-radius: 12px; border: 1px solid #f3f4f6; font-size: 14px; display: flex; align-items: center; gap: 10px; }
 
-        /* PREGUNTAS FRECUENTES (TEXTO COMPLETO SEGÚN TUS FOTOS) */
         .faq-container { background: white; border-radius: 25px; padding: 25px; border: 1px solid #e5e7eb; text-align: left; margin-top: 30px; }
         .faq-item { margin-bottom: 25px; border-bottom: 1px solid #f3f4f6; padding-bottom: 15px; }
-        .faq-item:last-child { border: none; }
         .faq-item h3 { font-size: 17px; color: #111827; margin-bottom: 10px; font-weight: 700; }
         .faq-item p { font-size: 15px; color: #4b5563; margin: 0; line-height: 1.5; }
 
         .whatsapp { position: fixed; right: 15px; bottom: 15px; background: #25D366; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1000; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-        .popup { position: fixed; left: 10px; bottom: 80px; background: white; padding: 12px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); display: none; z-index: 999; border-left: 4px solid var(--primary); font-size: 12px; }
 
-        @media (max-width: 600px) {
-            .grid { grid-template-columns: 1fr; }
-            .btn { width: 100%; box-sizing: border-box; }
-        }
+        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } .btn { width: 100%; box-sizing: border-box; } }
     </style>
 </head>
 <body>
@@ -141,35 +149,32 @@
         <p style="font-size: 15px;">Aprende a crear velas artesanales premium paso a paso</p>
         <div class="old">$74 USD</div>
         <div class="new">$37 USD</div>
-        <div class="timer" id="timer"></div>
+        <div class="timer" id="timer">Oferta termina en: 14:18</div>
         <br>
-        <a class="btn" href="https://go.hotmart.com/L104931361I?ap=329d" onclick="btm_track_checkout(event, this.href)">QUIERO INSCRIBIRME AHORA</a>
+        <a class="btn cta" href="https://go.hotmart.com/L104931361I?ap=329d" onclick="btm_track_checkout(event, this.href)">QUIERO INSCRIBIRME AHORA</a>
         <p style="font-size:11px;color:#6b7280;margin-top:12px;">💳 Verás el precio convertido automáticamente a tu moneda según tu país</p>
+        
+        <a href="https://go.hotmart.com/L104931361I" class="btn-temario">VER TEMARIO COMPLETO</a>
+        
+        <p style="color:#16a34a; font-weight:600; font-size:14px; margin-top:15px;">🔥 Más de 1009 alumnos ya están dentro</p>
+        <p style="color:#ef4444; font-weight:600; font-size:13px;">⚠️ Cupos limitados por alta demanda</p>
     </div>
 
     <h2 style="font-family: 'Playfair Display', serif; font-size: 30px; margin-top: 50px;">Preguntas Frecuentes</h2>
-    
     <div class="faq-container">
         <div class="faq-item">
             <h3>¿Cómo recibo el acceso al curso?</h3>
-            <p>Una vez realices el pago, recibirás un correo electrónico (el mismo que indicaras al momento de hacer la compra) con las instrucciones para acceder al área privada de alumnos. Este curso podrás estudiarlo dentro de la plataforma de Hotmart, es la misma plataforma donde se realiza el pago. El curso es completamente digital y tendrás ACCESO DE POR VIDA..</p>
+            <p>Una vez realices el pago, recibirás un correo electrónico (el mismo que indicaras al momento de hacer la compra) con las instrucciones para acceder al área privada de alumnos. Este curso podrás estudiarlo dentro de la plataforma de Hotmart, es la misma plataforma donde se realiza el pago. El curso es completamente digital y tendrás ACCESO DE POR VIDA.</p>
         </div>
-
         <div class="faq-item">
             <h3>¿El pago es seguro?</h3>
             <p>Si, el pago es realizado a través de Hotmart, una plataforma digital que cuenta con un certificado de seguridad, siendo uno de los procesadores de pago mas importantes del mundo que opera en más de 160 países.
-Tus datos de pago son 100% privados..</p>
+Tus datos de pago son 100% privados.</p>
         </div>
-
         <div class="faq-item">
-            <h3>¿Tengo acceso de por vida?</h3>
-            <p>¡Sí! Podrás ver las clases todas las veces que quieras y desde cualquier dispositivo para siempre.</p>
+            <h3>¿Cuanto tiempo dura el curso?</h3>
+            <p>La duración del curso dependerá 100% de ti. Al ser una formación 100% online, tu decides cuando ver cada una de las lecciones y los tendrás a tu disposición para siempre, por lo que podrás verlo las veces que tu desees.</p>
         </div>
-    </div>
-
-    <div style="padding:40px 0;">
-        <div class="new" style="font-size: 38px;">Solo $37 USD</div>
-        <a class="btn" href="https://go.hotmart.com/L104931361I?ap=329d" onclick="btm_track_checkout(event, this.href)">QUIERO ACCEDER CON DESCUENTO</a>
     </div>
 
     <h2 style="font-size: 24px;">Contenido del Curso (14 Módulos)</h2>
@@ -191,12 +196,21 @@ Tus datos de pago son 100% privados..</p>
     </div>
 </div>
 
-<div class="popup" id="popup"></div>
 <a class="whatsapp" href="https://wa.link/7h1fs9" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="30"></a>
 
 <script>
+    /* Temporizador */
     let time=900; setInterval(()=>{ let m=Math.floor(time/60); let s=time%60; document.getElementById("timer").innerText="Oferta termina en: "+m+":"+String(s).padStart(2,'0'); time=time<=0?900:time-1; },1000);
-    const names=["Ana","Luis","Carlos","María","Andrea","Jorge"]; setInterval(()=>{ let n=names[Math.floor(Math.random()*names.length)]; let p=document.getElementById("popup"); if(p){ p.innerText="🔥 "+n+" acaba de inscribirse"; p.style.display="block"; setTimeout(()=>p.style.display="none",3000); } },12000);
+
+    /* Lógica de Vibración al deslizar */
+    let isScrolling;
+    window.addEventListener('scroll', () => {
+        window.clearTimeout(isScrolling);
+        document.querySelectorAll('.cta').forEach(btn => btn.classList.add('vibrate'));
+        isScrolling = setTimeout(() => {
+            document.querySelectorAll('.cta').forEach(btn => btn.classList.remove('vibrate'));
+        }, 150);
+    }, {passive: true});
 </script>
 </body>
 </html>
