@@ -28,6 +28,7 @@
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1274753604821165&ev=PageView&noscript=1"
     /></noscript>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Curso Velas Artesanales Premium</title>
@@ -64,7 +65,7 @@
         .old { text-decoration: line-through; color: #9ca3af; font-size: 18px; }
         .new { font-size: clamp(45px, 8vw, 65px); color: var(--primary); font-weight: 800; display: block; margin: 5px 0; }
         
-        /* BOTÓN CON TODAS LAS ANIMACIONES FUSIONADAS */
+        /* BOTÓN CON EFECTO VIDRIO REFLEJANTE (SHINE) */
         .btn { 
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); 
             color: white !important; 
@@ -82,11 +83,9 @@
             overflow: hidden; /* Necesario para que el brillo no se salga */
             width: auto;
             max-width: 95%;
-            /* FUSIÓN DE ANIMACIONES: Flote y Pulso */
-            animation: floatBtn 3s ease-in-out infinite, pulse 2.5s infinite;
         }
 
-        /* El reflejo de luz tipo vidrio (glassShine) */
+        /* El reflejo de luz */
         .btn::after {
             content: "";
             position: absolute;
@@ -97,64 +96,33 @@
             background: linear-gradient(
                 to right, 
                 rgba(255, 255, 255, 0) 0%, 
-                rgba(255, 255, 255, 0.5) 50%, 
+                rgba(255, 255, 255, 0.4) 50%, 
                 rgba(255, 255, 255, 0) 100%
             );
             transform: rotate(25deg);
-            /* ANIMACIÓN INDEPENDIENTE DEL BRILLO */
-            animation: glassShine 4s infinite;
+            animation: glassShine 3.5s infinite;
         }
 
-        /* DEFINICIÓN DE ANIMACIONES */
         @keyframes glassShine {
-            0% { left: -120%; }
-            15% { left: 150%; }
+            0% { left: -100%; }
+            20% { left: 150%; }
             100% { left: 150%; }
         }
 
-        @keyframes floatBtn {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
-            100% { transform: translateY(0); }
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4); }
-            50% { box-shadow: 0 10px 40px rgba(99, 102, 241, 0.6); transform: scale(1.02); }
-            100% { box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4); }
-        }
-
-        /* Vibración al scroll (se activa por JS) */
-        .vibrate { animation: shake 0.4s; }
-        @keyframes shake {
-            0% { transform: translateX(0); }
-            25% { transform: translateX(-3px); }
-            50% { transform: translateX(3px); }
-            75% { transform: translateX(-3px); }
-            100% { transform: translateX(0); }
-        }
-
-        /* HOVER EFFECTS */
-        .btn:hover { 
-            transform: translateY(-5px) scale(1.04); 
-            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.5);
-            animation: none; /* Pausa flote/pulso en hover para estabilidad */
-        }
-        .btn:active { transform: translateY(-2px) scale(1); }
+        .btn:hover { transform: translateY(-3px) scale(1.02); }
 
         .timer { color: var(--accent); font-weight: 700; margin: 15px 0; display: inline-block; padding: 6px 15px; background: #fee2e2; border-radius: 50px; font-size: 14px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-top: 30px; text-align: left; }
         .card { background: white; padding: 15px; border-radius: 12px; border: 1px solid #f3f4f6; font-size: 14px; display: flex; align-items: center; gap: 10px; }
 
-        /* PREGUNTAS FRECUENTES (TEXTO COMPLETO) */
+        /* PREGUNTAS FRECUENTES (TEXTO COMPLETO SEGÚN TUS FOTOS) */
         .faq-container { background: white; border-radius: 25px; padding: 25px; border: 1px solid #e5e7eb; text-align: left; margin-top: 30px; }
         .faq-item { margin-bottom: 25px; border-bottom: 1px solid #f3f4f6; padding-bottom: 15px; }
         .faq-item:last-child { border: none; }
         .faq-item h3 { font-size: 17px; color: #111827; margin-bottom: 10px; font-weight: 700; }
         .faq-item p { font-size: 15px; color: #4b5563; margin: 0; line-height: 1.5; }
 
-        .whatsapp { position: fixed; right: 15px; bottom: 15px; background: #25D366; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1000; box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: 0.3s; }
-        .whatsapp:hover { transform: scale(1.1); }
+        .whatsapp { position: fixed; right: 15px; bottom: 15px; background: #25D366; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1000; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
         .popup { position: fixed; left: 10px; bottom: 80px; background: white; padding: 12px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); display: none; z-index: 999; border-left: 4px solid var(--primary); font-size: 12px; }
 
         @media (max-width: 600px) {
@@ -175,4 +143,59 @@
         <div class="new">$37 USD</div>
         <div class="timer" id="timer"></div>
         <br>
-        <a class="btn cta" href="
+        <a class="btn" href="https://go.hotmart.com/L104931361I?ap=329d" onclick="btm_track_checkout(event, this.href)">QUIERO INSCRIBIRME AHORA</a>
+        <p style="font-size:11px;color:#6b7280;margin-top:12px;">💳 Verás el precio convertido automáticamente a tu moneda según tu país</p>
+    </div>
+
+    <h2 style="font-family: 'Playfair Display', serif; font-size: 30px; margin-top: 50px;">Preguntas Frecuentes</h2>
+    
+    <div class="faq-container">
+        <div class="faq-item">
+            <h3>¿Cómo recibo el acceso al curso?</h3>
+            <p>Al realizar el pago, te llega un correo automático con tus datos de acceso a la plataforma de Hotmart para que empieces hoy mismo.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>¿El pago es seguro?</h3>
+            <p>Sí, el pago es procesado por Hotmart, la plataforma de productos digitales más segura y grande de Latinoamérica.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>¿Tengo acceso de por vida?</h3>
+            <p>¡Sí! Podrás ver las clases todas las veces que quieras y desde cualquier dispositivo para siempre.</p>
+        </div>
+    </div>
+
+    <div style="padding:40px 0;">
+        <div class="new" style="font-size: 38px;">Solo $37 USD</div>
+        <a class="btn" href="https://go.hotmart.com/L104931361I?ap=329d" onclick="btm_track_checkout(event, this.href)">QUIERO ACCEDER CON DESCUENTO</a>
+    </div>
+
+    <h2 style="font-size: 24px;">Contenido del Curso (14 Módulos)</h2>
+    <div class="grid">
+        <div class="card">Módulo 1 Bienvenida</div>
+        <div class="card">Módulo 2 herramientas , materiales y medidas de seguridad</div>
+        <div class="card">Módulo 3 conociendo la ceras</div>
+        <div class="card">Módulo 4 como darle color y aroma a tus velas</div>
+        <div class="card">Módulo 5 pabilos y aditivos</div>
+        <div class="card">Módulo 6 lo que necesitan saber sobre los moldes</div>
+        <div class="card">Módulo 7 como calcular medidas y porcentaje</div>
+        <div class="card">Módulo 8 comenzamos con la practica</div>
+        <div class="card">Módulo 9 velas tipo postre o reposteras</div>
+        <div class="card">Módulo 10 aprende a elaborar otros tipos de velas</div>
+        <div class="card">Módulo 11 aprende a sacar tus costos , cuanto cobrar por tus velas</div>
+        <div class="card">Módulo 12 clases especiales</div>
+        <div class="card">Módulo 13 bonos</div>
+        <div class="card">Módulo 14 lista de proveedores y despedida</div>
+    </div>
+</div>
+
+<div class="popup" id="popup"></div>
+<a class="whatsapp" href="https://wa.link/7h1fs9" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="30"></a>
+
+<script>
+    let time=900; setInterval(()=>{ let m=Math.floor(time/60); let s=time%60; document.getElementById("timer").innerText="Oferta termina en: "+m+":"+String(s).padStart(2,'0'); time=time<=0?900:time-1; },1000);
+    const names=["Ana","Luis","Carlos","María","Andrea","Jorge"]; setInterval(()=>{ let n=names[Math.floor(Math.random()*names.length)]; let p=document.getElementById("popup"); if(p){ p.innerText="🔥 "+n+" acaba de inscribirse"; p.style.display="block"; setTimeout(()=>p.style.display="none",3000); } },12000);
+</script>
+</body>
+</html>
