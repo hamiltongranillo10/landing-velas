@@ -35,22 +35,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
 
     <style>
-        :root { --primary: #6366f1; --primary-dark: #4f46e5; --accent: #f43f5e; --glass: rgba(255, 255, 255, 0.9); }
+        :root { --primary: #6366f1; --primary-dark: #4f46e5; --accent: #f43f5e; --glass: rgba(255, 255, 255, 0.94); }
         
         body { 
             margin: 0; 
             font-family: 'Montserrat', sans-serif; 
-            background: radial-gradient(at 0% 0%, #ffffff 0%, #f9fafb 100%), radial-gradient(at 100% 0%, #e0e7ff 0%, transparent 40%), radial-gradient(at 50% 100%, #fef2f2 0%, transparent 40%); 
-            background-attachment: fixed; 
+            background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), 
+                        url('https://images.unsplash.com/photo-1602872030219-cbf917a863bd?q=80&w=1000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: #1f2937; 
-            line-height: 1.6;
             overflow-x: hidden;
         }
 
         .top-bar { background: linear-gradient(90deg, var(--primary-dark), var(--primary)); color: white; text-align: center; padding: 10px; font-size: 12px; font-weight: 800; text-transform: uppercase; }
-        .wrapper { max-width: 1000px; margin: auto; padding: 15px; text-align: center; }
+        .wrapper { max-width: 900px; margin: auto; padding: 15px; text-align: center; }
         
-        .hero { 
+        .hero, .bottom-section { 
             background: var(--glass); 
             backdrop-filter: blur(15px); 
             -webkit-backdrop-filter: blur(15px); 
@@ -58,85 +60,64 @@
             border-radius: 30px; 
             border: 1px solid rgba(255,255,255,0.6); 
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05); 
-            margin-top: 10px; 
+            margin: 20px 0;
         }
 
-        h1 { font-family: 'Playfair Display', serif; font-size: clamp(26px, 5vw, 48px); color: #111827; margin-bottom: 15px; line-height: 1.2; }
+        h1 { font-family: 'Playfair Display', serif; font-size: clamp(26px, 5vw, 48px); color: #111827; line-height: 1.2; margin-bottom: 15px; }
         .old { text-decoration: line-through; color: #9ca3af; font-size: 18px; }
-        .new { font-size: clamp(45px, 8vw, 65px); color: var(--primary); font-weight: 800; display: block; margin: 5px 0; }
+        .new { font-size: clamp(40px, 8vw, 60px); color: var(--primary); font-weight: 800; display: block; margin: 5px 0; }
         
-        /* BOTÓN CON ANIMACIONES: VIDRIO + FLOTE + PULSO */
         .btn { 
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); 
             color: white !important; 
-            padding: 18px 35px; 
+            padding: 20px 35px; 
             border-radius: 100px; 
             text-decoration: none; 
             font-weight: 800; 
             display: inline-block; 
-            font-size: clamp(14px, 4.5vw, 19px);
+            font-size: clamp(14px, 4.5vw, 18px);
             box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4); 
             transition: 0.3s; 
             cursor: pointer; 
             border: none;
             position: relative;
             overflow: hidden; 
-            width: auto;
-            max-width: 95%;
             animation: floatBtn 3s ease-in-out infinite, pulse 2.5s infinite;
         }
 
-        /* Efecto Vidrio (Brillo) */
         .btn::after {
             content: "";
             position: absolute;
-            top: -50%;
-            left: -100%;
-            width: 50%;
-            height: 200%;
+            top: -50%; left: -100%; width: 50%; height: 200%;
             background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0) 100%);
             transform: rotate(25deg);
             animation: glassShine 4s infinite;
         }
 
-        /* Vibración al scroll */
         .vibrate { animation: shake 0.4s !important; }
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-4px); }
-            50% { transform: translateX(4px); }
-            75% { transform: translateX(-4px); }
-        }
-
-        .btn-temario {
-            background: #6b7280;
-            color: white !important;
-            padding: 12px 25px;
-            border-radius: 100px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-block;
-            font-size: 14px;
-            margin-top: 15px;
-            transition: 0.3s;
-        }
-
+        @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-4px); } 50% { transform: translateX(4px); } 75% { transform: translateX(-4px); } }
         @keyframes glassShine { 0% { left: -120%; } 15% { left: 150%; } 100% { left: 150%; } }
         @keyframes floatBtn { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
-        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.02); } }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); } }
 
+        .btn-temario { background: #6b7280; color: white !important; padding: 12px 25px; border-radius: 100px; text-decoration: none; font-weight: 600; display: inline-block; font-size: 14px; margin-top: 15px; }
         .timer { color: var(--accent); font-weight: 700; margin: 15px 0; display: inline-block; padding: 6px 15px; background: #fee2e2; border-radius: 50px; font-size: 14px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-top: 30px; text-align: left; }
-        .card { background: white; padding: 15px; border-radius: 12px; border: 1px solid #f3f4f6; font-size: 14px; display: flex; align-items: center; gap: 10px; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin: 30px 0; text-align: left; }
+        .card { background: white; padding: 15px; border-radius: 12px; border: 1px solid #f3f4f6; font-size: 14px; font-weight: 600; }
 
-        .faq-container { background: white; border-radius: 25px; padding: 25px; border: 1px solid #e5e7eb; text-align: left; margin-top: 30px; }
-        .faq-item { margin-bottom: 25px; border-bottom: 1px solid #f3f4f6; padding-bottom: 15px; }
-        .faq-item h3 { font-size: 17px; color: #111827; margin-bottom: 10px; font-weight: 700; }
-        .faq-item p { font-size: 15px; color: #4b5563; margin: 0; line-height: 1.5; }
+        .faq-container { background: white; border-radius: 25px; padding: 25px; border: 1px solid #e5e7eb; text-align: left; margin: 30px 0; }
+        .faq-item { border-bottom: 1px solid #f3f4f6; padding: 15px 0; }
+        .faq-item:last-child { border: none; }
+        .faq-item h3 { font-size: 17px; margin-bottom: 8px; color: #111827; }
+        .faq-item p { font-size: 15px; color: #4b5563; margin: 0; }
 
-        .whatsapp { position: fixed; right: 15px; bottom: 15px; background: #25D366; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1000; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        /* WHATSAPP CON TEXTO */
+        .whatsapp-container { position: fixed; right: 15px; bottom: 15px; display: flex; align-items: center; gap: 10px; z-index: 1000; text-decoration: none; }
+        .whatsapp-text { background: white; color: #111827; padding: 8px 15px; border-radius: 50px; font-weight: 700; font-size: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border: 1px solid #25D366; }
+        .whatsapp-icon { background: #25D366; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
 
-        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } .btn { width: 100%; box-sizing: border-box; } }
+        @media (max-width: 600px) { .btn { width: 100%; box-sizing: border-box; } .whatsapp-text { font-size: 10px; } }
     </style>
 </head>
 <body>
@@ -146,21 +127,19 @@
 <div class="wrapper">
     <div class="hero">
         <h1>Convierte velas en un negocio rentable desde casa</h1>
-        <p style="font-size: 15px;">Aprende a crear velas artesanales premium paso a paso</p>
+        <p>Aprende a crear velas artesanales premium paso a paso</p>
         <div class="old">$74 USD</div>
         <div class="new">$37 USD</div>
         <div class="timer" id="timer">Oferta termina en: 14:18</div>
         <br>
         <a class="btn cta" href="https://go.hotmart.com/L104931361I?ap=329d" onclick="btm_track_checkout(event, this.href)">QUIERO INSCRIBIRME AHORA</a>
-        <p style="font-size:11px;color:#6b7280;margin-top:12px;">💳 Verás el precio convertido automáticamente a tu moneda según tu país</p>
-        
+        <p style="font-size:11px;color:#6b7280;margin-top:12px;">💳 Precio convertido automáticamente a tu moneda local</p>
         <a href="https://go.hotmart.com/L104931361I" class="btn-temario">VER TEMARIO COMPLETO</a>
-        
         <p style="color:#16a34a; font-weight:600; font-size:14px; margin-top:15px;">🔥 Más de 1009 alumnos ya están dentro</p>
         <p style="color:#ef4444; font-weight:600; font-size:13px;">⚠️ Cupos limitados por alta demanda</p>
     </div>
 
-    <h2 style="font-family: 'Playfair Display', serif; font-size: 30px; margin-top: 50px;">Preguntas Frecuentes</h2>
+    <h2 style="font-family: 'Playfair Display', serif; font-size: 30px;">Preguntas Frecuentes</h2>
     <div class="faq-container">
         <div class="faq-item">
             <h3>¿Cómo recibo el acceso al curso?</h3>
@@ -173,8 +152,15 @@ Tus datos de pago son 100% privados.</p>
         </div>
         <div class="faq-item">
             <h3>¿Cuanto tiempo dura el curso?</h3>
-            <p>La duración del curso dependerá 100% de ti. Al ser una formación 100% online, tu decides cuando ver cada una de las lecciones y los tendrás a tu disposición para siempre, por lo que podrás verlo las veces que tu desees.</p>
+            <p>La duración del curso dependerá 100% de ti. Al ser una formación 100% online, tu decides cuando ver cada una de las lecciones y los tendrás a tu disposición para siempre, por lo que podrás verlo las veces que tu desees</p>
         </div>
+    </div>
+
+    <div class="bottom-section">
+        <div class="new" style="font-size: 45px;">Solo $37 USD</div>
+        <p style="font-weight: 700;">¡ÚLTIMA OPORTUNIDAD PARA UNIRTE CON DESCUENTO!</p>
+        <a class="btn cta" href="https://go.hotmart.com/L104931361I?ap=329d" onclick="btm_track_checkout(event, this.href)">SÍ, QUIERO MI ACCESO AHORA</a>
+        <p style="font-size: 12px; margin-top: 15px;">🔒 Pago 100% Seguro | Acceso Inmediato</p>
     </div>
 
     <h2 style="font-size: 24px;">Contenido del Curso (14 Módulos)</h2>
@@ -189,20 +175,25 @@ Tus datos de pago son 100% privados.</p>
         <div class="card">Módulo 8 comenzamos con la practica</div>
         <div class="card">Módulo 9 velas tipo postre o reposteras</div>
         <div class="card">Módulo 10 aprende a elaborar otros tipos de velas</div>
-        <div class="card">Módulo 11 aprende a sacar tus costos , cuanto cobrar por tus velas</div>
+        <div class="card">Módulo 11 aprende a sacar tus costos</div>
         <div class="card">Módulo 12 clases especiales</div>
         <div class="card">Módulo 13 bonos</div>
         <div class="card">Módulo 14 lista de proveedores y despedida</div>
     </div>
 </div>
 
-<a class="whatsapp" href="https://wa.link/7h1fs9" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="30"></a>
+<a class="whatsapp-container" href="https://wa.link/7h1fs9" target="_blank">
+    <div class="whatsapp-text">Hablar con asesor</div>
+    <div class="whatsapp-icon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="30">
+    </div>
+</a>
 
 <script>
     /* Temporizador */
     let time=900; setInterval(()=>{ let m=Math.floor(time/60); let s=time%60; document.getElementById("timer").innerText="Oferta termina en: "+m+":"+String(s).padStart(2,'0'); time=time<=0?900:time-1; },1000);
 
-    /* Lógica de Vibración al deslizar */
+    /* Vibración en scroll para todos los botones CTA */
     let isScrolling;
     window.addEventListener('scroll', () => {
         window.clearTimeout(isScrolling);
