@@ -14,20 +14,15 @@
     fbq('init', '1274753604821165'); 
     fbq('track', 'PageView');
 
-    // Función Pro: Rastrea el inicio de pago y luego redirige
     function btm_track_checkout(event, link) {
-        event.preventDefault(); // Detiene el salto inmediato
+        event.preventDefault();
         fbq('track', 'InitiateCheckout', {
             content_name: 'Curso Velas Artesanales Premium',
             content_category: 'Manualidades y Emprendimiento',
             value: 37.00,
             currency: 'USD'
         });
-        
-        // Pausa técnica para asegurar el envío de datos a Meta antes de salir
-        setTimeout(function(){
-            window.location.href = link;
-        }, 250);
+        setTimeout(function(){ window.location.href = link; }, 250);
     }
     </script>
     <noscript><img height="1" width="1" style="display:none"
@@ -36,336 +31,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curso Velas Artesanales Premium</title>
-    
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
 
     <style>
-        :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --accent: #f43f5e;
-            --glass: rgba(255, 255, 255, 0.88);
-        }
-
-        body {
-            margin: 0;
-            font-family: 'Montserrat', sans-serif;
-            /* EL FONDO MEJORADO: Gradiente tipo Mesh que imita calidad premium */
-            background: radial-gradient(at 0% 0%, #ffffff 0%, #f9fafb 100%),
-                        radial-gradient(at 100% 0%, #e0e7ff 0%, transparent 40%),
-                        radial-gradient(at 50% 100%, #fef2f2 0%, transparent 40%);
-            background-attachment: fixed;
-            color: #1f2937;
-            line-height: 1.6;
-        }
-
-        .top-bar {
-            background: linear-gradient(90deg, var(--primary-dark), var(--primary));
-            color: white;
-            text-align: center;
-            padding: 10px;
-            font-size: 13px;
-            font-weight: 800;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .wrapper {
-            max-width: 1000px;
-            margin: auto;
-            padding: 20px;
-        }
-
-        /* DISEÑO DE CAJA "GLASS" (Efecto Vidrio) */
-        .hero {
-            background: var(--glass);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            padding: 60px 30px;
-            border-radius: 40px;
-            border: 1px solid rgba(255,255,255,0.6);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(32px, 6vw, 52px);
-            color: #111827;
-            margin-bottom: 20px;
-            line-height: 1.1;
-        }
-
-        h1 span { color: var(--primary); }
-
-        .price-container { margin: 25px 0; }
+        :root { --primary: #6366f1; --primary-dark: #4f46e5; --accent: #f43f5e; --glass: rgba(255, 255, 255, 0.88); }
+        body { margin: 0; font-family: 'Montserrat', sans-serif; background: radial-gradient(at 0% 0%, #ffffff 0%, #f9fafb 100%), radial-gradient(at 100% 0%, #e0e7ff 0%, transparent 40%), radial-gradient(at 50% 100%, #fef2f2 0%, transparent 40%); background-attachment: fixed; color: #1f2937; line-height: 1.6; }
+        .top-bar { background: linear-gradient(90deg, var(--primary-dark), var(--primary)); color: white; text-align: center; padding: 10px; font-size: 13px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
+        .wrapper { max-width: 1000px; margin: auto; padding: 20px; text-align: center; }
+        .hero { background: var(--glass); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); padding: 60px 30px; border-radius: 40px; border: 1px solid rgba(255,255,255,0.6); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08); margin-top: 20px; }
+        h1 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 6vw, 52px); color: #111827; margin-bottom: 20px; line-height: 1.1; }
         .old { text-decoration: line-through; color: #9ca3af; font-size: 22px; }
         .new { font-size: 68px; color: var(--primary); font-weight: 800; display: block; margin-top: -5px; }
-
-        /* BOTÓN PROFESIONAL ANIMADO */
-        .btn {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white !important;
-            padding: 22px 50px;
-            border-radius: 100px;
-            text-decoration: none;
-            font-weight: 800;
-            display: inline-block;
-            font-size: 20px;
-            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: none;
-            cursor: pointer;
-            animation: pulseBtn 2s infinite;
-        }
-
-        @keyframes pulseBtn {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.03); }
-            100% { transform: scale(1); }
-        }
-
-        .btn:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 20px 35px rgba(99, 102, 241, 0.5);
-        }
-
-        .timer {
-            background: #fee2e2;
-            color: var(--accent);
-            display: inline-block;
-            padding: 8px 24px;
-            border-radius: 50px;
-            font-weight: 700;
-            margin: 15px 0;
-            border: 1px solid #fecaca;
-        }
-
-        /* GRID DE MÓDULOS */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .card {
-            background: white;
-            padding: 25px;
-            border-radius: 24px;
-            border: 1px solid #f3f4f6;
-            text-align: left;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-        }
-
-        .card:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        
-        .card::before {
-            content: "✓";
-            background: var(--primary);
-            color: white;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            flex-shrink: 0;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 38px;
-            margin: 60px 0 30px;
-            text-align: center;
-        }
-
-        .box {
-            background: white;
-            padding: 40px;
-            border-radius: 35px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
-            border: 1px solid #e5e7eb;
-            max-width: 800px;
-            margin: auto;
-        }
-
-        .whatsapp {
-            position: fixed;
-            right: 25px;
-            bottom: 25px;
-            background: #25D366;
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-            z-index: 1000;
-            transition: 0.3s;
-        }
-
-        .whatsapp:hover { transform: scale(1.1); }
-
-        .popup {
-            position: fixed;
-            left: 20px;
-            bottom: 20px;
-            background: white;
-            padding: 15px 25px;
-            border-radius: 20px;
-            box-shadow: 0 20px 30px rgba(0,0,0,0.15);
-            display: none;
-            z-index: 999;
-            border-left: 6px solid var(--primary);
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .faq-item {
-            background: white;
-            margin-bottom: 15px;
-            border-radius: 15px;
-            border: 1px solid #e5e7eb;
-            overflow: hidden;
-            text-align: left;
-        }
-
-        .faq-item h3 { margin: 0; padding: 20px; cursor: pointer; background: #f9fafb; font-size: 16px; }
-        .faq-item p { display: none; padding: 20px; border-top: 1px solid #e5e7eb; margin: 0; }
-
-        @media (max-width: 600px) {
-            .hero { padding: 40px 15px; border-radius: 25px; }
-            .new { font-size: 52px; }
-            h1 { font-size: 32px; }
-        }
+        .btn { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white !important; padding: 22px 50px; border-radius: 100px; text-decoration: none; font-weight: 800; display: inline-block; font-size: 20px; box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4); transition: 0.3s; cursor: pointer; border: none; }
+        .btn:hover { transform: translateY(-5px); box-shadow: 0 20px 35px rgba(99, 102, 241, 0.5); }
+        .timer { color: var(--accent); font-weight: 700; margin: 15px 0; display: inline-block; padding: 8px 20px; background: #fee2e2; border-radius: 50px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-top: 40px; text-align: left; }
+        .card { background: white; padding: 20px; border-radius: 15px; border: 1px solid #f3f4f6; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .box { background: white; padding: 35px; border-radius: 30px; border: 1px solid #e5e7eb; max-width: 850px; margin: auto; text-align: left; }
+        .faq-item { background: white; margin-bottom: 10px; border-radius: 12px; border: 1px solid #e5e7eb; text-align: left; overflow: hidden; }
+        .faq-item h3 { margin: 0; padding: 15px; cursor: pointer; background: #f9fafb; }
+        .faq-item p { display: none; padding: 15px; border-top: 1px solid #e5e7eb; }
+        .whatsapp { position: fixed; right: 20px; bottom: 20px; background: #25D366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1000; }
+        .popup { position: fixed; left: 20px; bottom: 20px; background: white; padding: 15px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); display: none; z-index: 999; border-left: 5px solid var(--primary); }
     </style>
 </head>
-
 <body>
 
-<div class="top-bar">🔥 ÚLTIMOS CUPOS DISPONIBLES - 50% DE DESCUENTO</div>
+<div class="top-bar">🔥 OFERTA ACTIVA - DESCUENTO LIMITADO DISPONIBLE AHORA</div>
 
 <div class="wrapper">
     <div class="hero">
-        <h1>Convierte las <span>Velas Artesanales</span> en un negocio rentable</h1>
-        <p style="font-size: 19px; color: #4b5563; max-width: 700px; margin: auto;">Aprende las técnicas más vendidas para crear velas premium y emprender desde la comodidad de tu casa.</p>
-
-        <div class="price-container">
-            <span class="old">Precio Regular: $74 USD</span>
-            <span class="new">$37 USD</span>
-        </div>
-
-        <div class="timer" id="timer">Oferta termina en: 15:00</div>
+        <h1>Convierte velas en un negocio rentable desde casa</h1>
+        <p>Aprende a crear velas artesanales premium paso a paso</p>
+        <div class="old">$74 USD</div>
+        <div class="new">$37 USD</div>
+        <div class="timer" id="timer"></div>
         <br><br>
-        
-        <a class="btn" href="https://go.hotmart.com/L104931361I?ap=329d" onclick="btm_track_checkout(event, this.href)">
-            ¡SÍ, QUIERO EMPEZAR AHORA!
-        </a>
-        
-        <p style="font-size: 13px; color: #6b7280; margin-top: 25px;">
-            💳 Verás el precio en tu moneda local en el siguiente paso.
-        </p>
+        <a class="btn" href="https://go.hotmart.com/L104931361I?ap=329d" onclick="btm_track_checkout(event, this.href)">QUIERO INSCRIBIRME AHORA</a>
+        <p style="font-size:12px;color:#6b7280;margin-top:15px;">💳 Verás el precio convertido automáticamente a tu moneda según tu país</p>
+        <br>
+        <a href="https://go.hotmart.com/L104931361I" style="color:var(--primary);font-weight:600;">VER TEMARIO COMPLETO</a>
+        <p id="alumnos" style="color:#16a34a;font-weight:600;margin-top:10px;">🔥 Más de 1000 alumnos ya están dentro</p>
+        <p style="color:#ef4444;font-weight:600;">⚠️ Cupos limitados por alta demanda</p>
     </div>
 
-    <div class="section">
-        <h2 class="section-title">Contenido del Curso (14 Módulos)</h2>
-        <div class="grid">
-            <div class="card">Módulo 1: Bienvenida al Programa</div>
-            <div class="card">Módulo 2: Herramientas y Seguridad</div>
-            <div class="card">Módulo 3: Conociendo las Ceras</div>
-            <div class="card">Módulo 4: Colorimetría y Aromas</div>
-            <div class="card">Módulo 5: Pabilos y Aditivos Profesionales</div>
-            <div class="card">Módulo 6: Todo sobre los Moldes</div>
-            <div class="card">Módulo 7: Cálculo de Medidas y Costos</div>
-            <div class="card">Módulo 8: Práctica: Tu primera vela</div>
-            <div class="card">Módulo 9: Velas tipo Postre (Tendencia)</div>
-            <div class="card">Módulo 10: Velas Esculturales y Decorativas</div>
-            <div class="card">Módulo 11: Cómo cobrar por tus velas</div>
-            <div class="card">Módulo 12: Clases Especiales</div>
-            <div class="card">Módulo 13: Bonos Exclusivos</div>
-            <div class="card">Módulo 14: Guía VIP de Proveedores</div>
-        </div>
-        <div style="text-align: center; margin-top: 30px;">
-            <a href="https://go.hotmart.com/L104931361I" style="color: var(--primary); font-weight: 700;">VER TEMARIO COMPLETO DETALLADO</a>
-        </div>
+    <div style="padding:40px 0;">
+        <p>✔ Sin experiencia previa | ✔ Aprende desde casa | ✔ Acceso de por vida | ✔ Ideal para emprender</p>
     </div>
 
-    <div class="section" style="text-align: center;">
-        <h2 class="section-title">🛡️ Garantía Total</h2>
-        <div class="box">
-            <p style="font-size: 18px;">Tienes <strong>7 días de garantía</strong> para revisar todo el contenido. Si el curso no es lo que esperabas, solicitas tu reembolso y te devolvemos el 100% de tu dinero inmediatamente.</p>
-        </div>
+    <h2>Contenido del Curso (14 Módulos)</h2>
+    <div class="grid">
+        <div class="card">Módulo 1 Bienvenida</div>
+        <div class="card">Módulo 2 herramientas , materiales y medidas de seguridad</div>
+        <div class="card">Módulo 3 conociendo la ceras</div>
+        <div class="card">Módulo 4 como darle color y aroma a tus velas</div>
+        <div class="card">Módulo 5 pabilos y aditivos</div>
+        <div class="card">Módulo 6 lo que necesitan saber sobre los moldes</div>
+        <div class="card">Módulo 7 como calcular medidas y porcentaje</div>
+        <div class="card">Módulo 8 comenzamos con la practica</div>
+        <div class="card">Módulo 9 velas tipo postre o reposteras</div>
+        <div class="card">Módulo 10 aprende a elaborar otros tipos de velas</div>
+        <div class="card">Módulo 11 aprende a sacar tus costos , cuanto cobrar por tus velas</div>
+        <div class="card">Módulo 12 clases especiales</div>
+        <div class="card">Módulo 13 bonos</div>
+        <div class="card">Módulo 14 lista de proveedores y despedida</div>
     </div>
+    <p style="margin-top:20px;font-size:14px;color:#6b7280;">📘 La descripción de cada modulo lo encontraran en el boton ver temario completo</p>
 
-    <div class="section">
-        <h2 class="section-title">Preguntas Frecuentes</h2>
-        <div class="faq-item">
-            <h3 onclick="toggle(this)">¿Cómo recibo el acceso al curso?</h3>
-            <p>Al realizar el pago, te llega un correo automático con tus datos de acceso a la plataforma de Hotmart para que empieces hoy mismo.</p>
-        </div>
-        <div class="faq-item">
-            <h3 onclick="toggle(this)">¿El pago es seguro?</h3>
-            <p>Sí, el pago es procesado por Hotmart, la plataforma de productos digitales más segura y grande de Latinoamérica.</p>
-        </div>
-        <div class="faq-item">
-            <h3 onclick="toggle(this)">¿Tengo acceso de por vida?</h3>
-            <p>¡Sí! Podrás ver las clases todas las veces que quieras y desde cualquier dispositivo para siempre.</p>
-        </div>
-    </div>
+    <h2>🛡️ Garantía de 7 días</h2>
+    <div class="box">Si el curso no cumple tus expectativas puedes solicitar reembolso completo dentro de 7 días. Compra segura protegida como en Hotmart.</div>
 
-    <div class="section" style="text-align: center; padding-bottom: 80px;">
-        <div class="new" style="font-size: 40px; margin-bottom: 20px;">Solo $37 USD</div>
-        <a class="btn" href="https://go.hotmart.com/L104931361I?ap=329d" onclick="btm_track_checkout(event, this.href)">
-            ACCEDER CON DESCUENTO AHORA
-        </a>
+    <h2>📩 ¿Como y cuando recibire el curso?</h2>
+    <div class="box">Una vez realices el pago, recibirás un correo electrónico (el mismo que indicaras al momento de hacer la compra) con las instrucciones para acceder al área privada de alumnos. Este curso podrás estudiarlo dentro de la plataforma de Hotmart, es la misma plataforma donde se realiza el pago. El curso es completamente digital y tendrás ACCESO DE POR VIDA.</div>
+
+    <h2>❓ Preguntas Frecuentes</h2>
+    <div class="faq-item"><h3 onclick="toggle(this)">El pago es seguro?</h3><p>R: Si, el pago es realizado a través de Hotmart, una plataforma digital que cuenta con un certificado de seguridad, siendo uno de los procesadores de pago mas importantes del mundo que opera en más de 160 países. Tus datos de pago son 100% privados.</p></div>
+    <div class="faq-item"><h3 onclick="toggle(this)">Cuanto tiempo dura el curso?</h3><p>R: La duración del curso dependerá 100% de ti. Al ser una formación 100% online, tu decides cuando ver cada una de las lecciones y los tendrás a tu disposición para siempre, por lo que podrás verlo las veces que tu desees.</p></div>
+
+    <div style="padding:50px 0;">
+        <div class="old">$74 USD</div>
+        <div class="new">$37 USD</div>
+        <a class="btn" href="https://go.hotmart.com/L104931361I?ap=329d" onclick="btm_track_checkout(event, this.href)">QUIERO ACCEDER CON DESCUENTO</a>
     </div>
 </div>
 
 <div class="popup" id="popup"></div>
-
-<a class="whatsapp" href="https://wa.link/7h1fs9" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="35" alt="WhatsApp">
-</a>
+<a class="whatsapp" href="https://wa.link/7h1fs9" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="35"></a>
 
 <script>
-    /* LÓGICA DE TIEMPO */
-    let time=900;
-    setInterval(()=>{
-        let m=Math.floor(time/60);
-        let s=time%60;
-        document.getElementById("timer").innerText="Oferta termina en: "+m+":"+String(s).padStart(2,'0');
-        time=time<=0?900:time-1;
-    },1000);
-
-    /* POPUPS DE VENTAS */
-    const names=["Ana","Luis","Carlos","María","Andrea","Jorge","Sofía","Camila"];
-    const countries=["Ecuador","México","Colombia","Perú","Chile"];
-    
-    setInterval(()=>{
-        let n=names[Math.floor(Math.random()*names.length)];
-        let c=countries[Math.floor(Math.random()*countries.length)];
-        let p=document.getElementById("popup");
-        if(p){
-            p.innerText="🔥 "+n+" de "+c+" se acaba de inscribir";
-            p.style.display="block";
-            setTimeout(()=>p.style.display="none",3000);
-        }
-    },8000);
-
-    /* FAQ */
-    function toggle(el){
-        let p = el.nextElementSibling;
-        p.style.display = p.style.display === "block" ? "none" : "block";
-    }
+    let time=900; setInterval(()=>{ let m=Math.floor(time/60); let s=time%60; document.getElementById("timer").innerText="Oferta termina en: "+m+":"+String(s).padStart(2,'0'); time=time<=0?900:time-1; },1000);
+    let alumnos=1000; setInterval(()=>{ alumnos+=Math.floor(Math.random()*3)+1; document.getElementById("alumnos").innerText="🔥 Más de "+alumnos+" alumnos ya están dentro"; },8000);
+    const names=["Ana","Luis","Carlos","María","Andrea","Jorge"]; setInterval(()=>{ let n=names[Math.floor(Math.random()*names.length)]; let p=document.getElementById("popup"); p.innerText="🔥 "+n+" acaba de inscribirse"; p.style.display="block"; setTimeout(()=>p.style.display="none",3000); },8000);
+    function toggle(el){ let p=el.nextElementSibling; p.style.display=p.style.display==="block"?"none":"block"; }
 </script>
-
 </body>
 </html>
