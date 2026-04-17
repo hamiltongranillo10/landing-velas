@@ -112,7 +112,17 @@
         .faq-item h3 { font-size: 17px; margin-bottom: 8px; color: #111827; }
         .faq-item p { font-size: 15px; color: #4b5563; margin: 0; }
 
-        @media (max-width: 600px) { .btn { width: 100%; box-sizing: border-box; } }
+        /* NOTIFICACIÓN DE PRUEBA SOCIAL */
+        .sale-popup { position: fixed; left: 20px; bottom: 80px; background: white; padding: 12px 20px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); display: none; z-index: 999; border-left: 5px solid #22c55e; animation: slideIn 0.5s ease-out; max-width: 250px; }
+        .sale-popup p { margin: 0; font-size: 13px; color: #1f2937; font-weight: 600; }
+        @keyframes slideIn { from { transform: translateX(-120%); } to { transform: translateX(0); } }
+
+        /* WHATSAPP CON TEXTO */
+        .whatsapp-container { position: fixed; right: 15px; bottom: 15px; display: flex; align-items: center; gap: 10px; z-index: 1000; text-decoration: none; }
+        .whatsapp-text { background: white; color: #111827; padding: 8px 15px; border-radius: 50px; font-weight: 700; font-size: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border: 1px solid #25D366; }
+        .whatsapp-icon { background: #25D366; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+
+        @media (max-width: 600px) { .btn { width: 100%; box-sizing: border-box; } .whatsapp-text { display: none; } }
     </style>
 </head>
 <body>
@@ -127,12 +137,6 @@
         <div class="new">$37 USD</div>
         <div class="timer" id="timer">Oferta termina en: 14:18</div>
         <br>
-        
-        <div style="margin-top: 25px; margin-bottom: 25px; text-align: center;">
-            <p style="color:#16a34a; font-weight:700; font-size:16px; margin-bottom: 5px;">🔥 Más de 1009 alumnos ya están dentro</p>
-            <p style="color:#ef4444; font-weight:700; font-size:14px; text-transform: uppercase; letter-spacing: 0.5px;">⚠️ ÚLTIMOS CUPOS DISPONIBLES POR ALTA DEMANDA</p>
-        </div>
-
         <a class="btn cta" href="https://go.hotmart.com/L104931361I?ap=329d" onclick="btm_track_checkout(event, this.href)">QUIERO INSCRIBIRME AHORA</a>
         <p style="font-size:11px;color:#6b7280;margin-top:12px;">💳 Precio convertido automáticamente a tu moneda local</p>
         <a href="https://go.hotmart.com/L104931361I" class="btn-temario">VER TEMARIO COMPLETO</a>
@@ -142,7 +146,7 @@
     <div class="faq-container">
         <div class="faq-item">
             <h3>¿Cómo recibo el acceso al curso?</h3>
-            <p>Una vez realices el pago, recibirás un correo electrónico con las instrucciones para acceder al área privada de alumnos. Este curso podrás estudiarlo dentro de la plataforma de Hotmart. Tendrás ACCESO DE POR VIDA.</p>
+            <p>Una vez realices el pago, recibirás un correo electrónico con las instrucciones para acceder. El curso es completamente digital y tendrás ACCESO DE POR VIDA.</p>
         </div>
         <div class="faq-item">
             <h3>¿El pago es seguro?</h3>
@@ -157,62 +161,54 @@
         <p style="font-size: 12px; margin-top: 15px;">🔒 Pago 100% Seguro | Acceso Inmediato</p>
     </div>
 
-    <h2 style="font-size: 24px; margin-top: 40px; font-family: 'Playfair Display', serif; text-align: center;">Contenido del Curso (14 Módulos)</h2>
+    <h2 style="font-size: 24px;">Contenido del Curso (14 Módulos)</h2>
     <div class="grid">
         <div class="card">Módulo 1 Bienvenida</div>
-        <div class="card">Módulo 2 herramientas , materiales y medidas de seguridad</div>
+        <div class="card">Módulo 2 herramientas y materiales</div>
         <div class="card">Módulo 3 conociendo la ceras</div>
-        <div class="card">Módulo 4 como darle color y aroma a tus velas</div>
-        <div class="card">Módulo 5 pabilos y aditivos</div>
-        <div class="card">Módulo 6 lo que necesitan saber sobre los moldes</div>
-        <div class="card">Módulo 7 como calcular medidas y porcentaje</div>
-        <div class="card">Módulo 8 comenzamos con la practica</div>
         <div class="card">Módulo 9 velas tipo postre o reposteras</div>
-        <div class="card">Módulo 10 aprende a elaborar otros tipos de velas</div>
-        <div class="card">Módulo 11 aprende a sacar tus costos</div>
-        <div class="card">Módulo 12 clases especiales</div>
-        <div class="card">Módulo 13 bonos</div>
         <div class="card">Módulo 14 lista de proveedores y despedida</div>
     </div>
 </div>
 
-<div id="sale-popup" style="position: fixed; left: 20px; bottom: 100px; background: white; padding: 12px 20px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); display: none; z-index: 9999; border-left: 5px solid #22c55e; max-width: 250px;">
-    <p id="sale-text" style="margin: 0; font-size: 13px; color: #1f2937; font-weight: 600; font-family: sans-serif;"></p>
+<div id="sale-popup" class="sale-popup">
+    <p id="sale-text"></p>
 </div>
 
-<a href="https://wa.link/7h1fs9" target="_blank" style="position: fixed; right: 20px; bottom: 20px; display: flex; align-items: center; gap: 10px; z-index: 9999; text-decoration: none;">
-    <div style="background: white; color: #111827; padding: 8px 15px; border-radius: 50px; font-weight: 700; font-size: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border: 1px solid #25D366;" id="wa-text-box">Hablar con asesor</div>
-    <div style="background: #25D366; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="30" alt="WhatsApp">
+<a class="whatsapp-container" href="https://wa.link/7h1fs9" target="_blank">
+    <div class="whatsapp-text">Hablar con asesor</div>
+    <div class="whatsapp-icon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="30">
     </div>
 </a>
 
 <script>
-    // Temporizador
-    let time = 900; 
-    setInterval(() => { 
-        let m = Math.floor(time / 60); 
-        let s = time % 60; 
-        let t = document.getElementById("timer");
-        if(t) t.innerText = "Oferta termina en: " + m + ":" + String(s).padStart(2, '0'); 
-        time = time <= 0 ? 900 : time - 1; 
-    }, 1000);
+    /* Temporizador */
+    let time=900; setInterval(()=>{ let m=Math.floor(time/60); let s=time%60; document.getElementById("timer").innerText="Oferta termina en: "+m+":"+String(s).padStart(2,'0'); time=time<=0?900:time-1; },1000);
 
-    // Prueba social
+    /* PRUEBA SOCIAL */
     const names = ["Ana", "Maria", "Laura", "Sofia", "Elena", "Claudia", "Valentina", "Marta", "Isabel"];
     const countries = ["de México", "de Colombia", "de Chile", "de Perú", "de Ecuador", "de Argentina", "de España"];
+    
     function showPopup() {
         const popup = document.getElementById('sale-popup');
         const text = document.getElementById('sale-text');
-        if(popup && text) {
-            text.innerText = `✅ ${names[Math.floor(Math.random() * names.length)]} ${countries[Math.floor(Math.random() * countries.length)]} se acaba de inscribir`;
-            popup.style.display = 'block';
-            setTimeout(() => { popup.style.display = 'none'; }, 4000);
-        }
+        const name = names[Math.floor(Math.random() * names.length)];
+        const country = countries[Math.floor(Math.random() * countries.length)];
+        
+        text.innerText = `✅ ${name} ${country} se acaba de inscribir`;
+        popup.style.display = 'block';
+        
+        setTimeout(() => { popup.style.display = 'none'; }, 4000);
     }
-    setTimeout(() => { showPopup(); setInterval(showPopup, 12000); }, 5000);
+    
+    // Inicia después de 5 seg y repite cada 12 seg
+    setTimeout(() => {
+        showPopup();
+        setInterval(showPopup, 12000);
+    }, 5000);
 
-    // Vibración al scroll
+    /* Vibración en scroll */
     let isScrolling;
     window.addEventListener('scroll', () => {
         window.clearTimeout(isScrolling);
