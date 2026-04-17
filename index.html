@@ -165,7 +165,7 @@ Tus datos de pago son 100% privados.</p>
         <p style="font-size: 12px; margin-top: 15px;">🔒 Pago 100% Seguro | Acceso Inmediato</p>
     </div>
 
-    <h2 style="font-size: 24px; margin-top: 40px;">Contenido del Curso (14 Módulos)</h2>
+    <h2 style="font-size: 24px; margin-top: 40px; font-family: 'Playfair Display', serif; text-align: center;">Contenido del Curso (14 Módulos)</h2>
     <div class="grid">
         <div class="card">Módulo 1 Bienvenida</div>
         <div class="card">Módulo 2 herramientas , materiales y medidas de seguridad</div>
@@ -182,45 +182,47 @@ Tus datos de pago son 100% privados.</p>
         <div class="card">Módulo 13 bonos</div>
         <div class="card">Módulo 14 lista de proveedores y despedida</div>
     </div>
-
-<div id="sale-popup" class="sale-popup">
-    <p id="sale-text"></p>
-</div>
+</div> <div id="sale-popup" class="sale-popup"><p id="sale-text"></p></div>
 
 <a class="whatsapp-container" href="https://wa.link/7h1fs9" target="_blank">
     <div class="whatsapp-text">Hablar con asesor</div>
     <div class="whatsapp-icon">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="30">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="30" alt="WhatsApp">
     </div>
 </a>
 
 <script>
-    /* Temporizador */
-    let time=900; setInterval(()=>{ let m=Math.floor(time/60); let s=time%60; document.getElementById("timer").innerText="Oferta termina en: "+m+":"+String(s).padStart(2,'0'); time=time<=0?900:time-1; },1000);
+    // TIMER DE LA OFERTA
+    let time = 900; 
+    setInterval(() => { 
+        let m = Math.floor(time / 60); 
+        let s = time % 60; 
+        let timerElement = document.getElementById("timer");
+        if(timerElement) timerElement.innerText = "Oferta termina en: " + m + ":" + String(s).padStart(2, '0'); 
+        time = time <= 0 ? 900 : time - 1; 
+    }, 1000);
 
-    /* PRUEBA SOCIAL */
+    // LÓGICA DE PRUEBA SOCIAL (VENTANITA DE COMPRA)
     const names = ["Ana", "Maria", "Laura", "Sofia", "Elena", "Claudia", "Valentina", "Marta", "Isabel"];
     const countries = ["de México", "de Colombia", "de Chile", "de Perú", "de Ecuador", "de Argentina", "de España"];
     
     function showPopup() {
         const popup = document.getElementById('sale-popup');
         const text = document.getElementById('sale-text');
-        const name = names[Math.floor(Math.random() * names.length)];
-        const country = countries[Math.floor(Math.random() * countries.length)];
-        
-        text.innerText = `✅ ${name} ${country} se acaba de inscribir`;
-        popup.style.display = 'block';
-        
-        setTimeout(() => { popup.style.display = 'none'; }, 4000);
+        if(popup && text) {
+            text.innerText = `✅ ${names[Math.floor(Math.random() * names.length)]} ${countries[Math.floor(Math.random() * countries.length)]} se acaba de inscribir`;
+            popup.style.display = 'block';
+            setTimeout(() => { popup.style.display = 'none'; }, 4000);
+        }
     }
     
-    // Inicia después de 5 seg y repite cada 12 seg
-    setTimeout(() => {
-        showPopup();
-        setInterval(showPopup, 12000);
+    // Inicia la prueba social a los 5 segundos y repite cada 12
+    setTimeout(() => { 
+        showPopup(); 
+        setInterval(showPopup, 12000); 
     }, 5000);
 
-    /* Vibración en scroll */
+    // ANIMACIÓN DE VIBRACIÓN AL HACER SCROLL
     let isScrolling;
     window.addEventListener('scroll', () => {
         window.clearTimeout(isScrolling);
@@ -230,5 +232,6 @@ Tus datos de pago son 100% privados.</p>
         }, 150);
     }, {passive: true});
 </script>
+
 </body>
 </html>
