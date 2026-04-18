@@ -109,7 +109,24 @@
         @keyframes floatBtn { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
         @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); } }
 
-        .btn-temario { background: #6b7280; color: white !important; padding: 12px 25px; border-radius: 100px; text-decoration: none; font-weight: 600; display: inline-block; font-size: 14px; margin-top: 15px; }
+        .btn-temario {
+    background: transparent;
+    color: #b88a2a;
+    border: 2px solid #b88a2a;
+    padding: 12px 25px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    font-size: 14px;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+.btn-temario:hover {
+    background: rgba(184, 138, 42, 0.08);
+    transform: scale(1.03);
+}
         .timer { color: var(--accent); font-weight: 700; margin: 15px 0; display: inline-block; padding: 6px 15px; background: #fee2e2; border-radius: 50px; font-size: 14px; }
         
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin: 30px 0; text-align: left; }
