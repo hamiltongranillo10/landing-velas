@@ -301,25 +301,27 @@ box-shadow: 0 20px 60px rgba(0,0,0,0.4);
 <script>
 let zoomed = false;
 let posX = 0;
+let startX = 0;
+let isDragging = false;
 
 function toggleZoom(img){
     zoomed = !zoomed;
 
     if(zoomed){
-        img.style.transform = "scale(3)"; /* 🔥 más zoom */
+        img.style.transform = "scale(3)";
         img.style.cursor = "grab";
     } else {
         img.style.transform = "scale(1)";
         posX = 0;
-        img.style.transform = "scale(1)";
     }
 }
 
-// SOLO movimiento horizontal
+// bloquear scroll cuando zoom está activo
 const img = document.getElementById("zoomImg");
 
-let isDragging = false;
-let startX;
+img.addEventListener("touchmove", function(e){
+    if(zoomed) e.preventDefault(); // 🔥 evita scroll vertical
+}, {passive:false});
 
 img.addEventListener("mousedown", startDrag);
 img.addEventListener("touchstart", startDrag);
@@ -331,7 +333,7 @@ function startDrag(e){
     startX = e.touches ? e.touches[0].clientX : e.clientX;
 
     document.addEventListener("mousemove", drag);
-    document.addEventListener("touchmove", drag);
+    document.addEventListener("touchmove", drag, {passive:false});
     document.addEventListener("mouseup", stopDrag);
     document.addEventListener("touchend", stopDrag);
 }
@@ -343,10 +345,12 @@ function drag(e){
 
     posX += x;
 
-    // 🔥 SOLO izquierda/derecha (NO Y)
+    // SOLO horizontal
     img.style.transform = `scale(3) translateX(${posX}px)`;
 
     startX = e.touches ? e.touches[0].clientX : e.clientX;
+
+    e.preventDefault(); // 🔥 bloquea scroll
 }
 
 function stopDrag(){
