@@ -361,17 +361,19 @@ function drag(e){
     let currentX = e.touches ? e.touches[0].clientX : e.clientX;
     let x = currentX - startX;
 
-    // suavidad del movimiento
     posX += x * 0.4;
 
-    // actualizar referencia (IMPORTANTE)
     startX = currentX;
 
-    // límites para que no se pierda la imagen
-    const maxMove = 300;
+    // SOLO en móvil aplicamos límite
+    const isMobile = window.innerWidth <= 768;
 
-    if(posX > maxMove) posX = maxMove;
-    if(posX < -maxMove) posX = -maxMove;
+    if(isMobile){
+        const maxMove = 300;
+
+        if(posX > maxMove) posX = maxMove;
+        if(posX < -maxMove) posX = -maxMove;
+    }
 
     img.style.transform = `scale(3) translateX(${posX}px)`;
     img.style.transition = "transform 0.05s linear";
