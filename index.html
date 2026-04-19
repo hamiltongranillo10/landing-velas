@@ -207,10 +207,9 @@ Tus datos de pago son 100% privados..</p>
         <p style="text-align:center; font-size:18px;">
 👉 Haz clic en la imagen para verla más grande
 </p>
-  <img src="testimonios.png" 
-     style="width:100%; border-radius:20px; margin-top:15px; cursor:pointer;"
-     onclick="openImage(this.src)">
-        
+  <img src="testimonios.png"
+     style="width:100%; border-radius:20px; margin-top:15px; cursor:pointer; transition:0.3s; transform:scale(1);"
+     onclick="this.style.transform = this.style.transform === 'scale(1.8)' ? 'scale(1)' : 'scale(1.8)'">
   </div>
     
     <p style="text-align:center; font-size:18px; margin-top:15px;">
