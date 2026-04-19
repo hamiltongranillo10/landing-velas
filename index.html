@@ -360,7 +360,7 @@ function drag(e){
 
     let x = (e.touches ? e.touches[0].clientX : e.clientX) - startX;
 
-    posX += x;
+    posX += x * 0.4;
 
     // SOLO horizontal
     img.style.transform = `scale(3) translateX(${posX}px)`;
