@@ -208,9 +208,9 @@ Tus datos de pago son 100% privados..</p>
 👉 Haz clic en la imagen para verla más grande
 </p>
   <img src="testimonios.png"
-     style="width:100%; border-radius:20px; margin-top:15px; cursor:pointer; transition:0.3s; transform:scale(1);"
-     onclick="this.style.transform = this.style.transform === 'scale(1.8)' ? 'scale(1)' : 'scale(1.8)'">
-  </div>
+     id="zoomImg"
+     style="width:100%; border-radius:20px; margin-top:15px; cursor:grab; transition:0.3s; transform:scale(1);"
+     onclick="toggleZoom(this)">
     
     <p style="text-align:center; font-size:18px; margin-top:15px;">
  ✔️ Pedidos reales desde casa <br>
@@ -299,37 +299,65 @@ box-shadow: 0 20px 60px rgba(0,0,0,0.4);
 </script>
 
 <script>
-function openImage(src){
-    const modal = document.getElementById('imageModal');
-    const img = document.getElementById('modalImg');
-    
-    img.src = src;
-    <script>
-function openImage(src){
-    const modal = document.getElementById('imageModal');
-    const img = document.getElementById('modalImg');
-    
-    img.src = src;
+let zoomed = false;
+let posX = 0, posY = 0;
+let isDragging = false;
+let startX, startY;
 
-    modal.style.display = 'flex';
+function toggleZoom(img){
+    zoomed = !zoomed;
 
-    // animación entrada
-    setTimeout(() => {
-        modal.style.opacity = '1';
-        img.style.transform = 'scale(1)';
-    }, 10);
+    if(zoomed){
+        img.style.transform = "scale(2)";
+        img.style.cursor = "grab";
+    } else {
+        img.style.transform = "scale(1)";
+        img.style.transformOrigin = "center";
+        img.style.left = "0px";
+        img.style.top = "0px";
+        posX = 0;
+        posY = 0;
+    }
 }
 
-document.getElementById('imageModal').onclick = function(){
-    const img = document.getElementById('modalImg');
+// Drag (mover imagen cuando está zoom)
+const img = document.getElementById("zoomImg");
 
-    // animación salida
-    this.style.opacity = '0';
-    img.style.transform = 'scale(0.7)';
+img.addEventListener("mousedown", startDrag);
+img.addEventListener("touchstart", startDrag);
 
-    setTimeout(() => {
-        this.style.display = 'none';
-    }, 250);
+function startDrag(e){
+    if(!zoomed) return;
+
+    isDragging = true;
+    startX = e.touches ? e.touches[0].clientX : e.clientX;
+    startY = e.touches ? e.touches[0].clientY : e.clientY;
+
+    document.addEventListener("mousemove", drag);
+    document.addEventListener("touchmove", drag);
+    document.addEventListener("mouseup", stopDrag);
+    document.addEventListener("touchend", stopDrag);
+}
+
+function drag(e){
+    if(!isDragging) return;
+
+    let x = (e.touches ? e.touches[0].clientX : e.clientX) - startX;
+    let y = (e.touches ? e.touches[0].clientY : e.clientY) - startY;
+
+    posX += x;
+    posY += y;
+
+    img.style.transform = `scale(2) translate(${posX}px, ${posY}px)`;
+
+    startX = e.touches ? e.touches[0].clientX : e.clientX;
+    startY = e.touches ? e.touches[0].clientY : e.clientY;
+}
+
+function stopDrag(){
+    isDragging = false;
+    document.removeEventListener("mousemove", drag);
+    document.removeEventListener("touchmove", drag);
 }
 </script>
 </body>
