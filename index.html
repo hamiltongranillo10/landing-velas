@@ -482,16 +482,53 @@
   }
 
   .author-avatar {
-    width: 44px; height: 44px;
+    width: 60px; height: 60px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--purple), var(--purple-light));
+    background: linear-gradient(135deg, var(--purple-light), var(--gold-light));
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    font-weight: 700;
-    font-size: 1rem;
     flex-shrink: 0;
+    overflow: hidden;
+    border: 3px solid var(--white);
+    box-shadow: 0 0 0 2px var(--purple-light);
+    position: relative;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+  }
+
+  .author-avatar:hover {
+    box-shadow: 0 0 0 3px var(--purple);
+  }
+
+  .author-avatar img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+  }
+
+  .avatar-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%; height: 100%;
+    color: var(--purple);
+    font-size: 0.55rem;
+    font-weight: 700;
+    text-align: center;
+    gap: 2px;
+    padding: 4px;
+    line-height: 1.2;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .avatar-placeholder .cam-icon { font-size: 1.2rem; }
+
+  .avatar-hidden-input {
+    display: none;
   }
 
   .author-name { font-weight: 700; font-size: 0.9rem; color: var(--dark); }
@@ -760,7 +797,14 @@
       <div class="stars">★★★★★</div>
       <p class="testimonial-text">"Jamás imaginé que podría generar ingresos extra trabajando desde mi casa. Hoy tengo mi propio equipo y viajé a México gracias a OMNILIFE."</p>
       <div class="testimonial-author">
-        <div class="author-avatar">MR</div>
+        <div class="author-avatar" onclick="document.getElementById('foto1').click()" title="Haz clic para subir foto">
+          <img id="preview1" src="" alt="" style="display:none;">
+          <div class="avatar-placeholder" id="placeholder1">
+            <span class="cam-icon">📷</span>
+            <span>Subir foto</span>
+          </div>
+          <input type="file" id="foto1" class="avatar-hidden-input" accept="image/*" onchange="previewFoto(this,'preview1','placeholder1')">
+        </div>
         <div>
           <div class="author-name">María R.</div>
           <div class="author-city">🇪🇨 Guayaquil, Ecuador</div>
@@ -771,7 +815,14 @@
       <div class="stars">★★★★★</div>
       <p class="testimonial-text">"Lo que más me gustó fue el acompañamiento. No me dejaron solo ni un día. Hoy tengo más tiempo con mi familia y mejores ingresos."</p>
       <div class="testimonial-author">
-        <div class="author-avatar">JV</div>
+        <div class="author-avatar" onclick="document.getElementById('foto2').click()" title="Haz clic para subir foto">
+          <img id="preview2" src="" alt="" style="display:none;">
+          <div class="avatar-placeholder" id="placeholder2">
+            <span class="cam-icon">📷</span>
+            <span>Subir foto</span>
+          </div>
+          <input type="file" id="foto2" class="avatar-hidden-input" accept="image/*" onchange="previewFoto(this,'preview2','placeholder2')">
+        </div>
         <div>
           <div class="author-name">Jorge V.</div>
           <div class="author-city">🇪🇨 Quito, Ecuador</div>
@@ -782,7 +833,14 @@
       <div class="stars">★★★★★</div>
       <p class="testimonial-text">"Los productos son increíbles y se venden solos. Empecé en mis ratos libres y en 6 meses ya superé mi sueldo de empleada."</p>
       <div class="testimonial-author">
-        <div class="author-avatar">AP</div>
+        <div class="author-avatar" onclick="document.getElementById('foto3').click()" title="Haz clic para subir foto">
+          <img id="preview3" src="" alt="" style="display:none;">
+          <div class="avatar-placeholder" id="placeholder3">
+            <span class="cam-icon">📷</span>
+            <span>Subir foto</span>
+          </div>
+          <input type="file" id="foto3" class="avatar-hidden-input" accept="image/*" onchange="previewFoto(this,'preview3','placeholder3')">
+        </div>
         <div>
           <div class="author-name">Andrea P.</div>
           <div class="author-city">🇪🇨 Cuenca, Ecuador</div>
@@ -833,6 +891,20 @@
 </a>
 
 <script>
+  // Preview foto testimonio
+  function previewFoto(input, previewId, placeholderId) {
+    const file = input.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const img = document.getElementById(previewId);
+      img.src = e.target.result;
+      img.style.display = 'block';
+      document.getElementById(placeholderId).style.display = 'none';
+    };
+    reader.readAsDataURL(file);
+  }
+
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
