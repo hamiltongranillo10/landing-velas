@@ -44,7 +44,7 @@ body::before {
 
 h1, h2, h3, h4 { font-family: 'Fraunces', serif; }
 
-/* REPOSITORIO DE ANIMACIONES GENERAlES */
+/* REPOSITORIO DE ANIMACIONES GENERALES */
 @keyframes fadeInUp { 
   from { opacity: 0; transform: translateY(30px); filter: blur(4px); } 
   to { opacity: 1; transform: translateY(0); filter: blur(0); } 
@@ -56,7 +56,7 @@ h1, h2, h3, h4 { font-family: 'Fraunces', serif; }
   0% { transform: scale(1); opacity: 0.9; }
   100% { transform: scale(1.05); opacity: 1; }
 }
-@keyframes shimmmer {
+@keyframes shimmerEffect {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
@@ -204,7 +204,7 @@ nav {
 .cat-card:hover h4 { color: var(--gold); }
 .cat-card p { font-size: .87rem; color: var(--muted); line-height: 1.6; }
 
-/* INSCRIPCIÓN DIRECTA */
+/* INSCRIPCIÓN DIRECTA CORREGIDA */
 .omni-portal-section { padding: 10px 48px 90px; max-width: 1200px; margin: 0 auto; }
 .portal-box { 
   background: linear-gradient(135deg, rgba(168,85,247,0.07), rgba(42,24,69,0.85)); 
@@ -212,20 +212,18 @@ nav {
   border-radius: 18px; padding: 54px 44px; text-align: center; 
   position: relative; overflow: hidden;
 }
-.portal-box::after {
-  content: ''; position: absolute; top: 0; left: -50%; width: 200%; height: 100%;
-  background: linear-gradient(to right, transparent, rgba(255,255,255,0.03), transparent);
-  transform: skewX(-25deg);
-  animation: shimmmer 7s infinite linear;
+.portal-link-btn { 
+  display: inline-flex; align-items: center; gap: 10px; 
+  background: linear-gradient(90deg, var(--citrus) 0%, #be84f7 50%, var(--citrus) 100%);
+  background-size: 200% auto;
+  color: #fff; padding: 17px 38px; border-radius: 8px; 
+  font-size: .95rem; font-weight: 700; text-decoration: none; 
+  transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(168,85,247,0.2); 
+  animation: shimmerEffect 4s infinite linear;
 }
-.portal-box h2 { font-size: 1.9rem; font-weight: 600; margin-bottom: 14px; }
-.portal-box p { color: var(--muted); max-width: 640px; margin: 0 auto 32px; font-size: 1rem; line-height: 1.65; }
-.portal-link-btn { display: inline-flex; align-items: center; gap: 10px; background: var(--citrus); color: #fff; padding: 17px 38px; border-radius: 8px; font-size: .95rem; font-weight: 700; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(168,85,247,0.2); }
 .portal-link-btn:hover { background: var(--gold); color: var(--citrus-ink); transform: translateY(-3px); box-shadow: 0 12px 24px rgba(255,200,87,0.3); }
 
-/* ==========================================================================
-   NUEVA SECCIÓN DE PASOS ESENCIALES (OPTIMIZADA Y GLASSMORPHIC)
-   ========================================================================== */
+/* PASOS ESENCIALES (GLASSMORPHIC) */
 .tutorial-section { 
   background: linear-gradient(180deg, var(--bg) 0%, #221338 50%, var(--bg) 100%); 
   padding: 120px 48px; 
@@ -507,7 +505,7 @@ footer { background: #0E0719; border-top: 1px solid var(--line); text-align: cen
   </details>
   <details class="faq-item">
     <summary>¿Cómo obtengo los descuentos en mis productos? <span class="plus">+</span></summary>
-    <p>Para comprar con descuento necesitas realizar tu Afiliación. Esto te otorga tu kit de bienvenida y un código que activa automáticamente entre un 20% y 25% de descuento inicial, sin compras obligatorias mensuales.</p>
+    <p>Para comprar con descuento necesitas realizar tu Afiliación. Esto te otorga tu kit de bienvenida y un código que activa automáticamente el 25% de descuento inicial, sin compras obligatorias mensuales.</p>
   </details>
   <details class="faq-item">
     <summary>¿Cómo escalo hasta el 40% de descuento? <span class="plus">+</span></summary>
@@ -561,10 +559,10 @@ footer { background: #0E0719; border-top: 1px solid var(--line); text-align: cen
 
 <footer>
   <p>&copy; 2026 Mirian Ramírez. Todos los derechos reservados.<br>
-  <span style="font-size: 0.75rem; opacity: 0.6;">Este sitio corresponde a una Emprendedora/Distribuidora Independiente y no es la página institucional de Omnilife.</span></p>
+  <span style="font-size: 0.75rem; opacity: 0.6;">Este sitio corresponde a una Emprendedora Independiente y no es la página institucional de Omnilife.</span></p>
 </footer>
 
-<a href="https://wa.me/593990141288?text=Hola%20Mirian,%20visité%20tu%20página%20y%20me%20gustaría%20recibir%20asesoría." class="wa-float" target="_blank">
+<a href="https://wa.me/593990141288?text=Hola%20Mirian,%20visité%20tu%20página." class="wa-float" target="_blank">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.66.986 3.284 1.447 4.74 1.448 5.516 0 10.003-4.478 10.006-9.986.002-2.67-1.019-5.18-2.87-7.03C16.61 1.724 14.12 .701 11.45.701 5.937.701 1.45 5.18 1.447 10.693c-.001 1.51.442 2.986 1.279 4.3l-.971 3.548 3.65-.958zm13.016-4.93c-.31-.156-1.84-.907-2.127-1.01-.288-.102-.497-.155-.706.156-.21.312-.81.1.01-1.022 1.11-.21.103-.418.05-.728-.053-.31-.157-1.84-.906-2.126-1.01-.28-.124-.43-.052-.518.02-.1.08-.22.256-.22.524 0 .268.194.526.222.564.027.037.382 1.83 1.233 2.197.85.367 1.13.294 1.34.248.21-.046.68-.276.774-.544.095-.268.095-.497.066-.544-.028-.046-.104-.077-.415-.233z"/></svg>
 </a>
 
@@ -590,13 +588,9 @@ function togglePlay() {
   const video = document.getElementById('miriamVideo');
   const playBtn = document.getElementById('playBtnCenter');
   if (video.paused) {
-    video.play();
-    playBtn.style.opacity = '0';
-    playBtn.style.transform = 'translate(-50%, -50%) scale(0.8)';
+    video.play(); playBtn.style.opacity = '0';
   } else {
-    video.pause();
-    playBtn.style.opacity = '1';
-    playBtn.style.transform = 'translate(-50%, -50%) scale(1)';
+    video.pause(); playBtn.style.opacity = '1';
   }
 }
 
@@ -606,19 +600,13 @@ function sendToWhatsApp(event) {
   const ciudad = document.getElementById('lead-ciudad').value.trim();
   const mensaje = document.getElementById('lead-mensaje').value.trim();
   const tipo = currentMode === 'consumo' ? "Cliente Admirable" : "Afiliación de Distribuidor";
-  
   let texto = `Hola Mirian, estuve en tu página y me interesa registrarme.\n\n• *Nombre:* ${nombre}\n• *Ubicación:* ${ciudad}\n• *Tipo:* ${tipo}\n• *Mensaje:* ${mensaje}`;
   window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(texto)}`, '_blank');
 }
 
-/* OBSERVADOR DE INTERSECCIÓN PARA REVEAL GLOBAL Y PASOS */
 const revealElements = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => { 
-    if (entry.isIntersecting) {
-      entry.target.classList.add('is-visible'); 
-    }
-  });
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('is-visible'); });
 }, { threshold: 0.15 });
 revealElements.forEach(el => observer.observe(el));
 </script>
