@@ -153,7 +153,7 @@ nav {
 .about-photo-frame { 
   position:relative; border-radius: 16px; overflow:hidden; 
   border: 1px solid var(--line); background: var(--bg-soft); 
-  aspect-ratio: 3/4; shadow: 0 20px 40px rgba(0,0,0,0.3);
+  aspect-ratio: 3/4; box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
 .about-photo-frame img { width:100%; height:100%; object-fit: cover; object-position: center 15%; display:block; }
 .about-ribbon { position:absolute; top:16px; left:16px; background: var(--citrus); color:#fff; font-family:'Space Mono',monospace; font-size:.62rem; text-transform:uppercase; padding:6px 12px; border-radius: 4px; font-weight:700; z-index:1; }
@@ -204,6 +204,7 @@ nav {
 .form-group { margin-bottom: 22px; }
 .form-label { font-size: .85rem; font-weight: 600; color: var(--ink); display: block; margin-bottom: 8px; }
 .form-input { width: 100%; padding: 15px 17px; border-radius: 6px; border: 1px solid var(--line); background: #160B26; color: var(--ink); font-size: 1rem; outline: none; }
+.form-textarea { width: 100%; min-height: 110px; padding: 15px 17px; border-radius: 6px; border: 1px solid var(--line); background: #160B26; color: var(--ink); font-size: 1rem; outline: none; resize: vertical; font-family: 'Inter', sans-serif; }
 .action-btn { width: 100%; background: var(--citrus); color: #fff; padding: 17px; border: none; border-radius: 6px; font-size: 1rem; font-weight: 700; cursor: pointer; }
 .action-btn:hover { background-color: var(--gold); color: var(--citrus-ink); }
 
@@ -305,7 +306,7 @@ footer { background: #0E0719; border-top: 1px solid var(--line); text-align: cen
   <div class="about-grid">
     <div class="about-photo-frame">
       <div class="about-ribbon">Emprendedora</div>
-      <img src="mirian-ramirez.jpg" alt="Mirian Ramírez - Distribuidora Independiente Omnilife">
+      <img src="WhatsApp Image 2026-05-31 at 10.21.26 PM.jpg" alt="Mirian Ramírez - Distribuidora Independiente Omnilife">
     </div>
     <div class="about-text">
       <div class="sub">// Quién te acompaña</div>
@@ -376,6 +377,22 @@ footer { background: #0E0719; border-top: 1px solid var(--line); text-align: cen
     <summary>¿Cómo escalo hasta el 40% de descuento? <span class="plus">+</span></summary>
     <p>Al estar afiliado, cada producto que adquieres te otorga una cantidad de puntos. Conforme acumulas esos puntos por tus consumos o reventas, tu nivel de descuento va subiendo de forma progresiva hasta alcanzar el 40% máximo.</p>
   </details>
+  <details class="faq-item">
+    <summary>¿Existe un consumo mínimo mensual obligatorio? <span class="plus">+</span></summary>
+    <p>No. En Omnilife no estás obligado a realizar pedidos mensuales forzosos ni compras mínimas. Eres libre de comprar a tu propio ritmo, ya sea solo para tu consumo personal o para revender.</p>
+  </details>
+  <details class="faq-item">
+    <summary>¿Cuánto cuesta la afiliación y qué contiene el kit? <span class="plus">+</span></summary>
+    <p>El costo de la membresía varía ligeramente según el país (un promedio de $40 a $45 USD). Incluye un maletín o mochila oficial, un producto de regalo de alto valor, catálogos informativos y tu código internacional de distribuidor.</p>
+  </details>
+  <details class="faq-item">
+    <summary>¿Hacen envíos directos a domicilio? <span class="plus">+</span></summary>
+    <p>Sí, la plataforma web de Omnilife cuenta con pasarela de pagos integrada y servicio de envíos puerta a puerta a través de transportistas autorizados a nivel nacional e internacional.</p>
+  </details>
+  <details class="faq-item">
+    <summary>¿Cómo se procesan los cobros en la página oficial? <span class="plus">+</span></summary>
+    <p>Todos los pagos se realizan bajo altos estándares de encriptación y seguridad digital directamente dentro del portal oficial de Omnilife usando tus tarjetas de débito, crédito o métodos locales autorizados de tu país.</p>
+  </details>
 </section>
 
 <section id="registro" class="form-section reveal">
@@ -396,6 +413,10 @@ footer { background: #0E0719; border-top: 1px solid var(--line); text-align: cen
       <div class="form-group">
         <label class="form-label">Ciudad y País</label>
         <input id="lead-ciudad" type="text" class="form-input" placeholder="Ej. Loja, Ecuador" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Mensaje personalizado (Dudas o productos de interés)</label>
+        <textarea id="lead-mensaje" class="form-textarea" placeholder="Cuéntame brevemente qué productos te llaman la atención o qué dudas tienes para poder ayudarte mejor..." required></textarea>
       </div>
       <button type="submit" class="action-btn" id="submit-btn">Solicitar información de Cliente Admirable</button>
     </form>
@@ -447,8 +468,10 @@ function sendToWhatsApp(event) {
   event.preventDefault();
   const nombre = document.getElementById('lead-nombre').value.trim();
   const ciudad = document.getElementById('lead-ciudad').value.trim();
+  const mensaje = document.getElementById('lead-mensaje').value.trim();
   const tipo = currentMode === 'consumo' ? "Cliente Admirable" : "Afiliación de Distribuidor";
-  let texto = `Hola Mirian, estuve en tu página y me interesa registrarme.\n\n• *Nombre:* ${nombre}\n• *Ubicación:* ${ciudad}\n• *Tipo:* ${tipo}`;
+  
+  let texto = `Hola Mirian, estuve en tu página y me interesa registrarme.\n\n• *Nombre:* ${nombre}\n• *Ubicación:* ${ciudad}\n• *Tipo:* ${tipo}\n• *Mensaje:* ${mensaje}`;
   window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(texto)}`, '_blank');
 }
 
