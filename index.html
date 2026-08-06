@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mirian Ramírez | Equipo de Emprendimiento Omnilife</title>
+<title>Hamilton R. | Equipo de Emprendimiento Omnilife</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght=9..144,300..900&family=Inter:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #1B0E2E;
-  --bg-soft: #2A1845;
+  --bg: #06080D;
+  --bg-soft: #0E121B;
   --glass: rgba(255,255,255,0.035);
-  --ink: #F6F2E7;
-  --muted: #B5A6C9;
-  --citrus: #A855F7;
-  --citrus-dark: #7C2D9E;
-  --citrus-ink: #2A1238;
-  --gold: #FFC857;
-  --leaf: #8FD17A;
-  --line: rgba(255,255,255,0.10);
+  --ink: #F5F2EA;
+  --muted: #99A1B5;
+  --blue: #FF6A3D;
+  --blue-dark: #D8471E;
+  --blue-ink: #2A0F04;
+  --gold: #FFC157;
+  --leaf: #25D366;
+  --line: rgba(255,255,255,0.09);
   --wa: #25D366;
 }
 
@@ -35,9 +35,9 @@ body {
 body::before {
   content: ''; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
   background:
-    radial-gradient(circle at 8% 12%, rgba(124, 197, 118, 0.12) 0%, transparent 50%),
-    radial-gradient(circle at 92% 75%, rgba(168,85,247, 0.09) 0%, transparent 55%),
-    radial-gradient(circle at 50% 100%, rgba(255, 200, 87, 0.05) 0%, transparent 60%);
+    radial-gradient(circle at 8% 12%, rgba(255, 106, 61, 0.14) 0%, transparent 50%),
+    radial-gradient(circle at 92% 75%, rgba(255, 106, 61, 0.08) 0%, transparent 55%),
+    radial-gradient(circle at 50% 100%, rgba(255, 193, 87, 0.05) 0%, transparent 60%);
   z-index: -1;
   animation: backgroundPulse 12s ease-in-out infinite alternate;
 }
@@ -51,7 +51,7 @@ h1, h2, h3, h4 { font-family: 'Fraunces', serif; }
 }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes pulseRing { 0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.6); } 70% { box-shadow: 0 0 0 16px rgba(37,211,102,0); } 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); } }
-@keyframes pulseRingAccent { 0% { box-shadow: 0 0 0 0 rgba(168,85,247,0.5); } 70% { box-shadow: 0 0 0 12px rgba(168,85,247,0); } 100% { box-shadow: 0 0 0 0 rgba(168,85,247,0); } }
+@keyframes pulseRingAccent { 0% { box-shadow: 0 0 0 0 rgba(255,106,61,0.5); } 70% { box-shadow: 0 0 0 12px rgba(255,106,61,0); } 100% { box-shadow: 0 0 0 0 rgba(255,106,61,0); } }
 @keyframes backgroundPulse {
   0% { transform: scale(1); opacity: 0.9; }
   100% { transform: scale(1.05); opacity: 1; }
@@ -82,11 +82,11 @@ h1, h2, h3, h4 { font-family: 'Fraunces', serif; }
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 18px 48px; background: rgba(27, 14, 46, 0.85);
+  padding: 18px 48px; background: rgba(5, 7, 12, 0.9);
   backdrop-filter: blur(18px); border-bottom: 1px solid var(--line);
 }
 .logo { display:flex; align-items:center; font-size: 1.15rem; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
-.logo em { color: var(--citrus); font-style: normal; font-family:'Fraunces',serif; }
+.logo em { color: var(--blue); font-style: normal; font-family:'Fraunces',serif; }
 .logo span { font-family:'Space Mono',monospace; font-size: .62rem; color: var(--bg); background: var(--leaf); padding: 4px 8px; border-radius: 3px; margin-left: 12px; font-weight: 700; text-transform:uppercase; }
 
 .nav-links { display: flex; gap: 14px; }
@@ -96,18 +96,18 @@ nav {
   display:inline-flex; align-items:center; gap:6px;
   position: relative; overflow: hidden;
 }
-.nav-btn.secondary { border: 1px solid rgba(255,255,255,0.18); color: var(--ink); background: var(--glass); }
-.nav-btn.primary { background: var(--citrus); color: #fff; }
-.nav-btn.secondary:hover { background: rgba(255,255,255,0.08); transform: translateY(-3px); border-color: rgba(255,255,255,0.3); }
-.nav-btn.primary:hover { background: var(--gold); color: var(--citrus-ink); transform: translateY(-3px); box-shadow: 0 12px 28px rgba(255,200,87,0.3); }
+.nav-btn.secondary { border: 1px solid rgba(255,255,255,0.16); color: var(--ink); background: var(--glass); }
+.nav-btn.primary { background: var(--blue); color: #fff; }
+.nav-btn.secondary:hover { background: rgba(255,255,255,0.08); transform: translateY(-3px); border-color: rgba(255,255,255,0.28); }
+.nav-btn.primary:hover { background: var(--gold); color: var(--blue-ink); transform: translateY(-3px); box-shadow: 0 12px 28px rgba(255,193,87,0.3); }
 
 /* HERO */
 .hero { min-height: 92vh; padding: 150px 48px 70px; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 400px; gap: 64px; align-items: center; }
-.hero-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(168,85,247,0.12); border: 1px solid rgba(168,85,247,0.35); padding: 6px 14px; border-radius: 30px; font-size: .72rem; font-weight: 700; margin-bottom: 26px; color: var(--citrus); text-transform:uppercase; letter-spacing:.04em; font-family:'Space Mono',monospace; }
-.hero-tag .dot { width: 6px; height: 6px; background: var(--citrus); border-radius: 50%; animation: pulseRingAccent 2.2s infinite; }
+.hero-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,106,61,0.14); border: 1px solid rgba(255,106,61,0.35); padding: 6px 14px; border-radius: 30px; font-size: .72rem; font-weight: 700; margin-bottom: 26px; color: var(--gold); text-transform:uppercase; letter-spacing:.04em; font-family:'Space Mono',monospace; }
+.hero-tag .dot { width: 6px; height: 6px; background: var(--blue); border-radius: 50%; animation: pulseRingAccent 2.2s infinite; }
 
 .hero h1 { font-size: clamp(2.1rem, 4.6vw, 3.4rem); font-weight: 600; line-height: 1.18; color: var(--ink); margin-bottom: 22px; letter-spacing: -0.01em; }
-.hero h1 .accent { color: var(--citrus); font-style: italic; }
+.hero h1 .accent { color: var(--gold); font-style: italic; }
 .hero-p { font-size: 1.08rem; color: var(--muted); line-height: 1.7; margin-bottom: 36px; font-weight: 400; max-width: 50ch; }
 .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 30px; }
 
@@ -118,19 +118,19 @@ nav {
   border-radius: 18px;
   padding: 12px;
   position: relative;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.45);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.55);
   width: 100%;
   transition: transform 0.4s cubic-bezier(0.25,1,0.5,1), box-shadow 0.4s cubic-bezier(0.25,1,0.5,1);
 }
 .video-profile-card:hover {
   transform: translateY(-5px) rotate(0.5deg);
-  box-shadow: 0 40px 80px rgba(168,85,247,0.15);
+  box-shadow: 0 40px 80px rgba(255,106,61,0.18);
 }
 .video-avatar-tag {
   position: absolute; z-index: 10;
   font-family: 'Space Mono', monospace;
   font-weight: 700;
-  box-shadow: 0 6px 16px rgba(255,200,87,0.25);
+  box-shadow: 0 6px 16px rgba(255,193,87,0.25);
 }
 .video-container {
   position: relative;
@@ -143,55 +143,55 @@ nav {
 .video-container video { width: 100%; height: 100%; object-fit: cover; }
 .video-overlay {
   position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-  background: linear-gradient(to top, rgba(27, 14, 46, 0.95) 0%, rgba(27, 14, 46, 0.3) 50%, transparent 100%);
+  background: linear-gradient(to top, rgba(5, 7, 12, 0.96) 0%, rgba(5, 7, 12, 0.35) 50%, transparent 100%);
   display: flex; flex-direction: column; justify-content: space-between;
   padding: 20px; cursor: pointer; z-index: 2;
 }
 .play-button-center {
   position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-  width: 64px; height: 64px; background: rgba(168, 85, 247, 0.9);
+  width: 64px; height: 64px; background: rgba(255, 106, 61, 0.92);
   border-radius: 50%; display: flex; align-items: center; justify-content: center;
   color: #fff; backdrop-filter: blur(4px);
-  transition: all 0.3s ease; box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  transition: all 0.3s ease; box-shadow: 0 8px 24px rgba(0,0,0,0.4);
 }
 .play-button-center svg { width: 28px; height: 28px; margin-left: 4px; }
-.video-profile-card:hover .play-button-center { background: var(--gold); color: var(--citrus-ink); transform: translate(-50%, -50%) scale(1.1); box-shadow: 0 12px 28px rgba(255,200,87,0.4); }
+.video-profile-card:hover .play-button-center { background: var(--gold); color: var(--blue-ink); transform: translate(-50%, -50%) scale(1.1); box-shadow: 0 12px 28px rgba(255,193,87,0.4); }
 .video-caption-box { margin-top: auto; }
 .video-caption-box h3 { font-family: 'Fraunces', serif; font-size: 1.4rem; color: var(--ink); margin-bottom: 2px; }
 .video-sub { font-size: 0.85rem; color: var(--gold); font-weight: 500; margin-bottom: 12px; }
 .video-badges { display: flex; flex-wrap: wrap; gap: 6px; }
-.video-badges span { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); padding: 4px 10px; border-radius: 4px; font-size: 0.72rem; color: var(--muted); font-weight: 500; }
+.video-badges span { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); padding: 4px 10px; border-radius: 4px; font-size: 0.72rem; color: var(--muted); font-weight: 500; }
 .video-foot-note { font-size: 0.75rem; color: var(--muted); line-height: 1.4; padding: 12px 6px 4px; text-align: center; }
 
 /* FRANJA DE VALORES */
 .value-strip { max-width: 1200px; margin: 0 auto; padding: 0 48px 90px; }
 .value-grid { display:grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--line); border-radius: 14px; overflow:hidden; border:1px solid var(--line); }
 .value-item { background: var(--bg-soft); padding: 28px 24px; transition: background-color 0.3s ease, transform 0.3s cubic-bezier(0.25,1,0.5,1); }
-.value-item:hover { background-color: #331D54; transform: scale(1.02); z-index: 2; }
-.value-item .ic { width:30px; height:30px; margin-bottom:14px; color: var(--citrus); transition: transform 0.3s ease; }
+.value-item:hover { background-color: #101830; transform: scale(1.02); z-index: 2; }
+.value-item .ic { width:30px; height:30px; margin-bottom:14px; color: var(--blue); transition: transform 0.3s ease; }
 .value-item:hover .ic { transform: rotate(-8deg) scale(1.1); color: var(--gold); }
 .value-item h4 { font-family:'Inter',sans-serif; font-size: .95rem; font-weight:700; color: var(--ink); margin-bottom:6px; }
 .value-item p { font-size: .82rem; color: var(--muted); line-height:1.55; }
 
-/* SOBRE MIRIAN */
+/* SOBRE HAMILTON */
 .about-section { padding: 90px 48px; max-width: 1100px; margin: 0 auto; }
 .about-grid { display:grid; grid-template-columns: 340px 1fr; gap: 56px; align-items:center; }
 .about-photo-frame { 
   position:relative; border-radius: 16px; overflow:hidden; 
   border: 1px solid var(--line); background: var(--bg-soft); 
-  aspect-ratio: 3/4; box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  aspect-ratio: 3/4; box-shadow: 0 20px 40px rgba(0,0,0,0.4);
   transition: transform 0.4s ease;
 }
 .about-photo-frame:hover { transform: scale(1.02); }
 .about-photo-frame img { width:100%; height:100%; object-fit: cover; object-position: center 15%; display:block; }
-.about-ribbon { position:absolute; top:16px; left:16px; background: var(--citrus); color:#fff; font-family:'Space Mono',monospace; font-size:.62rem; text-transform:uppercase; padding:6px 12px; border-radius: 4px; font-weight:700; z-index:1; }
+.about-ribbon { position:absolute; top:16px; left:16px; background: var(--blue); color:#fff; font-family:'Space Mono',monospace; font-size:.62rem; text-transform:uppercase; padding:6px 12px; border-radius: 4px; font-weight:700; z-index:1; }
 .about-text h2 { margin-bottom:18px; }
 .about-text p { color: var(--muted); line-height:1.75; font-size:1rem; margin-bottom:16px; }
-.about-text .about-quote { font-family:'Fraunces',serif; font-style:italic; color: var(--ink); font-size:1.15rem; border-left: 3px solid var(--citrus); padding-left:18px; margin-top:22px; }
+.about-text .about-quote { font-family:'Fraunces',serif; font-style:italic; color: var(--ink); font-size:1.15rem; border-left: 3px solid var(--blue); padding-left:18px; margin-top:22px; }
 
 /* ENCABEZADOS DE SECCIONES */
 .section-header { text-align: center; margin-bottom: 56px; }
-.section-header .sub { font-family:'Space Mono',monospace; font-size: .72rem; color: var(--citrus); font-weight: 700; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1.5px; }
+.section-header .sub { font-family:'Space Mono',monospace; font-size: .72rem; color: var(--gold); font-weight: 700; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1.5px; }
 .section-header h2 { font-size: 2.2rem; font-weight: 600; color: var(--ink); }
 .section-header p.lead { color: var(--muted); max-width: 560px; margin: 14px auto 0; font-size: .98rem; line-height:1.6; }
 
@@ -199,33 +199,33 @@ nav {
 .cat-section { padding: 90px 48px; max-width: 1200px; margin: 0 auto; }
 .cat-grid { display:grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
 .cat-card { background: var(--glass); border: 1px solid var(--line); border-radius: 14px; padding: 30px 24px; transition: all 0.4s cubic-bezier(0.25,1,0.5,1); }
-.cat-card:hover { transform: translateY(-6px); border-color: rgba(168,85,247,0.5); background: rgba(255,255,255,0.06); box-shadow: 0 15px 30px rgba(0,0,0,0.25); }
+.cat-card:hover { transform: translateY(-6px); border-color: rgba(255,106,61,0.5); background: rgba(255,255,255,0.05); box-shadow: 0 15px 30px rgba(0,0,0,0.35); }
 .cat-card h4 { font-size: 1.05rem; font-weight: 700; color: var(--ink); margin-bottom: 10px; font-family:'Inter',sans-serif; transition: color 0.3s ease; }
 .cat-card:hover h4 { color: var(--gold); }
 .cat-card p { font-size: .87rem; color: var(--muted); line-height: 1.6; }
 
-/* INSCRIPCIÓN DIRECTA CORREGIDA */
+/* INSCRIPCIÓN DIRECTA */
 .omni-portal-section { padding: 10px 48px 90px; max-width: 1200px; margin: 0 auto; }
 .portal-box { 
-  background: linear-gradient(135deg, rgba(168,85,247,0.07), rgba(42,24,69,0.85)); 
-  border: 1px solid rgba(168,85,247,0.22); 
+  background: linear-gradient(135deg, rgba(255,106,61,0.08), rgba(11,15,26,0.9)); 
+  border: 1px solid rgba(255,106,61,0.25); 
   border-radius: 18px; padding: 54px 44px; text-align: center; 
   position: relative; overflow: hidden;
 }
 .portal-link-btn { 
   display: inline-flex; align-items: center; gap: 10px; 
-  background: linear-gradient(90deg, var(--citrus) 0%, #be84f7 50%, var(--citrus) 100%);
+  background: linear-gradient(90deg, var(--blue) 0%, #4FB0FF 50%, var(--blue) 100%);
   background-size: 200% auto;
   color: #fff; padding: 17px 38px; border-radius: 8px; 
   font-size: .95rem; font-weight: 700; text-decoration: none; 
-  transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(168,85,247,0.2); 
+  transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(255,106,61,0.25); 
   animation: shimmerEffect 4s infinite linear;
 }
-.portal-link-btn:hover { background: var(--gold); color: var(--citrus-ink); transform: translateY(-3px); box-shadow: 0 12px 24px rgba(255,200,87,0.3); }
+.portal-link-btn:hover { background: var(--gold); color: var(--blue-ink); transform: translateY(-3px); box-shadow: 0 12px 24px rgba(255,193,87,0.35); }
 
 /* PASOS ESENCIALES (GLASSMORPHIC) */
 .tutorial-section { 
-  background: linear-gradient(180deg, var(--bg) 0%, #221338 50%, var(--bg) 100%); 
+  background: linear-gradient(180deg, var(--bg) 0%, #0A0E18 50%, var(--bg) 100%); 
   padding: 120px 48px; 
   position: relative;
 }
@@ -252,12 +252,12 @@ nav {
   font-size: 0.85rem; 
   font-weight: 700; 
   color: var(--gold); 
-  background: rgba(255, 200, 87, 0.1);
+  background: rgba(255, 193, 87, 0.12);
   padding: 6px 14px;
   border-radius: 30px;
   display: inline-block;
   margin-bottom: 28px;
-  border: 1px solid rgba(255, 200, 87, 0.25);
+  border: 1px solid rgba(255, 193, 87, 0.28);
   transition: all 0.4s ease;
 }
 .step-card h4 {
@@ -282,21 +282,21 @@ nav {
 /* INTERACTIVIDAD EN PASOS */
 .step-card:hover { 
   transform: translateY(-10px) scale(1.02); 
-  background: rgba(168, 85, 247, 0.06);
-  border-color: rgba(168, 85, 247, 0.5); 
-  box-shadow: 0 30px 60px rgba(168, 85, 247, 0.15);
+  background: rgba(255, 106, 61, 0.07);
+  border-color: rgba(255, 106, 61, 0.5); 
+  box-shadow: 0 30px 60px rgba(255, 106, 61, 0.18);
 }
 .step-card:hover .step-number {
-  background: var(--citrus);
+  background: var(--blue);
   color: #fff;
-  border-color: var(--citrus);
-  box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+  border-color: var(--blue);
+  box-shadow: 0 0 15px rgba(255, 106, 61, 0.45);
   transform: translateY(-2px);
 }
 .step-card:hover h4 { color: var(--gold); }
 .step-card::before {
   content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, transparent 65%);
+  background: radial-gradient(circle, rgba(255, 106, 61, 0.18) 0%, transparent 65%);
   opacity: 0; transition: opacity 0.5s ease; pointer-events: none;
 }
 .step-card:hover::before { opacity: 1; }
@@ -314,7 +314,7 @@ nav {
 .faq-section { padding: 100px 48px; max-width: 820px; margin: 0 auto; }
 .faq-item { border-bottom: 1px solid var(--line); padding: 6px 0; }
 .faq-item summary { list-style:none; cursor:pointer; padding: 20px 4px; font-weight: 600; color: var(--ink); font-size: 1rem; display:flex; justify-content:space-between; align-items:center; }
-.faq-item summary .plus { font-family:'Space Mono',monospace; color: var(--citrus); font-size:1.2rem; transition: transform 0.3s ease; }
+.faq-item summary .plus { font-family:'Space Mono',monospace; color: var(--blue); font-size:1.2rem; transition: transform 0.3s ease; }
 .faq-item[open] summary .plus { transform: rotate(45deg); color: var(--gold); }
 .faq-item p { color: var(--muted); font-size: .92rem; line-height: 1.7; padding: 0 4px 22px; }
 
@@ -322,21 +322,21 @@ nav {
 .form-section { padding: 100px 48px; max-width: 700px; margin: 0 auto; }
 .toggle-container { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 28px; }
 .toggle-btn { padding: 15px; border-radius: 8px; border: 1px solid var(--line); background: var(--glass); color: var(--muted); font-size: .88rem; font-weight: 600; cursor: pointer; font-family:'Inter',sans-serif; transition: all 0.3s cubic-bezier(0.25,1,0.5,1); }
-.toggle-btn:hover { border-color: rgba(255,255,255,0.25); color: var(--ink); }
-.toggle-btn.active { border-color: var(--citrus); background: rgba(168,85,247,0.15); color: var(--ink); box-shadow: 0 4px 15px rgba(168,85,247,0.15); }
-.main-form-box { background: var(--bg-soft); border: 1px solid var(--line); border-radius: 16px; padding: 38px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+.toggle-btn:hover { border-color: rgba(255,255,255,0.22); color: var(--ink); }
+.toggle-btn.active { border-color: var(--blue); background: rgba(255,106,61,0.16); color: var(--ink); box-shadow: 0 4px 15px rgba(255,106,61,0.18); }
+.main-form-box { background: var(--bg-soft); border: 1px solid var(--line); border-radius: 16px; padding: 38px; box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
 .form-group { margin-bottom: 22px; }
 .form-label { font-size: .85rem; font-weight: 600; color: var(--ink); display: block; margin-bottom: 8px; }
-.form-input { width: 100%; padding: 15px 17px; border-radius: 6px; border: 1px solid var(--line); background: #160B26; color: var(--ink); font-size: 1rem; outline: none; transition: all 0.3s ease; }
-.form-textarea { width: 100%; min-height: 110px; padding: 15px 17px; border-radius: 6px; border: 1px solid var(--line); background: #160B26; color: var(--ink); font-size: 1rem; outline: none; resize: vertical; font-family: 'Inter', sans-serif; transition: all 0.3s ease; }
-.form-input:focus, .form-textarea:focus { border-color: var(--citrus); box-shadow: 0 0 0 3px rgba(168,85,247,0.2); background: #1a0d2e; }
-.action-btn { width: 100%; background: var(--citrus); color: #fff; padding: 17px; border: none; border-radius: 6px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 6px 16px rgba(168,85,247,0.25); }
-.action-btn:hover { background-color: var(--gold); color: var(--citrus-ink); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(255,200,87,0.35); }
+.form-input { width: 100%; padding: 15px 17px; border-radius: 6px; border: 1px solid var(--line); background: #060811; color: var(--ink); font-size: 1rem; outline: none; transition: all 0.3s ease; }
+.form-textarea { width: 100%; min-height: 110px; padding: 15px 17px; border-radius: 6px; border: 1px solid var(--line); background: #060811; color: var(--ink); font-size: 1rem; outline: none; resize: vertical; font-family: 'Inter', sans-serif; transition: all 0.3s ease; }
+.form-input:focus, .form-textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(255,106,61,0.22); background: #080B16; }
+.action-btn { width: 100%; background: var(--blue); color: #fff; padding: 17px; border: none; border-radius: 6px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 6px 16px rgba(255,106,61,0.28); }
+.action-btn:hover { background-color: var(--gold); color: var(--blue-ink); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(255,193,87,0.38); }
 
-footer { background: #0E0719; border-top: 1px solid var(--line); text-align: center; padding: 40px; font-size: .85rem; color: var(--muted); }
+footer { background: #030408; border-top: 1px solid var(--line); text-align: center; padding: 40px; font-size: .85rem; color: var(--muted); }
 
 /* BOTÓN FLOTANTE WHATSAPP */
-.wa-float { position: fixed; bottom: 26px; right: 26px; z-index: 300; width: 58px; height: 58px; border-radius: 50%; background: var(--wa); display:flex; align-items:center; justify-content:center; color:#fff; box-shadow: 0 10px 25px rgba(0,0,0,0.35); animation: pulseRing 2.6s infinite; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.wa-float { position: fixed; bottom: 26px; right: 26px; z-index: 300; width: 58px; height: 58px; border-radius: 50%; background: var(--wa); display:flex; align-items:center; justify-content:center; color:#fff; box-shadow: 0 10px 25px rgba(0,0,0,0.45); animation: pulseRing 2.6s infinite; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 .wa-float:hover { transform: scale(1.1); }
 .wa-float svg { width: 28px; height: 28px; }
 
@@ -353,11 +353,32 @@ footer { background: #0E0719; border-top: 1px solid var(--line); text-align: cen
 }
 @media(max-width:560px){ .value-grid, .cat-grid { grid-template-columns: 1fr; } }
 </style>
+
+<!-- Meta (Facebook) Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1330108458187229');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1330108458187229&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<!-- TikTok Pixel: pendiente — pásame tu Pixel ID y lo agrego aquí mismo -->
+
 </head>
 <body>
 
 <nav class="animated-fade">
-  <div class="logo">Mirian <em>Ramírez</em><span>Distribuidor Independiente</span></div>
+  <div class="logo">Hamilton <em>R.</em><span>Distribuidor Independiente</span></div>
   <div class="nav-links">
     <a href="#categorias" class="nav-btn secondary">Productos</a>
     <a href="#tutorial" class="nav-btn secondary">¿Cómo afiliarse?</a>
@@ -377,13 +398,13 @@ footer { background: #0E0719; border-top: 1px solid var(--line); text-align: cen
   </div>
 
   <div class="video-profile-card animated-hero-card">
-    <div class="video-avatar-tag" style="background: var(--gold); color: var(--citrus-ink); font-size: 0.72rem; padding: 5px 12px; border-radius: 4px; right: 16px; top: -14px;">
+    <div class="video-avatar-tag" style="background: var(--gold); color: var(--blue-ink); font-size: 0.72rem; padding: 5px 12px; border-radius: 4px; right: 16px; top: -14px;">
       💎 RESPALDO DIAMANTE
     </div>
     
     <div class="video-container">
-      <video id="miriamVideo" poster="WhatsApp Image 2026-05-31 at 10.21.26 PM.jpg" playsinline loop>
-        <source src="video-cristian-vaca.mp4" type="video/mp4">
+      <video id="hamiltonVideo" poster="hamilton-r-poster.jpg" playsinline loop>
+        <source src="video-lider-diamante.mp4" type="video/mp4">
         Tu navegador no soporta videos.
       </video>
       
@@ -394,15 +415,15 @@ footer { background: #0E0719; border-top: 1px solid var(--line); text-align: cen
         
         <div class="video-caption-box">
           <span style="color: var(--gold); font-family: 'Space Mono', monospace; font-size: 0.68rem; font-weight: 700; letter-spacing: 1px;">MENSAJE DE NUESTRO LÍDER</span>
-          <h3 style="font-size: 1.35rem; margin-top: 2px;">Cristian Vaca</h3>
+          <h3 style="font-size: 1.35rem; margin-top: 2px;">[Nombre del Líder Diamante]</h3>
           <p class="video-sub" style="color: var(--ink); opacity: 0.85; font-size: 0.8rem; margin-bottom: 10px;">Líder Diamante Omnilife</p>
           <div class="video-badges">
-            <span>✓ Validando el equipo de Mirian</span>
+            <span>✓ Validando el equipo de Hamilton</span>
           </div>
         </div>
       </div>
     </div>
-    <p class="video-foot-note">▶ Haz clic en el video para escuchar a Cristian Vaca hablar sobre el respaldo que tendrás con nosotros.</p>
+    <p class="video-foot-note">▶ Haz clic en el video para escuchar a nuestro líder hablar sobre el respaldo que tendrás con nosotros.</p>
   </div>
 </section>
 
@@ -416,7 +437,7 @@ footer { background: #0E0719; border-top: 1px solid var(--line); text-align: cen
     <div class="value-item">
       <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v6m0 0c-4 0-7 3-7 7v5h14v-5c0-4-3-7-7-7z"/></svg>
       <h4>Línea de Apoyo Activa</h4>
-      <p>Formamos parte de una red sólida guiada por el liderazgo de Cristian Vaca.</p>
+      <p>Formamos parte de una red sólida guiada por un liderazgo con trayectoria comprobada.</p>
     </div>
     <div class="value-item">
       <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg>
@@ -434,13 +455,13 @@ footer { background: #0E0719; border-top: 1px solid var(--line); text-align: cen
 <section class="about-section reveal">
   <div class="about-grid">
     <div class="about-photo-frame">
-      <div class="about-ribbon">Emprendedora</div>
-      <img src="mirian-ramirez.jpg" alt="Mirian Ramírez - Distribuidora Independiente Omnilife">
+      <div class="about-ribbon">Emprendedor</div>
+      <img src="hamilton-granillo.png" alt="Hamilton Granillo - Distribuidor Independiente Omnilife">
     </div>
     <div class="about-text">
       <div class="sub">// Quién te acompaña</div>
-      <h2>Hola, soy Mirian Ramírez</h2>
-      <p>Como emprendedora independiente, mi misión en este espacio es muy sencilla: ser tu puente directo hacia Omnilife de la forma más transparente, amigable y humana posible.</p>
+      <h2>Hola, soy Hamilton R.</h2>
+      <p>Como emprendedor independiente, mi misión en este espacio es muy sencilla: ser tu puente directo hacia Omnilife de la forma más transparente, amigable y humana posible.</p>
       <p>No necesitas ser un experto en nutrición ni en ventas para empezar. Mi trabajo es guiarte de forma personalizada para que elijas exactamente lo que buscas: ya sea consumir tus productos favoritos registrándote gratis, o adquirir tu membresía para aprovechar descuentos que crecen desde el 25% hasta el 40% según tus puntos.</p>
       <p class="about-quote">"Mi meta no es venderte un catálogo; es darte una mano para que tu registro sea rápido, seguro y con el apoyo de todo nuestro equipo."</p>
     </div>
@@ -465,7 +486,7 @@ footer { background: #0E0719; border-top: 1px solid var(--line); text-align: cen
   <div class="portal-box">
     <h2>Enlace de inscripción directa</h2>
     <p>Si ya conoces el formato que quieres elegir y deseas avanzar de inmediato en la plataforma oficial de Omnilife, puedes usar mi enlace directo de distribuidor institucional.</p>
-    <a href="https://empresario.omnilife.com/ec/el-oro/arenillas/593674569rgm/miriam-ramirez-gaona/omnilife" target="_blank" class="portal-link-btn">Ir al Portal Oficial de Inscripciones ↗</a>
+    <a href="#" class="portal-link-btn">Ir al Portal Oficial de Inscripciones ↗</a>
   </div>
 </section>
 
@@ -486,7 +507,7 @@ footer { background: #0E0719; border-top: 1px solid var(--line); text-align: cen
     <div class="step-card reveal-step reveal-step-2">
       <div class="step-number">PASO 02</div>
       <h4>Verifica tu presentador</h4>
-      <p>Para asegurar que cuentas con mi asesoría personalizada en WhatsApp y el respaldo directo de nuestro equipo, valida que en el formulario web aparezca el nombre de <strong>Mirian Ramírez</strong> como tu patrocinador.</p>
+      <p>Para asegurar que cuentas con mi asesoría personalizada en WhatsApp y el respaldo directo de nuestro equipo, valida que en el formulario web aparezca el nombre de <strong>Hamilton R.</strong> como tu patrocinador.</p>
     </div>
 
     <div class="step-card reveal-step reveal-step-3">
@@ -546,7 +567,7 @@ footer { background: #0E0719; border-top: 1px solid var(--line); text-align: cen
       </div>
       <div class="form-group">
         <label class="form-label">Ciudad y País</label>
-        <input id="lead-ciudad" type="text" class="form-input" placeholder="Ej. Loja, Ecuador" required>
+        <input id="lead-ciudad" type="text" class="form-input" placeholder="Ej. Guayaquil, Ecuador" required>
       </div>
       <div class="form-group">
         <label class="form-label">Mensaje personalizado (Dudas o productos de interés)</label>
@@ -558,16 +579,28 @@ footer { background: #0E0719; border-top: 1px solid var(--line); text-align: cen
 </section>
 
 <footer>
-  <p>&copy; 2026 Mirian Ramírez. Todos los derechos reservados.<br>
-  <span style="font-size: 0.75rem; opacity: 0.6;">Este sitio corresponde a una Emprendedora Independiente y no es la página institucional de Omnilife.</span></p>
+  <p>&copy; 2026 Hamilton R. Todos los derechos reservados.<br>
+  <span style="font-size: 0.75rem; opacity: 0.6;">Este sitio corresponde a un Emprendedor Independiente y no es la página institucional de Omnilife.</span></p>
 </footer>
 
-<a href="https://wa.me/593990141288?text=Hola%20Mirian,%20visité%20tu%20página." class="wa-float" target="_blank">
+<a href="#" id="wa-float-link" class="wa-float" target="_blank">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.66.986 3.284 1.447 4.74 1.448 5.516 0 10.003-4.478 10.006-9.986.002-2.67-1.019-5.18-2.87-7.03C16.61 1.724 14.12 .701 11.45.701 5.937.701 1.45 5.18 1.447 10.693c-.001 1.51.442 2.986 1.279 4.3l-.971 3.548 3.65-.958zm13.016-4.93c-.31-.156-1.84-.907-2.127-1.01-.288-.102-.497-.155-.706.156-.21.312-.81.1.01-1.022 1.11-.21.103-.418.05-.728-.053-.31-.157-1.84-.906-2.126-1.01-.28-.124-.43-.052-.518.02-.1.08-.22.256-.22.524 0 .268.194.526.222.564.027.037.382 1.83 1.233 2.197.85.367 1.13.294 1.34.248.21-.046.68-.276.774-.544.095-.268.095-.497.066-.544-.028-.046-.104-.077-.415-.233z"/></svg>
 </a>
 
 <script>
-const WHATSAPP_PHONE = "593990141288"; 
+/* ⚠️ CONFIGURACIÓN OBLIGATORIA — reemplaza estos 2 valores con los tuyos */
+const WHATSAPP_PHONE = "593000000000";   // <-- todavía falta: tu número de WhatsApp con código de país, sin +
+const REFERRAL_LINK   = "https://empresario.omnilife.com/ec/el-oro/arenillas/593672828grh/hamilton-granillo-ramirez/omnilife";
+
+document.getElementById('wa-float-link').href = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent('Hola Hamilton, visité tu página.')}`;
+document.getElementById('wa-float-link').addEventListener('click', function () {
+  if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+});
+document.querySelector('.portal-link-btn').href = REFERRAL_LINK;
+document.querySelector('.portal-link-btn').addEventListener('click', function () {
+  if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+});
+
 let currentMode = 'consumo';
 
 function setMode(mode) {
@@ -585,7 +618,7 @@ function setMode(mode) {
 }
 
 function togglePlay() {
-  const video = document.getElementById('miriamVideo');
+  const video = document.getElementById('hamiltonVideo');
   const playBtn = document.getElementById('playBtnCenter');
   if (video.paused) {
     video.play(); playBtn.style.opacity = '0';
@@ -600,7 +633,8 @@ function sendToWhatsApp(event) {
   const ciudad = document.getElementById('lead-ciudad').value.trim();
   const mensaje = document.getElementById('lead-mensaje').value.trim();
   const tipo = currentMode === 'consumo' ? "Cliente Admirable" : "Afiliación de Distribuidor";
-  let texto = `Hola Mirian, estuve en tu página y me interesa registrarme.\n\n• *Nombre:* ${nombre}\n• *Ubicación:* ${ciudad}\n• *Tipo:* ${tipo}\n• *Mensaje:* ${mensaje}`;
+  let texto = `Hola Hamilton, estuve en tu página y me interesa registrarme.\n\n• *Nombre:* ${nombre}\n• *Ubicación:* ${ciudad}\n• *Tipo:* ${tipo}\n• *Mensaje:* ${mensaje}`;
+  if (typeof fbq !== 'undefined') fbq('track', 'Lead');
   window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(texto)}`, '_blank');
 }
 
