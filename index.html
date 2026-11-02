@@ -2,1536 +2,225 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-<meta name="referrer" content="strict-origin-when-cross-origin">
-<title>Encuentra tu carrito Omnilife | Hamilton Granillo</title>
-<meta name="description" content="Elige tu país, selecciona lo que buscas y encuentra un carrito recomendado para comprar de forma sencilla.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pronunciación BUCK</title>
 <style>
 :root{
-  --ink:#111b17;--green:#123d2c;--green-2:#1d6044;--deep:#071b14;
-  --gold:#c7a15a;--gold-light:#e8d2a0;--cream:#fbfaf6;--paper:#ffffff;
-  --sage:#eef4f0;--muted:#66766f;--line:#e3e8e4;--wa:#25d366;
-  --shadow:0 24px 70px rgba(10,34,25,.12);--shadow-lg:0 35px 100px rgba(7,27,20,.18);
-  --ease-premium:cubic-bezier(.22,1,.36,1);
+  --paper:#ffffff; --card:#f3f5fa; --ink:#0a0d14; --muted:#4b5468; --rule:#d3d9e6;
+  --board:#0b1f4d; --chalk:#ffffff; --pencil:#14307a; --say:#7a3d00; --say-bg:#ffe9a8;
+  --ok:#1d7a47; --ok-bg:#e2f2e8; --bad:#b3261e; --bad-bg:#fbe4e2;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:90px;overflow-x:hidden}
-body{
-  margin:0;background:var(--cream);color:var(--ink);
-  font:16px/1.6 'Onest',system-ui,-apple-system,sans-serif;
-  -webkit-font-smoothing:antialiased;overflow-x:hidden;max-width:100vw;position:relative;
-}
-a{text-decoration:none;color:inherit}
-button,input,textarea{font:inherit}
-button{cursor:pointer}
-img{max-width:100%;display:block}
-.wrap{width:min(1160px,calc(100% - 40px));margin:auto;max-width:100%}
-.eyebrow{color:var(--gold);font-weight:800;letter-spacing:.18em;text-transform:uppercase;font-size:.68rem}
-
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  border:1px solid transparent;border-radius:999px;padding:14px 22px;
-  font-weight:700;transition:all .3s var(--ease-premium);position:relative;overflow:hidden;font-size:.9rem;max-width:100%;
-}
-.btn-primary{background:var(--green);color:#fff;box-shadow:0 12px 30px rgba(18,61,44,.2)}
-.btn-primary:hover{background:var(--green-2);transform:translateY(-3px);box-shadow:0 18px 40px rgba(18,61,44,.3)}
-.btn-light{border-color:var(--line);background:#fff;color:var(--green)}
-.btn-light:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 12px 30px rgba(199,161,90,.15)}
-
-/* =========================================
-   🧭 NAVEGACIÓN - HAMBURGUESA CORREGIDA
-   ========================================= */
-.site-nav{
-  position:fixed;top:0;left:0;right:0;z-index:1000;
-  background:rgba(251,250,246,.85);
-  backdrop-filter:blur(25px) saturate(180%);
-  -webkit-backdrop-filter:blur(25px) saturate(180%);
-  border-bottom:1px solid rgba(227,232,228,.6);
-  transition:none;
-  box-shadow:0 1px 0 rgba(0,0,0,.02);
-}
-.site-nav.scrolled{
-  background:rgba(251,250,246,.85);
-  box-shadow:0 1px 0 rgba(0,0,0,.02);
-  border-bottom-color:rgba(227,232,228,.6);
-}
-.nav-inner{height:80px;display:flex;align-items:center;justify-content:space-between}
-.site-nav.scrolled .nav-inner{height:80px}
-.brand{
-  font-weight:800;font-size:1.1rem;color:var(--green);letter-spacing:-.02em;
-  transition:all .3s var(--ease-premium);display:flex;align-items:center;gap:8px;position:relative;
-}
-.brand::before{
-  content:'';position:absolute;left:-12px;top:50%;transform:translateY(-50%);
-  width:4px;height:4px;background:var(--gold);border-radius:50%;
-  box-shadow:0 0 8px var(--gold);opacity:0;transition:opacity .3s ease;
-}
-.site-nav.scrolled .brand::before{opacity:0}
-.brand:hover{transform:translateY(-1px)}
-.brand span{
-  display:inline-block;margin-left:9px;color:var(--gold);
-  font:700 .59rem monospace;letter-spacing:.1em;text-transform:uppercase;opacity:.8;transition:opacity .3s ease;
-}
-.brand:hover span{opacity:1}
-.nav-links{display:flex;align-items:center;gap:32px;font-size:.9rem;color:var(--muted)}
-.nav-links a{position:relative;padding:8px 0;transition:color .3s ease,transform .3s var(--ease-premium);font-weight:500}
-.nav-links a:not(.btn){color:var(--ink)}
-.nav-links a:not(.btn)::after{
-  content:'';position:absolute;bottom:0;left:50%;width:0;height:2px;background:var(--gold);
-  transition:all .3s var(--ease-premium);transform:translateX(-50%);
-}
-.nav-links a:not(.btn):hover{color:var(--green);transform:translateY(-2px)}
-.nav-links a:not(.btn):hover::after{width:100%}
-.nav-links .btn-primary{
-  padding:10px 20px;font-size:.85rem;
-  background:linear-gradient(135deg,var(--green) 0%,var(--green-2) 100%);
-  box-shadow:0 4px 16px rgba(18,61,44,.2);
-}
-.nav-links .btn-primary:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 8px 24px rgba(18,61,44,.3)}
-
-/* ✅ BOTÓN HAMBURGUESA CORREGIDO */
-.mobile-nav{
-  display:none;width:48px;height:48px;padding:0;border-radius:12px;
-  align-items:center;justify-content:center;
-  border:1px solid rgba(23,63,53,.15);background:rgba(255,255,255,.8);color:var(--green);
-  transition:all .3s var(--ease-premium);backdrop-filter:blur(10px);
-  cursor:pointer;
-}
-.mobile-nav:hover{background:rgba(255,255,255,1);border-color:var(--gold);transform:scale(1.05)}
-
-/* ✅ LÍNEAS DEL HAMBURGUESA - BIEN SEPARADAS Y VISIBLES */
-.mobile-nav-lines{
-  display:flex;flex-direction:column;justify-content:center;align-items:center;
-  width:22px;height:22px;position:relative;
-}
-.mobile-nav-lines span{
-  display:block;width:22px;height:3px;border-radius:3px;
-  background:currentColor;
-  transition:all .35s var(--ease-premium);
-  position:absolute;left:0;
-}
-.mobile-nav-lines span:nth-child(1){top:2px}
-.mobile-nav-lines span:nth-child(2){top:50%;transform:translateY(-50%)}
-.mobile-nav-lines span:nth-child(3){bottom:2px}
-
-/* ✅ ANIMACIÓN A X CUANDO ESTÁ ABIERTO */
-.mobile-nav.is-open{background:var(--green);color:#fff;border-color:var(--green)}
-.mobile-nav.is-open .mobile-nav-lines span:nth-child(1){
-  top:50%;transform:translateY(-50%) rotate(45deg);
-}
-.mobile-nav.is-open .mobile-nav-lines span:nth-child(2){
-  opacity:0;transform:translateY(-50%) scaleX(0);
-}
-.mobile-nav.is-open .mobile-nav-lines span:nth-child(3){
-  bottom:auto;top:50%;transform:translateY(-50%) rotate(-45deg);
-}
-
-.mobile-menu{
-  display:none;position:absolute;left:0;right:0;top:100%;
-  padding:12px 20px 20px;background:rgba(251,250,246,.98);
-  backdrop-filter:blur(25px) saturate(180%);-webkit-backdrop-filter:blur(25px) saturate(180%);
-  border-bottom:1px solid rgba(199,161,90,.2);
-  box-shadow:0 20px 40px rgba(7,27,20,.12);animation:mobileMenuIn .35s var(--ease-premium) both;
-}
-.mobile-menu.is-open{display:block}
-.mobile-menu[hidden]{display:none!important}
-.mobile-menu a{
-  display:flex;align-items:center;justify-content:space-between;
-  min-height:56px;padding:14px 8px;border-bottom:1px solid rgba(23,63,53,.08);
-  font-size:1rem;color:var(--ink);font-weight:500;transition:all .3s ease;
-}
-.mobile-menu a:hover{padding-left:16px;color:var(--green)}
-.mobile-menu a:last-child{border-bottom:0}
-.mobile-menu-cta{
-  margin-top:12px;padding:14px 20px!important;border:0!important;border-radius:12px;
-  background:linear-gradient(135deg,var(--green) 0%,var(--green-2) 100%);
-  color:#fff!important;font-weight:700;justify-content:center;
-  box-shadow:0 8px 24px rgba(18,61,44,.2);
-}
-.mobile-menu-cta:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(18,61,44,.3)}
-@keyframes mobileMenuIn{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
-
-/* =========================================
-   🏠 HERO
-   ========================================= */
-.hero{
-  position:relative;overflow:hidden;padding:140px 0 125px;
-  background:radial-gradient(circle at 85% 25%,rgba(199,161,90,.14),transparent 25%),
-             linear-gradient(135deg,#fbfaf6 0%,#f0f6f2 100%);
-}
-.hero:after{
-  content:"";position:absolute;width:min(520px,80vw);height:min(520px,80vw);
-  border:1px solid rgba(199,161,90,.18);border-radius:50%;
-  right:-220px;top:-190px;pointer-events:none;
-}
-.hero-grid{display:grid;grid-template-columns:1fr;gap:28px;align-items:center;max-width:930px;position:relative;z-index:1}
-.hero h1{
-  font:800 clamp(3rem,6.2vw,6.1rem)/.98 'Onest',sans-serif;
-  letter-spacing:-.065em;color:var(--green);margin:16px 0 25px;
-  word-wrap:break-word;overflow-wrap:break-word;
-}
-.hero h1 em{font-style:normal;color:var(--gold)}
-.hero-lead{font-size:1.16rem;color:var(--muted);max-width:650px;margin-bottom:30px}
-.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:24px}
-.trust{display:flex;flex-wrap:wrap;gap:19px;color:var(--muted);font-size:.8rem}
-.trust span:before{content:"✓";color:var(--gold);font-weight:900;margin-right:7px}
-
-/* =========================================
-   📌 SECCIONES
-   ========================================= */
-.section{padding:105px 0}
-.section-head{max-width:720px;margin-bottom:44px}
-.section-head h2{
-  font-size:clamp(2.2rem,4.3vw,4rem);line-height:1.03;
-  letter-spacing:-.045em;margin:10px 0 18px;color:var(--green);font-weight:700;
-  word-wrap:break-word;overflow-wrap:break-word;
-}
-.section-head p{color:var(--muted);font-size:1.04rem;max-width:650px}
-
-.choice-band{background:var(--deep);color:#fff;padding:23px 0}
-.choice-band-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.choice-band strong{font-size:1.02rem}
-.choice-band p{margin:3px 0 0;color:#bcd0c6;font-size:.87rem}
-.choice-band .btn{white-space:nowrap;background:var(--gold);color:var(--deep)}
-
-.video-section{padding:105px 0;background:var(--deep);color:white;position:relative;overflow:hidden}
-.video-section:before{
-  content:"";position:absolute;width:min(600px,90vw);height:min(600px,90vw);border-radius:50%;
-  border:1px solid rgba(199,161,90,.12);right:-250px;top:-250px;pointer-events:none;
-}
-.video-wrap{max-width:1020px;position:relative;z-index:1}
-.video-section .section-head{max-width:760px}
-.video-section .section-head h2{color:#fff}
-.video-section .section-head p{color:#bcd0c6}
-.video-box{
-  position:relative;aspect-ratio:16/9;background:#000;border-radius:16px;
-  overflow:hidden;box-shadow:var(--shadow-lg);border:1px solid rgba(255,255,255,.1);cursor:pointer;max-width:100%;
-}
-.video-box iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.video-play{
-  position:absolute;inset:50% auto auto 50%;transform:translate(-50%,-50%);
-  width:78px;height:78px;border:0;border-radius:50%;background:var(--gold);color:#fff;font-size:1.5rem;
-  box-shadow:0 15px 40px rgba(0,0,0,.35);transition:transform .35s var(--ease-premium);
-}
-.video-box:hover .video-play{transform:translate(-50%,-50%) scale(1.08)}
-.video-overlay{
-  position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
-  background:radial-gradient(circle,rgba(7,27,20,.08),rgba(7,27,20,.32));
-  color:#fff;font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
-}
-.video-meta{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-top:18px;color:#bcd0c6;font-size:.82rem;flex-wrap:wrap}
-.video-meta strong{color:var(--gold-light);font-weight:800}
-
-/* =========================================
-   📸 PHOTO SECTION - TEXTO CORREGIDO
-   ========================================= */
-.photo-section{background:#fff}
-.photo-section .proof-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
-.photo-section .proof-image{
-  width:min(100%, 410px);max-width:410px;justify-self:center;margin:auto;
-  padding:7px;background:linear-gradient(145deg,#fff,#eef4f0);
-  border:1px solid rgba(199,161,90,.22);border-radius:20px;
-  box-shadow:0 24px 60px rgba(10,34,25,.13);
-  overflow:hidden;transition:transform .6s var(--ease-premium), box-shadow .6s ease;
-}
-.photo-section .proof-image img{
-  width:100%;height:auto;aspect-ratio:4 / 4.35;
-  object-fit:cover;object-position:center top;border-radius:14px;
-  transition:transform 1.2s var(--ease-premium);
-}
-.photo-section .proof-image:hover{transform:translateY(-6px);box-shadow:0 35px 85px rgba(10,34,25,.18)}
-.photo-section .proof-image:hover img{transform:scale(1.035)}
-
-/* ✅ TEXTO SIEMPRE ALINEADO A LA IZQUIERDA */
-.photo-section .proof-copy{
-  max-width:570px;
-  text-align:left;
-}
-.proof-copy h2{
-  font:700 clamp(2.1rem,4vw,3.7rem)/1.04 'Onest',sans-serif;
-  color:var(--green);margin:12px 0 18px;letter-spacing:-.045em;
-  word-wrap:break-word;overflow-wrap:break-word;
-}
-.quote{border-left:2px solid var(--gold);padding-left:18px;color:var(--muted);font-size:1.04rem;margin:20px 0}
-
-/* ✅ PUNTOS - SIEMPRE ALINEADOS A LA IZQUIERDA */
-.proof-points{display:grid;gap:13px;margin:27px 0}
-.proof-points div{
-  display:flex;gap:12px;align-items:flex-start;
-  text-align:left;
-}
-.proof-points b{color:var(--green);min-width:140px;flex-shrink:0;display:block}
-.proof-points span{color:var(--muted);font-size:.9rem;flex:1;min-width:0}
-
-/* =========================================
-   📦 OPTIONS - BADGE VISIBLE
-   ========================================= */
-.options{background:#fff}
-.options-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.option{
-  border:1px solid var(--line);border-radius:14px;padding:30px;
-  position:relative;display:flex;flex-direction:column;
-  min-height:350px;background:#fff;
-  transition:transform .4s var(--ease-premium), box-shadow .4s ease, border-color .35s ease;
-}
-.option:hover{transform:translateY(-8px);box-shadow:var(--shadow);border-color:#b8c9bf}
-.option.featured{border:1px solid var(--gold);box-shadow:0 18px 45px rgba(199,161,90,.14)}
-.option-badge{
-  position:absolute;top:16px;right:16px;border-radius:20px;padding:6px 14px;
-  background:linear-gradient(135deg,var(--gold) 0%,var(--gold-light) 100%);
-  color:white;font-size:.72rem;font-weight:800;letter-spacing:.04em;
-  z-index:3;box-shadow:0 4px 12px rgba(199,161,90,.3);text-transform:uppercase;
-}
-.option-icon{
-  width:45px;height:45px;border-radius:50%;background:var(--sage);
-  display:grid;place-items:center;color:var(--green);font-weight:800;
-  margin-bottom:21px;transition:transform .45s var(--ease-premium);
-}
-.option:hover .option-icon{transform:rotate(-5deg) scale(1.08)}
-.option h3{font:700 1.55rem/1.1 'Onest',sans-serif;color:var(--green);margin:0 0 8px;word-wrap:break-word}
-.option .price{color:var(--gold);font-weight:800;margin-bottom:14px}
-.option p{color:var(--muted);margin:0 0 18px;font-size:.92rem}
-.option ul{padding:0;margin:0 0 22px;list-style:none;color:var(--ink);font-size:.86rem}
-.option li{margin:8px 0}
-.option li:before{content:"✓";color:var(--green-2);font-weight:800;margin-right:8px}
-.option .btn{margin-top:auto;width:100%}
-.small-note{font-size:.76rem;color:var(--muted);margin-top:22px}
-
-.process{background:var(--sage)}
-.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.step{
-  background:white;border-radius:14px;padding:27px;border:1px solid var(--line);
-  transition:transform .4s var(--ease-premium), box-shadow .4s ease;
-}
-.step:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-.step-no{font:800 2.3rem/1 'Onest',sans-serif;color:var(--gold);transition:transform .45s var(--ease-premium)}
-.step:hover .step-no{transform:translateX(5px)}
-.step h3{color:var(--green);margin:15px 0 7px;font-weight:700}
-.step p{color:var(--muted);margin:0;font-size:.92rem}
-
-.form-section{background:var(--deep);color:white}
-.form-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:start}
-.form-copy h2{font:800 clamp(2.3rem,4.2vw,4.1rem)/1.04 'Onest',sans-serif;margin:12px 0 18px;letter-spacing:-.05em;word-wrap:break-word}
-.form-copy p{color:#bcd0c6}
-.form-copy .eyebrow{color:var(--gold-light)}
-.mini-guarantee{margin-top:30px;padding:17px;border:1px solid rgba(255,255,255,.13);border-radius:10px;color:#d7e9dd;font-size:.86rem}
-.lead-form{background:white;color:var(--ink);border-radius:16px;padding:30px;box-shadow:var(--shadow-lg);max-width:100%}
-.mode-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:21px}
-.mode-tabs button{
-  border:1px solid var(--line);border-radius:7px;background:var(--sage);
-  padding:10px 6px;color:var(--muted);font-size:.75rem;font-weight:800;
-  transition:all .3s var(--ease-premium);
-}
-.mode-tabs button.active{background:var(--green);color:white;border-color:var(--green)}
-.field{margin-bottom:15px}
-.field label{display:block;font-weight:800;font-size:.81rem;margin-bottom:6px}
-.field input,.field textarea{
-  width:100%;border:1px solid var(--line);border-radius:7px;
-  padding:12px 13px;outline:none;background:#fff;color:var(--ink);
-  transition:border-color .3s ease, box-shadow .3s ease;max-width:100%;
-}
-.field textarea{min-height:100px;resize:vertical}
-.field input:focus,.field textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(35,107,75,.12)}
-.form-submit{width:100%;border:0}
-.consent{display:flex;gap:9px;align-items:flex-start;font-size:.71rem;color:var(--muted);margin:13px 0}
-.consent input{margin-top:3px;accent-color:var(--green)}
-.consent a{color:var(--green);text-decoration:underline}
-.form-status{font-size:.8rem;color:var(--green);min-height:20px;text-align:center}
-
-.faq{max-width:800px;margin:auto}
-.faq-intro{max-width:600px;margin:10px 0 0;color:var(--muted);line-height:1.7}
-.faq-list{margin-top:30px;border-top:1px solid var(--line)}
-.faq-list details{border-bottom:1px solid var(--line);padding:0;transition:background .35s ease}
-.faq-list details[open]{background:rgba(238,244,240,.5)}
-.faq-list summary{
-  display:grid;grid-template-columns:2.5rem 1fr auto;align-items:center;gap:1rem;
-  padding:1.25rem 0.5rem;list-style:none;cursor:pointer;
-  color:var(--ink);font-size:1rem;font-weight:650;transition:padding-left .35s var(--ease-premium);
-}
-.faq-list summary::-webkit-details-marker{display:none}
-.faq-list summary:hover{padding-left:1rem}
-.faq-number{color:var(--gold);font-size:.72rem;font-weight:800;letter-spacing:.12em;font-family:'Onest',sans-serif}
-.faq-question{line-height:1.45;color:var(--ink);word-wrap:break-word}
-.faq-icon{
-  width:2.15rem;height:2.15rem;display:grid;place-items:center;
-  border:1px solid rgba(23,63,53,.18);border-radius:50%;
-  color:var(--green);font-size:1.25rem;font-weight:400;
-  transition:transform .35s var(--ease-premium),background .35s ease,color .35s ease;flex-shrink:0;
-}
-.faq-list details[open] .faq-icon{transform:rotate(45deg);background:var(--green);color:#fff;border-color:var(--green)}
-.faq-answer{padding:0 0.5rem 1.5rem 3.5rem}
-.faq-answer p{margin:0;max-width:52rem;color:var(--muted);line-height:1.75;font-size:.95rem}
-.faq-cta{
-  margin-top:40px;padding:1.5rem 1.6rem;
-  display:flex;align-items:center;justify-content:space-between;gap:1.5rem;
-  background:var(--green);color:#fff;border-radius:1.5rem;
-  box-shadow:0 20px 50px rgba(10,34,25,.12);flex-wrap:wrap;
-}
-.faq-cta div{display:flex;flex-direction:column;gap:.3rem;flex:1;min-width:200px}
-.faq-cta strong{font-size:1rem}
-.faq-cta span{color:rgba(255,255,255,.68);font-size:.88rem}
-.faq-cta .btn{flex-shrink:0;background:#fff;color:var(--green);border-color:#fff}
-.faq-cta .btn:hover{background:var(--gold);color:#fff;border-color:var(--gold)}
-
-.footer{background:#06170f;color:white;padding:60px 0 40px;margin-top:0;overflow:hidden;position:relative}
-.footer::before{
-  content:"";position:absolute;width:min(22rem,50vw);height:min(22rem,50vw);
-  right:-8rem;top:-10rem;border:1px solid rgba(255,255,255,.08);border-radius:50%;pointer-events:none;
-  box-shadow:0 0 0 4rem rgba(255,255,255,.018),0 0 0 8rem rgba(255,255,255,.012);
-}
-.footer-inner{position:relative;z-index:1}
-.footer-brand{display:flex;align-items:center;gap:1rem;margin-bottom:3rem;flex-wrap:wrap}
-.footer-mark{
-  width:3.2rem;height:3.2rem;display:grid;place-items:center;
-  border:1px solid rgba(255,255,255,.22);border-radius:1rem;
-  color:var(--gold-light);font-size:.8rem;font-weight:800;letter-spacing:.08em;flex-shrink:0;
-}
-.footer-brand strong{display:block;color:#fff;font-size:1.05rem}
-.footer-brand p{margin:.3rem 0 0;color:rgba(255,255,255,.6)}
-.footer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;padding-bottom:3rem}
-.footer-col{display:flex;flex-direction:column;align-items:flex-start;gap:.7rem}
-.footer-label{margin-bottom:.35rem;color:var(--gold-light);font-size:.68rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
-.footer-col a{color:rgba(255,255,255,.68);transition:color .25s ease,transform .25s ease;display:inline-block;word-wrap:break-word}
-.footer-col a:hover{color:#fff;transform:translateX(4px)}
-.footer-divider{height:1px;background:rgba(255,255,255,.12);margin-bottom:1.5rem}
-.footer-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap}
-.footer-bottom .disclaimer{margin:0;max-width:55rem;font-size:.76rem;line-height:1.65;text-align:left;color:rgba(255,255,255,.5);flex:1;min-width:250px}
-.footer-copy{margin:0;white-space:nowrap;color:rgba(255,255,255,.38)!important;font-size:.72rem!important}
-
-.float-wa{
-  position:fixed;right:24px;bottom:24px;z-index:45;
-  display:flex;align-items:center;gap:11px;min-height:58px;
-  padding:9px 18px 9px 10px;border:1px solid rgba(255,255,255,.38);border-radius:999px;
-  background:linear-gradient(135deg,#25d366 0%,#16b957 100%);color:#fff;
-  box-shadow:0 14px 34px rgba(7,73,38,.25),0 4px 12px rgba(0,0,0,.12);
-  font-size:.84rem;font-weight:800;letter-spacing:-.01em;
-  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  transition:transform .28s ease,box-shadow .28s ease;max-width:calc(100vw - 48px);
-}
-.float-wa::before{
-  content:'';width:40px;height:40px;flex:0 0 40px;border-radius:50%;
-  background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.28);
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='white' d='M19.1 17.2c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.5-1.6-.9-.8-1.6-1.8-1.8-2.1-.2-.3 0-.5.1-.7.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-1-2.2-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1 2.9 1.1 3.1c.1.2 2 3 4.9 4.2.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2.1-1.3.3-.6.3-1.1.2-1.3-.1-.2-.3-.3-.6-.5Z'/%3E%3Cpath fill='white' d='M16 3.5A12.5 12.5 0 0 0 5.2 22.3L3.7 28.1l5.9-1.5A12.5 12.5 0 1 0 16 3.5Zm0 22.8c-2 0-4-.5-5.7-1.6l-.4-.2-3.5.9.9-3.4-.2-.4A10.3 10.3 0 1 1 16 26.3Z'/%3E%3C/svg%3E");
-  background-size:23px 23px;background-position:center;background-repeat:no-repeat;
-}
-.float-wa span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.float-wa:hover{transform:translateY(-4px) scale(1.015);box-shadow:0 18px 42px rgba(7,73,38,.32),0 6px 16px rgba(0,0,0,.14);animation:none}
-
-.toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,120%);background:var(--green);color:white;padding:12px 18px;border-radius:8px;z-index:50;transition:.3s ease;max-width:calc(100vw - 40px)}
-.toast.show{transform:translate(-50%,0)}
-
-.cookie-notice{
-  position:fixed;left:18px;right:18px;bottom:18px;z-index:60;
-  background:#fff;border:1px solid #cbded2;border-radius:14px;
-  box-shadow:0 18px 45px rgba(0,0,0,.18);padding:16px 18px;
-  display:flex;gap:18px;align-items:center;justify-content:space-between;max-width:calc(100vw - 36px);
-}
-.cookie-notice[hidden]{display:none}
-.cookie-notice p{margin:0;color:#405b4e;font-size:.78rem;line-height:1.45;max-width:760px}
-.cookie-notice a{color:#164b36;text-decoration:underline}
-.cookie-actions{display:flex;gap:8px;flex-wrap:wrap}
-.cookie-actions button{border-radius:7px;padding:10px 13px;border:1px solid #d9e6dd;font-weight:800;font-size:.76rem}
-.cookie-accept{background:#164b36;color:#fff;border-color:#164b36!important}
-.cookie-reject{background:#eef7f1;color:#164b36}
-
-
-.spotlight-card{position:relative}
-.spotlight-card::before{
-  content:'';position:absolute;inset:0;border-radius:inherit;
-  background:radial-gradient(600px circle at var(--mouse-x,50%) var(--mouse-y,50%),rgba(199,161,90,0.15),transparent 40%);
-  opacity:0;transition:opacity 0.3s;pointer-events:none;z-index:1;
-}
-.spotlight-card:hover::before{opacity:1}
-
-.magnetic-btn{transition:none}
-
-.carousel-3d-section{padding:100px 0;background:var(--deep);color:white;overflow:hidden;position:relative}
-.carousel-3d-container{perspective:1200px;width:100%;max-width:900px;margin:40px auto;height:400px;position:relative;overflow:hidden}
-.carousel-3d{width:100%;height:100%;position:absolute;transform-style:preserve-3d;transition:transform 1s var(--ease-premium);left:50%;transform:translateX(-50%)}
-.carousel-3d-item{
-  position:absolute;width:min(320px,80vw);height:360px;left:50%;top:50%;
-  transform:translate(-50%,-50%);
-  background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);
-  border:1px solid rgba(199,161,90,0.2);border-radius:20px;padding:30px;
-  display:flex;flex-direction:column;justify-content:center;text-align:center;
-  box-shadow:0 20px 50px rgba(0,0,0,0.3);transition:box-shadow 0.3s;
-}
-.carousel-3d-item:hover{box-shadow:0 30px 60px rgba(199,161,90,0.2)}
-.carousel-3d-item h4{color:var(--gold);font-size:1.3rem;margin-bottom:15px}
-.carousel-3d-item p{color:#bcd0c6;font-size:0.95rem;line-height:1.6}
-.carousel-controls{display:flex;justify-content:center;gap:20px;margin-top:30px}
-.carousel-btn{
-  width:50px;height:50px;border-radius:50%;border:1px solid var(--gold);
-  background:transparent;color:var(--gold);font-size:1.2rem;
-  transition:all 0.3s var(--ease-premium);display:flex;align-items:center;justify-content:center;
-}
-.carousel-btn:hover{background:var(--gold);color:var(--deep);transform:scale(1.1)}
-
-#particles-canvas{display:none!important}
-
-.reveal{opacity:0;transform:none;transition:opacity .55s ease}
-.reveal.is-visible{opacity:1;transform:none}
-.reveal-delay-1{transition-delay:.1s}
-.reveal-delay-2{transition-delay:.2s}
-.reveal-delay-3{transition-delay:.3s}
-
-/* =========================================
-   📱 RESPONSIVE - TABLET
-   ========================================= */
-@media(max-width:850px){
-  .nav-links{display:none}
-  .mobile-nav{display:flex}
-  .hero{padding:120px 0 90px}
-  .hero-grid,.proof-grid,.form-grid{grid-template-columns:1fr;gap:38px}
-  .options-grid,.process-grid{grid-template-columns:1fr}
-  .option{min-height:0}
-  .choice-band-inner{flex-direction:column;text-align:center;gap:16px}
-  .choice-band .btn{margin-top:14px;width:100%;max-width:320px}
-  .section{padding:78px 0}
-  .float-wa{right:14px;bottom:14px}
-  .video-meta{flex-direction:column;align-items:flex-start;gap:8px}
-  .form-grid{gap:25px}
-  .carousel-3d-item{width:min(280px,75vw);height:320px}
-  .carousel-3d-container{height:340px}
-  .faq-list summary{grid-template-columns:2.2rem 1fr auto;gap:.8rem;padding:1.1rem .4rem}
-  .faq-answer{padding:0 .4rem 1.3rem 3rem}
-  .faq-cta{flex-direction:column;align-items:flex-start;padding:1.35rem}
-  .faq-cta .btn{width:100%;justify-content:center}
-  .footer-grid{grid-template-columns:1fr 1fr;gap:2rem 1rem}
-  .footer-bottom{flex-direction:column;align-items:flex-start;gap:.8rem}
-  .footer-copy{white-space:normal}
-  
-  /* ✅ FOTO - ALINEACIÓN CORREGIDA EN TABLET */
-  .photo-section .proof-image{width:min(78vw,340px);max-width:340px;margin:0 auto}
-  .photo-section .proof-grid{gap:42px}
-  .photo-section .proof-copy{
-    max-width:100%;
-    text-align:left;
-    margin:0 auto;
-    padding:0 10px;
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#05070c; --card:#0f1626; --ink:#f5f7fc; --muted:#a6b0c4; --rule:#24304a;
+    --board:#0b1f4d; --chalk:#ffffff; --pencil:#9db8ff; --say:#ffd666; --say-bg:#3d3000;
+    --ok:#5fd08f; --ok-bg:#12301f; --bad:#ff8a7a; --bad-bg:#3a1714;
   }
-  .quote{margin:20px auto;max-width:500px}
-  .proof-points{max-width:500px;margin:27px auto}
 }
-
-/* =========================================
-   📱 RESPONSIVE - MÓVIL - SOLUCIÓN DEFINITIVA
-   ========================================= */
-@media(max-width:600px){
-  .wrap{width:calc(100% - 28px) !important;max-width:100% !important}
-  .nav-inner{height:64px}
-  .hero{padding:100px 0 76px}
-  .hero h1{font-size:clamp(2.65rem,13vw,4rem) !important;letter-spacing:-.055em}
-  .hero-lead{font-size:1rem;line-height:1.55}
-  .hero-actions{display:grid;grid-template-columns:1fr;gap:10px}
-  .hero-actions .btn{width:100%;min-height:50px}
-  .trust{display:grid;grid-template-columns:1fr 1fr;gap:9px 12px;font-size:.75rem}
-  .choice-band{padding:22px 0}
-  .section-head{margin-bottom:30px}
-  .section-head h2{font-size:clamp(2rem,10vw,3rem)}
-  .video-section{padding:70px 0}
-  .video-box{border-radius:14px}
-  .video-overlay .video-play{width:62px;height:62px;font-size:1.2rem}
-  .options-grid,.process-grid{gap:14px}
-  .option{padding:24px;min-height:0}
-  .option-badge{top:12px;right:12px;font-size:.68rem;padding:5px 12px}
-  
-  /* ✅ PHOTO SECTION - FORZAR TODO A IZQUIERDA Y CENTRADO */
-  .photo-section .proof-grid{
-    grid-template-columns:1fr !important;
-    grid-template-rows:auto auto !important;
-    gap:32px !important;
-    display:grid !important;
-    width:100% !important;
-    max-width:100% !important;
-    margin:0 !important;
-    padding:0 !important;
-  }
-  
-  .photo-section .proof-image{
-    width:min(72vw,280px) !important;
-    max-width:280px !important;
-    padding:5px !important;
-    border-radius:16px !important;
-    margin:0 auto 20px auto !important;
-    justify-self:center !important;
-    grid-column:1 / -1 !important;
-  }
-  .photo-section .proof-image img{
-    border-radius:11px !important;
-    aspect-ratio:4 / 4.45 !important;
-    width:100% !important;
-  }
-  
-  .photo-section .proof-copy{
-    max-width:100% !important;
-    width:100% !important;
-    padding:0 16px !important;
-    margin:0 !important;
-    text-align:center !important;
-    grid-column:1 / -1 !important;
-    overflow:hidden !important;
-    box-sizing:border-box !important;
-  }
-  
-  .photo-section .proof-copy .eyebrow{
-    display:block !important;
-    text-align:center !important;
-    margin:0 0 12px 0 !important;
-    padding:0 !important;
-    width:100% !important;
-  }
-  
-  .photo-section .proof-copy h2{
-    font-size:clamp(1.8rem,8vw,2.5rem) !important;
-    margin:0 0 16px 0 !important;
-    text-align:center !important;
-    word-wrap:break-word !important;
-    overflow-wrap:break-word !important;
-    width:100% !important;
-    max-width:100% !important;
-    line-height:1.1 !important;
-    padding:0 !important;
-  }
-  
-  .photo-section .quote{
-    font-size:.95rem !important;
-    padding:0 0 0 14px !important;
-    margin:18px auto !important;
-    max-width:100% !important;
-    width:100% !important;
-    text-align:left !important;
-    border-left:2px solid var(--gold) !important;
-    box-sizing:border-box !important;
-  }
-  
-  .photo-section .proof-points{
-    gap:12px !important;
-    margin:24px 0 !important;
-    max-width:100% !important;
-    width:100% !important;
-    display:flex !important;
-    flex-direction:column !important;
-    align-items:stretch !important;
-    padding:0 !important;
-  }
-  
-  .photo-section .proof-points div{
-    flex-direction:column !important;
-    gap:6px !important;
-    padding:14px 16px !important;
-    background:var(--sage) !important;
-    border-radius:12px !important;
-    border-left:3px solid var(--gold) !important;
-    text-align:left !important;
-    width:100% !important;
-    max-width:100% !important;
-    box-sizing:border-box !important;
-    margin:0 !important;
-  }
-  
-  .photo-section .proof-points b{
-    min-width:auto !important;
-    font-size:.95rem !important;
-    margin-bottom:2px !important;
-    text-align:left !important;
-    display:block !important;
-    width:100% !important;
-  }
-  
-  .photo-section .proof-points span{
-    font-size:.88rem !important;
-    line-height:1.5 !important;
-    text-align:left !important;
-    display:block !important;
-    width:100% !important;
-  }
-  
-  .photo-section .proof-copy .btn{
-    width:100% !important;
-    margin:20px 0 0 0 !important;
-    display:flex !important;
-    justify-content:center !important;
-    max-width:100% !important;
-  }
-  
-  .proof-copy h2,.form-copy h2{font-size:clamp(2rem,10vw,3rem)}
-  .mode-tabs{grid-template-columns:1fr!important}
-  .mode-tabs button{min-height:44px}
-  .lead-form{padding:18px}
-  .field input,.field textarea{font-size:16px;min-height:48px}
-  .field textarea{min-height:110px}
-  .form-submit{min-height:52px}
-  .faq-list summary{grid-template-columns:2rem 1fr 2rem;gap:.6rem;padding:1rem .3rem;font-size:.94rem}
-  .faq-number{font-size:.65rem}
-  .faq-icon{width:2rem;height:2rem;font-size:1.1rem}
-  .faq-answer{padding:0 .3rem 1.2rem 2.6rem}
-  .faq-answer p{font-size:.9rem}
-  .faq-cta{margin-top:24px;padding:1.25rem;border-radius:1.25rem}
-  .faq-cta strong{font-size:.95rem}
-  .faq-cta span{font-size:.82rem}
-  .faq-cta .btn{min-height:50px;font-size:.9rem}
-  .footer{padding:50px 0 30px}
-  .footer-brand{margin-bottom:2rem}
-  .footer-mark{width:2.8rem;height:2.8rem;font-size:.7rem}
-  .footer-grid{grid-template-columns:1fr;gap:1.5rem;padding-bottom:2rem}
-  .carousel-3d-section{padding:70px 0}
-  .carousel-3d-item{width:min(240px,70vw);height:280px;padding:20px}
-  .carousel-3d-item h4{font-size:1.1rem}
-  .carousel-3d-item p{font-size:.88rem}
-  .carousel-3d-container{height:300px}
-  .carousel-btn{width:44px;height:44px;font-size:1rem}
-  .float-wa{max-width:calc(100vw - 28px);right:14px;bottom:14px}
-  .float-wa span{white-space:nowrap}
-  .cookie-notice{left:12px;right:12px;bottom:12px;flex-direction:column;align-items:stretch;gap:12px}
-  .cookie-actions{width:100%}
-  .cookie-actions button{flex:1;min-height:44px}
-}
-
-@media(max-width:390px){
-  .wrap{width:calc(100% - 24px)}
-  .brand{font-size:.98rem}
-  .brand span{font-size:.49rem}
-  .hero h1{font-size:2.45rem}
-  .trust{grid-template-columns:1fr}
-  .option-badge{top:10px;right:10px;font-size:.64rem;padding:4px 10px}
-}
-
-@media(prefers-reduced-motion:reduce){
-  *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
-}
-
-/* ===== NUEVO RECORRIDO: PAÍS → NECESIDAD → CARRITO ===== */
-.selection-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
-.selection-btn,.need-card{border:1px solid var(--line);background:#fff;border-radius:16px;padding:20px;text-align:left;transition:all .35s var(--ease-premium)}
-.selection-btn:hover,.need-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--gold)}
-.selection-btn.active,.need-card.active{border-color:var(--gold);box-shadow:0 14px 35px rgba(199,161,90,.16);background:linear-gradient(145deg,#fff,#fbfaf6)}
-.selection-icon{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--sage);color:var(--green);font-weight:800;margin-bottom:13px}
-.selection-btn strong,.need-card strong{display:block;color:var(--green);font-size:1rem}
-.selection-btn span,.need-card span{display:block;color:var(--muted);font-size:.78rem;margin-top:5px}
-.need-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-
-/* ===== CARRITO VISUAL — ligero, premium y sin aspecto de tarjeta ===== */
-.cart-area{background:linear-gradient(145deg,#f3f7f4 0%,#eaf2ed 100%);border-radius:26px;padding:34px;position:relative;overflow:hidden}
-.cart-area:before{content:"";position:absolute;width:360px;height:360px;border:1px solid rgba(199,161,90,.16);border-radius:50%;right:-190px;top:-190px;pointer-events:none}
-.cart-empty{text-align:center;padding:50px 20px;color:var(--muted)}
-
-.cart-stage{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);gap:38px;align-items:center}
-.cart-visual{position:relative;min-height:340px;padding:24px 18px 12px}
-.cart-handle{position:absolute;left:12%;top:30px;width:72px;height:112px;border:7px solid var(--green);border-right:0;border-radius:24px 0 0 24px;transform:skewY(-8deg)}
-.cart-handle:after{content:"";position:absolute;right:-7px;top:-7px;width:22px;height:7px;background:var(--green);border-radius:0 5px 5px 0}
-.cart-basket{position:absolute;left:18%;right:6%;top:78px;height:190px;border:3px solid var(--green);border-top-width:7px;border-radius:12px 12px 30px 30px;background:rgba(255,255,255,.82);transform:skewX(-5deg);box-shadow:0 20px 45px rgba(18,61,44,.09);overflow:hidden}
-.cart-basket:before{content:"";position:absolute;inset:18px 15px 22px;background:repeating-linear-gradient(90deg,transparent 0 28px,rgba(18,61,44,.08) 29px 31px),repeating-linear-gradient(0deg,transparent 0 25px,rgba(18,61,44,.06) 26px 28px);border-radius:8px}
-.cart-basket-top{position:absolute;left:-5px;right:-5px;top:-7px;height:9px;background:var(--green);border-radius:10px}
-.cart-items{position:absolute;inset:22px 20px 20px;display:flex;align-items:flex-end;justify-content:center;gap:10px;z-index:2}
-.cart-item{width:62px;height:88px;border-radius:9px 9px 6px 6px;background:#fff;border:1px solid rgba(18,61,44,.14);box-shadow:0 10px 22px rgba(10,34,25,.08);overflow:hidden;display:flex;align-items:flex-end;justify-content:center;position:relative}
-.cart-item:nth-child(2){height:108px;width:70px}
-.cart-item:nth-child(3){height:78px}
-.cart-item:before{content:"";position:absolute;left:8px;right:8px;top:12px;height:8px;border-radius:5px;background:var(--gold-light)}
-.cart-item:after{content:"";position:absolute;left:10px;right:10px;top:28px;height:3px;background:rgba(18,61,44,.13);box-shadow:0 9px 0 rgba(18,61,44,.09),0 18px 0 rgba(18,61,44,.07)}
-.cart-item-label{position:absolute;bottom:7px;left:5px;right:5px;text-align:center;font-size:.48rem;line-height:1.1;font-weight:800;color:var(--green);text-transform:uppercase}
-.cart-wheel{position:absolute;top:274px;width:40px;height:40px;border-radius:50%;background:var(--deep);border:7px solid #fff;box-shadow:0 0 0 2px var(--green)}
-.cart-wheel.left{left:27%}.cart-wheel.right{right:10%}
-.cart-visual-caption{text-align:center;margin-top:305px;color:var(--muted);font-size:.76rem;letter-spacing:.04em;text-transform:uppercase;font-weight:700}
-
-.cart-info{padding:8px 0}
-.cart-badge{display:inline-flex;padding:6px 11px;border-radius:999px;background:var(--gold-light);color:var(--deep);font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
-.cart-info h3{color:var(--green);font-size:clamp(1.7rem,3vw,2.35rem);line-height:1.08;letter-spacing:-.035em;margin:12px 0 14px}
-.cart-info p{color:var(--muted);max-width:620px}
-.cart-summary{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0}
-.cart-summary span{padding:7px 11px;border:1px solid rgba(18,61,44,.11);border-radius:999px;background:rgba(255,255,255,.7);color:var(--green);font-size:.76rem;font-weight:700}
-.cart-card-actions{display:flex;flex-direction:column;align-items:flex-start;gap:10px;min-width:0;margin-top:24px}
-.cart-card-actions .btn{width:100%}
-.cart-note{font-size:.76rem!important;color:var(--muted)!important;margin:0!important;line-height:1.5}
-.product-details-btn{border:0;background:transparent;color:var(--green);font-weight:800;font-size:.82rem;padding:4px 0;margin-top:4px}
-.product-details-btn:hover{color:var(--gold)}
-
-.btn-disabled{background:#e9eeeb!important;color:#75837d!important;box-shadow:none!important;cursor:not-allowed!important}
-.how-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
-.tutorial-placeholder{border:1px dashed rgba(199,161,90,.5);background:rgba(255,255,255,.05);border-radius:16px;min-height:120px;display:grid;place-items:center;text-align:center;padding:20px;color:#bcd0c6}
-.tutorial-placeholder strong{color:var(--gold-light);display:block;margin-bottom:5px}
-.helper-band{background:var(--deep);color:#fff;padding:55px 0}
-.helper-inner{display:flex;align-items:center;justify-content:space-between;gap:25px;flex-wrap:wrap}
-.helper-inner h2{font-size:clamp(1.8rem,3.5vw,3rem);color:#fff;margin:8px 0}
-.helper-inner p{color:#bcd0c6;max-width:650px}
-@media(max-width:1000px){
-  .selection-grid{grid-template-columns:repeat(3,1fr)}
-  .need-grid{grid-template-columns:repeat(2,1fr)}
-  .how-grid{grid-template-columns:repeat(3,1fr)}
-  .cart-stage{grid-template-columns:1fr;gap:10px}
-  .cart-visual{max-width:620px;width:100%;margin:auto}
-  .cart-info{text-align:center}
-  .cart-info p{margin-inline:auto}
-  .cart-summary{justify-content:center}
-  .cart-card-actions{align-items:center}
-}
-@media(max-width:700px){
-  .selection-grid,.need-grid,.how-grid{grid-template-columns:1fr 1fr}
-  .cart-area{padding:20px}
-  .cart-visual{min-height:300px;padding:10px 0}
-  .cart-handle{left:8%;top:27px}
-  .cart-basket{left:15%;right:2%;top:72px;height:165px}
-  .cart-wheel{top:246px}
-  .cart-visual-caption{margin-top:275px}
-}
-@media(max-width:450px){
-  .selection-grid,.need-grid,.how-grid{grid-template-columns:1fr}
-  .cart-area{padding:16px}
-  .cart-handle{left:4%;transform:skewY(-8deg) scale(.9);transform-origin:top left}
-  .cart-basket{left:12%;right:0;height:150px}
-  .cart-items{gap:6px}
-  .cart-item{width:48px;height:72px}
-  .cart-item:nth-child(2){width:55px;height:88px}
-  .cart-item:nth-child(3){height:64px}
-  .cart-wheel{top:225px;width:34px;height:34px}
-  .cart-wheel.left{left:23%}.cart-wheel.right{right:7%}
-  .cart-visual-caption{margin-top:250px}
-}
-
-/* ANIMACIONES FLUIDAS — sin ciclos infinitos ni parpadeos */
-html{scroll-behavior:smooth!important}
-.site-nav{transition:background .3s ease,box-shadow .3s ease,border-color .3s ease}
-.brand,.brand span{transition:transform .3s var(--ease-premium),opacity .3s ease}
-.reveal{opacity:0;transform:translate3d(0,18px,0);transition:opacity .7s ease,transform .7s var(--ease-premium);will-change:opacity,transform}
-.reveal.is-visible{opacity:1;transform:none}
-.scroll-progress-3d,#particles-canvas,.cursor-dot,.cursor-outline,.loading-screen,.page-transition-overlay{display:none!important}
-@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
-
-/* IMÁGENES DE CATEGORÍAS — integradas sin cambiar la estructura visual */
-.need-card{overflow:hidden;padding-top:0!important;}
-.need-card-image-wrap{height:150px;margin:0 -24px 20px;overflow:hidden;background:#f3f5f2;}
-.need-card-image{width:100%;height:100%;object-fit:cover;display:block;}
-.need-card .selection-icon{margin-top:0;}
-.cart-result-image-wrap{width:100%;height:210px;margin-bottom:20px;overflow:hidden;border-radius:16px;background:#f3f5f2;}
-.cart-result-image{width:100%;height:100%;object-fit:cover;display:block;}
-
-
-
-/* ===== FLUJO SECUENCIAL SIN DOBLE BARRA DE SCROLL =====
-   El documento usa UNA sola barra de desplazamiento.
-   Los pasos siguientes permanecen ocultos hasta pulsar Continuar.
-*/
-.flow-gated-step.is-hidden{display:none!important;}
-.flow-lock-note{text-align:center;margin:14px auto 0;color:var(--muted);font-size:.78rem;opacity:.82;}
-@media(max-width:600px){
-  .flow-gated-step.is-hidden{display:none!important;}
-}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 "Segoe UI",system-ui,sans-serif}
+header{background:var(--board);color:var(--chalk);padding:18px 16px}
+header h1{margin:0;font-size:24px}
+header p{margin:4px 0 0;opacity:.85;font-size:15px}
+main{max-width:760px;margin:0 auto;padding:16px}
+label.pick{display:block;font-weight:700;margin-bottom:6px}
+select{width:100%;font:inherit;padding:10px;border-radius:10px;border:1px solid var(--rule);background:var(--card);color:var(--ink)}
+.warn{background:var(--bad-bg);color:var(--bad);border-radius:12px;padding:12px 14px;margin:12px 0;font-weight:700}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:18px;padding:20px;margin:16px 0}
+.count{color:var(--muted);font-size:14px;margin-bottom:6px}
+.en{font-size:clamp(22px,5.5vw,30px);font-weight:700;line-height:1.35;margin:0 0 8px}
+.en span{border-radius:6px;padding:0 2px}
+.en span.ok{background:var(--ok-bg);color:var(--ok)}
+.en span.bad{background:var(--bad-bg);color:var(--bad);text-decoration:underline wavy}
+.say{display:inline-block;background:var(--say-bg);color:var(--say);border-radius:8px;padding:2px 8px;font-weight:700;margin-bottom:6px}
+.es{color:var(--muted);margin:4px 0 0}
+.row{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+button{font:inherit;font-weight:700;border-radius:999px;border:1px solid var(--rule);background:var(--paper);color:var(--ink);padding:10px 18px;cursor:pointer}
+button:disabled{opacity:.5;cursor:default}
+#mic{background:var(--bad);border-color:var(--bad);color:#fff;font-size:19px;padding:14px 26px}
+#mic[aria-pressed="true"]{animation:pulse 1.2s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 10px color-mix(in srgb,var(--bad) 25%,transparent)}}
+@media (prefers-reduced-motion:reduce){#mic[aria-pressed="true"]{animation:none}}
+.result{margin-top:16px;border-top:1px solid var(--rule);padding-top:14px;min-height:48px}
+.heard{color:var(--muted)}
+.score{font-size:26px;font-weight:800}
+.score.good{color:var(--ok)} .score.mid{color:var(--say)} .score.low{color:var(--bad)}
+.miss{margin-top:8px}
+.miss b{color:var(--bad)}
+.nav{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.help{color:var(--muted);font-size:15px}
+.help li{margin-bottom:4px}
 </style>
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6J8EMMPLPZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-6J8EMMPLPZ');
-</script>
-
-<style>
-.flow-confirm{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;margin:28px auto 0;max-width:900px;padding:18px 20px;border:1px solid rgba(255,255,255,.10);border-radius:18px;background:rgba(255,255,255,.035);backdrop-filter:blur(10px);transition:opacity .35s ease,transform .35s ease}
-.flow-selection-message{font-size:.92rem;letter-spacing:.01em;color:var(--muted);min-height:24px}
-.flow-selection-message strong{color:inherit}
-.flow-lock-note{flex:0 0 100%;text-align:center}
-.flow-confirm .btn:disabled{opacity:.38;cursor:not-allowed;transform:none}
-.premium-steps .step{transition:transform .3s ease,box-shadow .3s ease}
-.premium-steps .step:hover{transform:translateY(-4px)}
-@media (max-width:600px){
-  .flow-confirm{margin-top:20px;padding:16px}
-}
-</style>
-
-
-<style>
-/* ===== PRODUCTOS EN UNA SOLA FILA — TAMAÑO NORMAL ===== */
-.product-mini-grid{
-  display:flex !important;
-  flex-wrap:nowrap !important;
-  gap:12px !important;
-  overflow-x:auto !important;
-  overflow-y:hidden !important;
-  padding:4px 4px 12px !important;
-  scroll-snap-type:x proximity;
-  -webkit-overflow-scrolling:touch;
-}
-.product-mini{
-  flex:0 0 92px !important;
-  width:92px !important;
-  min-width:92px !important;
-  scroll-snap-align:start;
-  padding:7px !important;
-}
-.product-mini img{
-  width:100% !important;
-  aspect-ratio:1/1 !important;
-  object-fit:contain !important;
-}
-.product-mini-grid::-webkit-scrollbar{height:6px}
-.product-mini-grid::-webkit-scrollbar-thumb{
-  background:rgba(18,61,44,.22);
-  border-radius:999px;
-}
-.product-mini-grid::-webkit-scrollbar-track{background:rgba(18,61,44,.06);border-radius:999px}
-@media(max-width:600px){
-  .product-mini-grid{
-    gap:8px !important;
-    padding-bottom:9px !important;
-  }
-  .product-mini{
-    flex-basis:76px !important;
-    width:76px !important;
-    min-width:76px !important;
-    padding:6px !important;
-  }
-}
-
-/* ===== FLUIDEZ EXTRA PARA MÓVIL =====
-/* El scroll táctil queda nativo; solo las transiciones programáticas usan suavizado. */
-@media (max-width: 600px){
-  html{scroll-behavior:auto!important;}
-  body{touch-action:pan-y;overscroll-behavior-y:auto;}
-  .site-nav{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
-  .mobile-menu{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
-  .selection-grid,.need-grid{contain:layout paint;}
-  .selection-btn,.need-card{transition:transform .18s ease,border-color .18s ease,background-color .18s ease,box-shadow .18s ease;}
-  .selection-btn:hover,.need-card:hover{transform:none;box-shadow:none;}
-  .selection-btn:active,.need-card:active{transform:scale(.99);}
-  .selection-btn.active,.need-card.active{box-shadow:0 8px 22px rgba(199,161,90,.12);}
-  .reveal{will-change:auto;transition:opacity .35s ease;}
-  .float-wa{backdrop-filter:none;-webkit-backdrop-filter:none;}
-}
-
-/* ===== DETALLES DE PRODUCTOS ===== */
-.product-details-btn{margin-top:18px;background:transparent;border:1px solid var(--gold);color:var(--green);padding:10px 16px;border-radius:999px;font-weight:800;font-size:.82rem;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:all .25s ease}
-.product-details-btn:hover{background:var(--gold);color:#fff;transform:translateY(-2px)}
-.product-modal{position:fixed;inset:0;z-index:2000;display:grid;place-items:center;padding:20px;background:rgba(7,27,20,.62);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
-.product-modal[hidden]{display:none}
-.product-modal-card{width:min(720px,100%);max-height:min(82vh,760px);overflow:auto;background:#fff;border-radius:22px;padding:26px;box-shadow:0 35px 100px rgba(0,0,0,.28);position:relative}
-.product-modal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:20px}
-.product-modal-head h3{color:var(--green);font-size:1.35rem;margin:0}
-.product-modal-close{width:38px;height:38px;border:1px solid var(--line);border-radius:50%;background:#fff;color:var(--green);font-size:1.2rem;display:grid;place-items:center;flex:0 0 auto}
-.product-mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.product-mini{border:1px solid var(--line);border-radius:14px;background:#fbfaf6;padding:10px;min-width:0}
-.product-mini img{width:100%;aspect-ratio:1/1;object-fit:contain;border-radius:10px;background:#fff}
-.product-modal-note{margin-top:16px;color:var(--muted);font-size:.76rem;text-align:center}
-@media(max-width:600px){.product-modal{padding:12px}.product-modal-card{padding:18px;border-radius:18px;max-height:88vh}.product-mini-grid{grid-template-columns:repeat(2,1fr);gap:10px}.product-details-btn{width:100%}}
-
-/* ===== OPCIÓN DE PERSONALIZACIÓN ===== */
-.need-card[data-need="personalizado"]{border-color:rgba(199,161,90,.55);background:linear-gradient(145deg,#fffdf8,#fbfaf6)}
-.need-card[data-need="personalizado"] .selection-icon{background:var(--gold-light);color:var(--deep)}
-</style>
-<style>\n
-/* ===== TESTIMONIOS EN VIDEO ===== */
-.testimonials-section{padding:88px 0;background:linear-gradient(145deg,#fbfaf6 0%,#eef4f0 100%)}
-.testimonials-layout{display:grid;grid-template-columns:minmax(0,.85fr) minmax(260px,1fr);gap:48px;align-items:center}
-.testimonials-copy h2{font-size:clamp(2.1rem,4.2vw,3.7rem);line-height:1.05;letter-spacing:-.045em;color:var(--green);margin:12px 0 18px}
-.testimonials-copy p{color:var(--muted);max-width:540px}
-.testimonials-copy .eyebrow{color:var(--gold)}
-.testimonials-note{margin-top:18px;font-size:.78rem;color:var(--muted)}
-.testimonials-player{width:min(100%,390px);justify-self:center;position:relative;border-radius:22px;overflow:hidden;background:#071b14;border:1px solid rgba(199,161,90,.45);box-shadow:var(--shadow-lg)}
-.testimonials-player video{display:block;width:100%;height:auto;aspect-ratio:9/16;object-fit:contain;background:#071b14}
-.testimonials-player video::cue{color:#fff;background:rgba(7,27,20,.88);font-weight:700}
-.testimonials-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
-@media(max-width:800px){.testimonials-section{padding:68px 0}.testimonials-layout{grid-template-columns:1fr;gap:28px}.testimonials-copy{text-align:center}.testimonials-copy p{margin-inline:auto}.testimonials-cta{justify-content:center}.testimonials-player{width:min(100%,340px)}}
-\n</style>\n</head>
-
+</head>
 <body>
-
-<div class="loading-sub">Hamilton Granillo</div><div class="loading-bar"><div class="loading-bar-fill"></div></div></div>
-<div class="scroll-progress-3d" id="scrollProgress"></div>
-
-
-<header class="site-nav" id="siteNav">
-  <div class="wrap nav-inner">
-    <a class="brand" href="#inicio">Hamilton Granillo <span>Distribuidor Independiente</span></a>
-    <nav class="nav-links" aria-label="Navegación principal">
-      <a href="#paises">Países</a><a href="#carritos">Carritos</a><a href="#testimonios">Testimonios</a><a href="#como-pedir">Cómo pedir</a><a href="#preguntas">Preguntas</a>
-      <a class="btn btn-primary magnetic-btn" href="#paises">Ver carritos</a>
-    </nav>
-    <button class="mobile-nav" id="mobileNavToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
-      <div class="mobile-nav-lines"><span></span><span></span><span></span></div>
-    </button>
-  </div>
-  <nav class="mobile-menu" id="mobileMenu" aria-label="Navegación móvil">
-    <a href="#paises">Países</a><a href="#carritos">Carritos</a><a href="#testimonios">Testimonios</a><a href="#como-pedir">Cómo pedir</a><a href="#preguntas">Preguntas frecuentes</a>
-    <a class="mobile-menu-cta" href="#paises">Ver carritos <span>→</span></a>
-  </nav>
+<header>
+  <h1>🎤 Pronunciación · BUCK Nivel 1</h1>
+  <p>Escucha la frase del libro, dila en voz alta y mira qué palabras te salieron bien.</p>
 </header>
-
 <main>
+  <div class="warn" id="noSR" hidden>Este navegador no reconoce la voz. Abre este archivo en <b>Google Chrome</b> o <b>Microsoft Edge</b>.</div>
+  <label class="pick" for="group">¿Qué quieres practicar?</label>
+  <select id="group"></select>
 
-<section class="hero" id="inicio">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="eyebrow reveal">Compra de forma sencilla</div>
-      <h1 class="reveal reveal-delay-1">Encuentra el carrito<br><em>ideal para ti.</em></h1>
-  <p class="hero-lead reveal reveal-delay-1">Elige tu país, selecciona lo que buscas y encuentra un carrito recomendado para revisar y comprar de forma sencilla.</p>
-      <div class="hero-actions reveal reveal-delay-2">
-        <a class="btn btn-primary magnetic-btn" href="#paises">Explorar carritos <span>↓</span></a>
-        <a class="btn btn-light magnetic-btn" href="#como-pedir">¿Cómo hago mi pedido?</a>
-      </div>
-      <div class="trust reveal reveal-delay-3"><span>Carritos prearmados</span><span>Carrito personalizado</span><span>Ayuda por WhatsApp</span></div>
+  <section class="card" aria-live="polite">
+    <div class="count" id="count"></div>
+    <p class="en" id="en"></p>
+    <div class="say" id="say"></div>
+    <p class="es" id="es"></p>
+    <div class="row">
+      <button id="listen">🔊 Oír</button>
+      <button id="slow">🐢 Lento</button>
+      <button id="mic" aria-pressed="false">🎤 Decirlo</button>
     </div>
+    <div class="result" id="result"><span class="help">Toca <b>🔊 Oír</b>, luego <b>🎤 Decirlo</b> y repite la frase.</span></div>
+  </section>
+
+  <div class="nav">
+    <button id="prev">◀ Anterior</button>
+    <button id="rand">🔀 Otra al azar</button>
+    <button id="next">Siguiente ▶</button>
   </div>
-</section>
 
-<section class="choice-band reveal">
-  <div class="wrap choice-band-inner">
-    <div><strong>¿No sabes qué carrito elegir?</strong><p>Selecciona tu país y lo que estás buscando. Te mostramos la selección disponible.</p></div>
-    <a class="btn magnetic-btn" href="#paises">Empezar ahora</a>
-  </div>
-</section>
-
-<section class="section flow-gated-step" id="paises">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow">Paso 01</div><h2>Primero, elige tu país.</h2>
-      <p>Selecciona una bandera para confirmar tu país y continuar.</p>
-    </div>
-    <div class="selection-grid" id="countryGrid"></div>
-    <div class="flow-confirm" id="countryConfirm" aria-live="polite">
-      <div class="flow-selection-message" id="countrySelectionMessage"></div>
-      <button class="btn btn-primary" id="countryContinue" type="button" disabled>Continuar <span>→</span></button>
-      <div class="flow-lock-note" id="countryLockNote">Selecciona un país y pulsa <strong>Continuar</strong> para pasar al siguiente paso.</div>
-    </div>
-  </div>
-</section>
-
-<section class="section options mobile-flow-step flow-gated-step is-hidden" id="necesidades">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow">Paso 02</div><h2>¿Qué estás buscando?</h2>
-      <p>Elige una categoría para confirmar tu necesidad y continuar.</p>
-    </div>
-    <div class="need-grid" id="needGrid"></div>
-    <div class="flow-confirm" id="needConfirm" aria-live="polite">
-      <div class="flow-selection-message" id="needSelectionMessage"></div>
-      <button class="btn btn-primary" id="needContinue" type="button" disabled>Continuar <span>→</span></button>
-      <div class="flow-lock-note" id="needLockNote">Selecciona una opción y pulsa <strong>Continuar</strong> para ver tu carrito.</div>
-    </div>
-  </div>
-</section>
-
-<section class="section mobile-flow-step flow-gated-step is-hidden" id="carritos">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow">Paso 03</div><h2>Tu carrito recomendado.</h2>
-      <p id="cartIntro">Selecciona un país y una categoría para ver la opción disponible.</p>
-    </div>
-    <div class="cart-area" id="cartArea">
-      <div class="cart-empty">Selecciona tu país y lo que estás buscando para mostrar tu carrito.</div>
-    </div>
-  </div>
-</section>
-
-
-<section class="testimonials-section" id="testimonios">
-  <div class="wrap testimonials-layout">
-    <div class="testimonials-copy reveal">
-      <div class="eyebrow">Experiencias personales</div>
-      <h2>Testimonios de personas</h2>
-      <p>Conoce las experiencias que distintas personas comparten sobre su camino de bienestar y los productos OMNILIFE.</p>
-      <p class="testimonials-note">Cada experiencia es personal y los resultados pueden variar. Estos testimonios no sustituyen la orientación de un profesional de la salud.</p>
-      <div class="testimonials-cta">
-        <a class="btn btn-primary" href="#paises">Explorar carritos <span>→</span></a>
-      </div>
-    </div>
-    <div class="testimonials-player reveal reveal-delay-1">
-      <video controls playsinline preload="metadata" poster="portada_testimonios_conversion.jpg" aria-label="Video de testimonios de personas">
-        <source src="testimonios_omnilife_con_sonido.mp4" type="video/mp4">
-        Tu navegador no puede reproducir este video. Puedes descargarlo o abrirlo en otro navegador.
-      </video>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="como-pedir">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow">Compra paso a paso</div>
-      <h2>Tu proceso, claro y sencillo.</h2>
-      <p>Avanza paso a paso: selecciona tu país, pulsa Continuar, elige lo que buscas, pulsa Continuar y finalmente revisa tu carrito para recibirlo por WhatsApp.</p>
-    </div>
-    <div class="how-grid premium-steps">
-      <article class="step"><div class="step-no">01</div><h3>Elige tu país</h3><p>Selecciona <strong>México</strong> o <strong>Estados Unidos</strong>. Verás tu selección confirmada antes de continuar.</p></article>
-      <article class="step"><div class="step-no">02</div><h3>Selecciona lo que buscas</h3><p>Elige un carrito recomendado o selecciona <strong>Personaliza tus productos</strong> para armar tu propia selección.</p></article>
-      <article class="step"><div class="step-no">03</div><h3>Revisa tu carrito</h3><p>Visualiza el carrito recomendado según el país y la necesidad que seleccionaste.</p></article>
-      <article class="step"><div class="step-no">04</div><h3>Recibe tu carrito por WhatsApp</h3><p>Haz clic en <strong>“Recibir mi carrito por WhatsApp”</strong> para continuar con tu asesoramiento.</p></article>
-      <article class="step"><div class="step-no">05</div><h3>Recibe acompañamiento</h3><p>Podremos conocer tu selección, resolver tus dudas y dar seguimiento a tu proceso.</p></article>
-    </div>
-  </div>
-</section>
-
-<section class="section photo-section">
-  <div class="wrap proof-grid">
-    <div class="proof-image reveal"><img src="Hamilton.jpg" alt="Hamilton Granillo brinda asesoría personalizada" loading="lazy" width="1000" height="1000"></div>
-    <div class="proof-copy">
-      <div class="eyebrow reveal">Por qué contar conmigo</div>
-      <h2 class="reveal reveal-delay-1">Una orientación clara para elegir y comprar.</h2>
-      <p class="quote reveal reveal-delay-2">"Encuentra tu carrito, revisa tus opciones y, si tienes alguna duda, puedes escribirme directamente."</p>
-      <div class="proof-points">
-        <div class="reveal reveal-delay-1"><b>✓ Selección sencilla</b><span>Elige primero tu país y después la categoría que te interesa.</span></div>
-        <div class="reveal reveal-delay-2"><b>✓ Información clara</b><span>Conoce qué opción estás abriendo antes de continuar.</span></div>
-        <div class="reveal reveal-delay-3"><b>✓ Ayuda personal</b><span>Si necesitas orientación, puedes contactarme por WhatsApp.</span></div>
-      </div>
-      
-      <a class="btn btn-primary magnetic-btn reveal reveal-delay-3" href="https://wa.me/593968107948?text=Hola%20Hamilton%2C%20necesito%20ayuda%20para%20elegir%20un%20carrito%20Omnilife." target="_blank" rel="noopener">Hablar por WhatsApp</a>
-    </div>
-  </div>
-</section>
-
-<section class="helper-band">
-  <div class="wrap helper-inner">
-    <div><div class="eyebrow">¿Necesitas ayuda?</div><h2>Te ayudo a encontrar tu opción.</h2><p>Si no sabes qué categoría seleccionar o tienes dudas sobre el proceso, escríbeme directamente.</p></div>
-    <a class="btn btn-light magnetic-btn" href="https://wa.me/593968107948?text=Hola%20Hamilton%2C%20quiero%20ayuda%20para%20elegir%20un%20carrito%20Omnilife." target="_blank" rel="noopener">Escribirme por WhatsApp</a>
-  </div>
-</section>
-
-<section class="section" id="preguntas">
-  <div class="wrap faq">
-    <div class="section-head reveal"><div class="eyebrow">Preguntas frecuentes</div><h2>Lo esencial antes de comprar.</h2><p class="faq-intro">Respuestas rápidas sobre el funcionamiento de esta página y los carritos.</p></div>
-    <div class="faq-list">
-      <details><summary><span class="faq-number">01</span><span class="faq-question">¿Qué es un carrito prearmado?</span><span class="faq-icon">+</span></summary><div class="faq-answer"><p>Es una selección de productos preparada previamente para facilitarte el proceso. Tú eliges tu país y lo que estás buscando, y la página te muestra la opción correspondiente.</p></div></details>
-      <details><summary><span class="faq-number">02</span><span class="faq-question">¿Cómo funciona el proceso?</span><span class="faq-icon">+</span></summary><div class="faq-answer"><p>Primero seleccionas México o Estados Unidos, luego eliges lo que estás buscando y finalmente revisas el carrito que corresponde a tu selección.</p></div></details>
-      <details><summary><span class="faq-number">03</span><span class="faq-question">¿Puedo modificar mi carrito?</span><span class="faq-icon">+</span></summary><div class="faq-answer"><p>La selección que aparece en la página corresponde a la opción recomendada. Antes de continuar, puedes revisar la información y conversar conmigo si necesitas orientación.</p></div></details>
-      <details><summary><span class="faq-number">04</span><span class="faq-question">¿Puedo pedir ayuda para elegir?</span><span class="faq-icon">+</span></summary><div class="faq-answer"><p>Sí. Puedes solicitar asesoramiento para conocer mejor tu selección, resolver dudas y recibir acompañamiento durante el proceso.</p></div></details>
-      <details><summary><span class="faq-number">05</span><span class="faq-question">¿Por qué recibir mi carrito por WhatsApp?</span><span class="faq-icon">+</span></summary><div class="faq-answer"><p>Porque así podemos conocer tu selección, brindarte asesoramiento personalizado y acompañarte durante el proceso, resolviendo tus dudas y dando seguimiento para ayudarte a obtener los mejores resultados.</p></div></details>
-    </div>
-    <div class="faq-cta reveal"><div><strong>¿Todavía tienes dudas?</strong><span>Escríbeme y revisamos juntos tu opción.</span></div><a class="btn" href="https://wa.me/593968107948?text=Hola%20Hamilton%2C%20tengo%20una%20duda%20sobre%20los%20carritos." target="_blank" rel="noopener">Contactarme</a></div>
-  </div>
-</section>
+  <section class="help">
+    <h2 style="font-size:18px;color:var(--ink)">Cómo usarla</h2>
+    <ol>
+      <li>La primera vez, el navegador te pregunta si puede usar el micrófono: toca <b>Permitir</b>.</li>
+      <li>Toca <b>🎤 Decirlo</b> y di la frase completa, despacio y claro. Se detiene sola cuando terminas.</li>
+      <li><span style="color:var(--ok);font-weight:700">Verde</span> = la dijiste bien. <span style="color:var(--bad);font-weight:700">Rojo</span> = no se entendió: mira su pronunciación, oye la frase otra vez y repite.</li>
+      <li>Necesitas internet: Chrome y Edge reconocen la voz en línea.</li>
+    </ol>
+  </section>
 </main>
-
-
-<footer class="footer">
-  <div class="wrap footer-inner">
-    <div class="footer-brand"><div class="footer-mark">HG</div><div><strong>Hamilton Granillo</strong><p>Distribuidor Independiente</p></div></div>
-    <div class="footer-grid">
-      <div class="footer-col"><div class="footer-label">Navegación</div><a href="#paises">Países</a><a href="#carritos">Carritos</a><a href="#como-pedir">Cómo pedir</a></div>
-      <div class="footer-col"><div class="footer-label">Ayuda</div><a href="#preguntas">Preguntas frecuentes</a><a href="https://wa.me/593968107948" target="_blank" rel="noopener">WhatsApp</a></div>
-      <div class="footer-col"><div class="footer-label">Información</div><a href="https://hamiltonnetworker.com/politica-privacidad.html" target="_blank" rel="noopener">Política de privacidad</a><a href="https://hamiltonnetworker.com/politica-cookies.html" target="_blank" rel="noopener">Política de cookies</a></div>
-    </div>
-    <div class="footer-divider"></div>
-    <div class="footer-bottom"><p class="disclaimer">Sitio de orientación y selección de carritos. Hamilton Granillo es distribuidor independiente. Los productos, precios, disponibilidad y condiciones de compra corresponden a la plataforma donde se complete el pedido.</p><p class="footer-copy">© 2026 Hamilton Granillo</p></div>
-  </div>
-</footer>
-
-
-<a class="float-wa" href="https://wa.me/593968107948?text=Hola%20Hamilton%2C%20quiero%20ayuda%20con%20un%20carrito%20Omnilife." target="_blank" rel="noopener" aria-label="Contactar por WhatsApp"><span>¿Necesitas ayuda?</span></a>
-
-<div class="cookie-notice" id="cookieNotice" hidden>
-  <p>Usamos cookies y tecnologías similares para mejorar la experiencia. Puedes consultar la <a href="https://hamiltonnetworker.com/politica-cookies.html" target="_blank" rel="noopener">política de cookies</a>.</p>
-  <div class="cookie-actions"><button class="cookie-reject" id="cookieReject">Rechazar</button><button class="cookie-accept" id="cookieAccept">Aceptar</button></div>
-</div>
-
 <script>
+const DATA = {"pages": [{"n": 4, "t": "Página 4 · Lesson 1", "s": [["It's a pencil.", "its e PEN-sel."], ["Yes, it is a chair.", "IES, it is e CHER."], ["No, it isn't a card, it's a wall.", "NOU, it I-sent e KARD, its e UOL."], ["It's a room.", "its e RUM."], ["This is a chair.", "DIS is e CHER."], ["Is that a woman? Yes, it's a woman.", "is DAT e UU-man? IES, its e UU-man."], ["What is this? It's a door.", "UAT is DIS? its e DOR."], ["Is this a pen? No, it isn't a pen, but it's a pencil.", "is DIS e PEN? NOU, it I-sent e PEN, bat its e PEN-sel."], ["My brother is a police officer.", "mai brother is e police officer."], ["Lima is the capital of Peru.", "Lima is de KA-pi-del ev Peru."], ["Ecuador isn't in Europe.", "E-kua-dor I-sent in IU-rep."], ["This is a book.", "DIS is e BUK."], ["My dog is nice.", "mai DOG is nice."]]}, {"n": 5, "t": "Página 5 · Lesson 1", "s": [["No, it isn't a light, it's a pencil.", "NOU, it I-sent e LAIT, its e PEN-sel."], ["No, it isn't a pencil, it's a pen.", "NOU, it I-sent e PEN-sel, its e PEN."], ["It's a boy.", "its e BOI."], ["It's a man.", "its e MAN."], ["It's a woman.", "its e UU-man."], ["It's a girl.", "its e GUERL."], ["No, it isn't a window, but it's a pen.", "NOU, it I-sent e UIN-dou, bat its e PEN."], ["No, it isn't a table, but it's a door.", "NOU, it I-sent e TEI-bel, bat its e DOR."]]}, {"n": 6, "t": "Página 6 · Lesson 1", "s": [["It's in the box.", "its in de BAKS."], ["It's on the box.", "its an de BAKS."], ["It's under the box.", "its AN-der de BAKS."], ["It's a man.", "its e MAN."], ["It's a boy.", "its e BOI."], ["It's a woman.", "its e UU-man."], ["It's a girl.", "its e GUERL."], ["This room's small.", "DIS RUMS SMOL."], ["The wall's long.", "de UOLS LONG."], ["No, Quito isn't a town, but it's a city.", "NOU, Quito I-sent e TAUN, bat its e SI-di."]]}, {"n": 7, "t": "Página 7 · Lesson 1", "s": [["The dog is under the table.", "de DOG is AN-der de TEI-bel."], ["The pen is on the notebook.", "de PEN is an de NOUT-buk."], ["The bananas are on the table.", "de be-NA-nas ar an de TEI-bel."], ["The apple is on the book.", "de apple is an de BUK."]]}, {"n": 8, "t": "Página 8 · Lesson 2: TO BE", "s": [["I am a teacher.", "AI am e TII-cher."], ["He is Mr. Frank Sinatra.", "jii is MIS-ter. FRANK si-NA-tra."], ["She is Mrs. Maggie Smith.", "shii is MI-sis. MA-gui SMIZ."], ["The dog is brown.", "de DOG is BRAUN."], ["I am a pupil.", "AI am e PIU-pel."], ["You are a teacher.", "iu ar e TII-cher."], ["She is a girl.", "shii is e GUERL."], ["I am not a pupil.", "AI am NAT e PIU-pel."], ["You are not a teacher.", "iu ar NAT e TII-cher."], ["She is not a girl.", "shii is NAT e GUERL."]]}, {"n": 9, "t": "Página 9 · Lesson 2", "s": [["No, you aren't closing the window, but you're opening the window.", "NOU, iu ARNT KLOU-sing de UIN-dou, bat IUR OUP-ning de UIN-dou."], ["Is she Mrs. Burnett?", "is shii MI-sis. ber-NET?"], ["Am I Miss Smith?", "am AI MIS SMIZ?"], ["Is he Mr. Robinson?", "is jii MIS-ter. RA-bin-sen?"], ["Yes, the boy is behind the car, and the girl is in front of the car.", "IES, de BOI is bi-JAIND de KAR, and de GUERL is in FRANT ev de KAR."]]}, {"n": 10, "t": "Página 10 · Lesson 2", "s": [["The pencil is in front of the book.", "de PEN-sel is in FRANT ev de BUK."], ["The chair is behind the table.", "de CHER is bi-JAIND de TEI-bel."], ["Is he closing the notebook?", "is jii KLOU-sing de NOUT-buk?"], ["The wall is behind me.", "de UOL is bi-JAIND mii."], ["She is opening the door.", "shii is OUP-ning de DOR."], ["The board is in front of him.", "de BORD is in FRANT ev jim."], ["Yes, Mr. Wright is a man.", "IES, MIS-ter. Wright is e MAN."], ["No, the wall isn't in front of me, it's in front of him.", "NOU, de UOL I-sent in FRANT ev mii, its in FRANT ev jim."], ["She is taking the apple from him.", "shii is TEI-king de apple from jim."], ["He is putting the notebook on the table.", "jii is PU-ding de NOUT-buk an de TEI-bel."]]}, {"n": 11, "t": "Página 11 · Lesson 2", "s": [["No, I am not Mr. Smith, but I am Mr. Jones.", "NOU, AI am NAT MIS-ter. SMIZ, bat AI am MIS-ter. YOUNS."], ["No, you are not Mr. Jackson, but you are Mr. Torres.", "NOU, iu ar NAT MIS-ter. Jackson, bat iu ar MIS-ter. Torres."], ["Are you Mrs. Velasco? No, I am not Mrs. Velasco, but I am Miss Galarza.", "ar iu MI-sis. Velasco? NOU, AI am NAT MI-sis. Velasco, bat AI am MIS Galarza."], ["José is behind Kevin.", "yo-SEé is bi-JAIND KE-vin."], ["Josué is in front of Peter.", "Josué is in FRANT ev Peter."], ["Peter and José are behind Diana and Kevin.", "Peter and yo-SEé ar bi-JAIND Diana and KE-vin."], ["Diana is behind Maite.", "Diana is bi-JAIND Maite."], ["José is behind María.", "yo-SEé is bi-JAIND Maríe."], ["Which pen is black? This pen is black.", "UICH PEN is BLAK? DIS PEN is BLAK."], ["Which pen cap is green? This pen cap's green.", "UICH PEN KAP is GRIIN? DIS PEN KAPS GRIIN."], ["Which door is open? This door's open.", "UICH DOR is OU-pen? DIS DORS OU-pen."]]}, {"n": 14, "t": "Página 14 · Lesson 3", "s": [["These pencils are red.", "DIIS PEN-sels ar RED."], ["The plural of notebook is notebooks.", "de PLU-rel ev NOUT-buk is notebooks."], ["The plural of door is doors.", "de PLU-rel ev DOR is DORS."]]}, {"n": 15, "t": "Página 15 · Lesson 3", "s": [["Is the store open?", "is de store OU-pen?"], ["Are the stores open?", "ar de stores OU-pen?"], ["That man is short.", "DAT MAN is SHORT."], ["Those pens are black.", "DOUS PENS ar BLAK."], ["That chart is large.", "DAT CHART is LARCH."], ["Is that chair in front of you?", "is DAT CHER in FRANT ev iu?"], ["Is this your glove?", "is DIS ior glove?"], ["Are these your matches?", "ar DIIS ior matches?"], ["Is this your hat?", "is DIS ior JAT?"], ["Is this your bicycle?", "is DIS ior BAI-si-kel?"], ["Are these your glasses?", "ar DIIS ior GLA-ses?"], ["Is this your watch?", "is DIS ior UACH?"], ["What's this? It's a box.", "UATS DIS? its e BAKS."], ["What's that? That's a box.", "UATS DAT? DATS e BAKS."]]}, {"n": 16, "t": "Página 16 · Lesson 3", "s": [["These birds are at the window.", "DIIS birds ar at de UIN-dou."], ["These postcards are for your sister.", "DIIS postcards ar for ior sister."], ["Those plates are broken.", "DOUS plates ar BROU-ken."], ["That house is very big.", "DAT JAUS is very big."]]}, {"n": 17, "t": "Página 17 · Lesson 3", "s": [["It's a shoe.", "its e SHUU."], ["It's a sock.", "its e SAK."], ["It's a shirt.", "its e SHERT."], ["These are socks.", "DIIS ar socks."], ["These are shoes.", "DIIS ar SHUUS."]]}, {"n": 18, "t": "Página 18 · Lesson 4: The alphabet", "s": [["Thirty-six plus fifteen equals fifty-one.", "ZER-di-SIKS PLAS fif-TIIN II-kuels FIF-ti-UAN."], ["Eight hundred fifty-one plus two hundred thirty-six equals one thousand eighty-seven.", "EIT JAN-dred FIF-ti-UAN PLAS TUU JAN-dred ZER-di-SIKS II-kuels UAN ZAU-send EI-di-SE-ven."]]}, {"n": 19, "t": "Página 19 · Lesson 4", "s": [["Seven hundred sixty-one is before seven hundred sixty-two.", "SE-ven JAN-dred SIKS-ti-UAN is bi-FOR SE-ven JAN-dred SIKS-ti-TUU."], ["Two hundred forty-six is between two hundred forty-five and two hundred forty-seven.", "TUU JAN-dred FOR-di-SIKS is bi-TUIIN TUU JAN-dred FOR-di-FAIV and TUU JAN-dred FOR-di-SE-ven."], ["The five vowels are A, E, I, O, U.", "de FAIV VAU-els ar EI, II, AI, OU, IU."], ["No, the letter \"C\" isn't a vowel, it's a consonant.", "NOU, de LE-der \"SII\" I-sent e VAU-el, its e KAN-se-nent."], ["No, the letter \"Y\" isn't a vowel, it's a consonant.", "NOU, de LE-der \"UAI\" I-sent e VAU-el, its e KAN-se-nent."], ["The letter \"R\" is before \"S\".", "de LE-der \"AR\" is bi-FOR \"ES\"."], ["H is after G.", "EICH is AF-ter YII."], ["A is before B.", "EI is bi-FOR BII."], ["X is after W.", "EKS is AF-ter DA-bel-iu."], ["U is before V.", "IU is bi-FOR VII."], ["L is before M.", "EL is bi-FOR EM."], ["K is between J and L.", "KEI is bi-TUIIN YEI and EL."], ["M is before N.", "EM is bi-FOR EN."], ["S is between R and T.", "ES is bi-TUIIN AR and TII."]]}, {"n": 20, "t": "Página 20 · Lesson 4", "s": [["The door in front of us is high.", "de DOR in FRANT ev as is JAI."], ["No, the ceiling of this room isn't low, but it's high.", "NOU, de SII-ling ev DIS RUM I-sent LOU, bat its JAI."], ["No, she isn't, but she's behind the door.", "NOU, shii I-sent, bat SHIIS bi-JAIND de DOR."], ["Are you a student in that academy?", "ar iu e STUU-dent in DAT academy?"], ["Excellent! Are you reading that book?", "Excellent! ar iu RII-ding DAT BUK?"]]}, {"n": 22, "t": "Página 22 · Lesson 5: There is / There are", "s": [["Are there books in the classroom?", "ar DER BUKS in de KLAS-rum?"], ["Is there a person in the classroom?", "is DER e person in de KLAS-rum?"], ["Is there money in the classroom?", "is DER money in de KLAS-rum?"], ["There isn't a shopping mall in Springfield.", "DER I-sent e shopping mall in Springfield."], ["There are two hospitals in Springfield.", "DER ar TUU hospitals in Springfield."], ["There are three teachers in Springfield.", "DER ar ZRII TII-chers in Springfield."], ["There isn't a university in Springfield.", "DER I-sent e university in Springfield."], ["There isn't a hotel in Springfield.", "DER I-sent e jou-TEL in Springfield."]]}, {"n": 23, "t": "Página 23 · Lesson 5", "s": [["Yes, there is a television in this room.", "IES, DER is e television in DIS RUM."], ["Yes, there is a printer in my house.", "IES, DER is e printer in mai JAUS."], ["No, there isn't paper in the printer.", "NOU, DER I-sent paper in de printer."], ["No, there isn't a key in the door.", "NOU, DER I-sent e key in de DOR."], ["It's neither a shirt nor a t-shirt, but it's a coat.", "its NII-der e SHERT nor e TII-SHERT, bat its e KOUT."], ["It's neither a banana nor a pineapple, but it's an apple.", "its NII-der e banana nor e PAI-na-pel, bat its en apple."], ["He's neither a girl nor a woman, but he's a boy.", "JIIS NII-der e GUERL nor e UU-man, bat JIIS e BOI."], ["Ecuador is neither a city nor a town, but it's a country.", "E-kua-dor is NII-der e SI-di nor e TAUN, bat its e KAN-tri."]]}, {"n": 24, "t": "Página 24 · Lesson 5", "s": [["The sheep is here in the stable.", "de SHIIP is JIER in de STEI-bel."], ["The dress is here in the closet.", "de DRES is JIER in de KLA-set."], ["The coat is there on the bed.", "de KOUT is DER an de BED."], ["It's a dress.", "its e DRES."], ["It's a coat.", "its e KOUT."], ["It's a handkerchief.", "its e JAN-ker-chif."], ["He's reading a book.", "JIIS RII-ding e BUK."], ["No, he isn't reading, but he's writing.", "NOU, jii I-sent RII-ding, bat JIIS RAI-ding."], ["She's reading a book.", "SHIIS RII-ding e BUK."]]}, {"n": 25, "t": "Página 25 · Lesson 5", "s": [["No, there is one teacher in this room.", "NOU, DER is UAN TII-cher in DIS RUM."], ["No, there isn't a fan in this room.", "NOU, DER I-sent e FAN in DIS RUM."], ["No, there aren't three women in this room.", "NOU, DER ARNT ZRII UI-men in DIS RUM."], ["Yes, there is a TV in front of me.", "IES, DER is e TV in FRANT ev mii."], ["Yes, there is a picture behind me.", "IES, DER is e PIK-cher bi-JAIND mii."], ["There is a book on the table.", "DER is e BUK an de TEI-bel."]]}, {"n": 26, "t": "Página 26 · Lesson 5", "s": [["The capital of Ecuador is Quito.", "de KA-pi-del ev E-kua-dor is Quito."], ["The capital of Spain is Madrid.", "de KA-pi-del ev Spain is Madrid."], ["Yes, she's Claire and she's twenty years old.", "IES, SHIIS Claire and SHIIS TUEN-ti years old."], ["What size? Large or small?", "UAT size? LARCH or SMOL?"], ["Pay four dollars and take three pairs!", "PEI FOR dollars and TEIK ZRII pairs!"], ["Ok, thanks for that Mary!", "Ok, thanks for DAT ME-ri!"]]}, {"n": 27, "t": "Página 27 · Lesson 6: How many?", "s": [["There are twenty pupils in this classroom.", "DER ar TUEN-ti PIU-pels in DIS KLAS-rum."], ["There are twenty-four provinces in this country.", "DER ar TUEN-ti-FOR provinces in DIS KAN-tri."], ["There are thirty chairs in this classroom.", "DER ar ZER-di CHERS in DIS KLAS-rum."], ["There are ten boys in this classroom.", "DER ar TEN BOIS in DIS KLAS-rum."], ["There are twelve girls in this classroom.", "DER ar TUELV girls in DIS KLAS-rum."]]}, {"n": 28, "t": "Página 28 · Lesson 6", "s": [["A is the first letter of the alphabet.", "EI is de FERST LE-der ev de AL-fe-bet."], ["Z is the last letter of the alphabet.", "ZII is de LAST LE-der ev de AL-fe-bet."], ["J is the tenth letter of the alphabet.", "YEI is de TENZ LE-der ev de AL-fe-bet."], ["There are three notebooks on the table.", "DER ar ZRII notebooks an de TEI-bel."], ["E's the fifth letter of the alphabet.", "IIS de FIFZ LE-der ev de AL-fe-bet."], ["G's the seventh letter of the alphabet.", "YIIS de SE-venz LE-der ev de AL-fe-bet."]]}, {"n": 29, "t": "Página 29 · Lesson 6", "s": [["There are twenty-four provinces in Ecuador.", "DER ar TUEN-ti-FOR provinces in E-kua-dor."], ["There are fifty states in the U.S.A.", "DER ar FIF-ti states in de IU.ES.e."], ["There are eight planets in the solar system.", "DER ar EIT PLA-nets in de SOU-ler SIS-tem."], ["In the classroom, students are sitting on their chairs, listening to the teacher.", "in de KLAS-rum, students ar SI-ding an der CHERS, LIS-ning tu de TII-cher."], ["There are books and notebooks on the tables.", "DER ar BUKS and notebooks an de tables."], ["The teacher is standing in front of the whiteboard.", "de TII-cher is STAN-ding in FRANT ev de UAIT-bord."], ["The bench is for you.", "de bench is for iu."], ["The bench is for him.", "de bench is for jim."], ["The bench is for her.", "de bench is for jer."], ["The plate is for it.", "de plate is for it."]]}, {"n": 31, "t": "Página 31 · Lesson 7: The body", "s": [["No, not all the lights in this room are red.", "NOU, NAT OL de lights in DIS RUM ar RED."], ["No, not all the people in this room are men.", "NOU, NAT OL de PII-pel in DIS RUM ar men."], ["No, not all the doors in this school are green.", "NOU, NAT OL de DORS in DIS school ar GRIIN."]]}, {"n": 32, "t": "Página 32 · Lesson 7", "s": [["You're touching the table.", "IUR TA-ching de TEI-bel."], ["He's touching the pen.", "JIIS TA-ching de PEN."]]}, {"n": 33, "t": "Página 33 · Lesson 7", "s": [["Yes, all these cities are from Ecuador.", "IES, OL DIIS cities ar from E-kua-dor."], ["Yes, all the students in this classroom are sitting.", "IES, OL de students in DIS KLAS-rum ar SI-ding."], ["All the walls here are low.", "OL de walls JIER ar LOU."]]}, {"n": 34, "t": "Página 34 · Lesson 7", "s": [["No, you aren't going to the house, but you're going to the laboratory.", "NOU, iu ARNT GOU-ing tu de JAUS, bat IUR GOU-ing tu de LA-bre-to-ri."], ["Yes, you're coming from the bathroom.", "IES, IUR KA-ming from de BAZ-rum."], ["No, I am not going to the laboratory, I'm going to the house.", "NOU, AI am NAT GOU-ing tu de LA-bre-to-ri, AIM GOU-ing tu de JAUS."]]}, {"n": 36, "t": "Página 36 · Lesson 8", "s": [["My name is Ana.", "mai NEIM is Ana."], ["My surname is Castro.", "mai SER-neim is Castro."], ["Her name is Mary.", "jer NEIM is ME-ri."], ["His name is Kevin.", "jis NEIM is KE-vin."], ["Their names are Joseph, Mary, Kevin and Diana.", "der NEIMS ar Joseph, ME-ri, KE-vin and Diana."], ["No, that isn't right. It's twenty-six.", "NOU, DAT I-sent RAIT. its TUEN-ti-SIKS."], ["Yes, that's wrong. It's thirty-five.", "IES, DATS RONG. its ZER-di-FAIV."], ["No, I'm not Ms. Jones.", "NOU, AIM NAT Ms. YOUNS."]]}, {"n": 37, "t": "Página 37 · Lesson 8", "s": [["We say a book, but an ash-tray.", "uii SEI e BUK, bat en ash-tray."], ["Before a consonant we say a. Before a vowel we say an.", "bi-FOR e KAN-se-nent uii SEI e. bi-FOR e VAU-el uii SEI en."], ["There is an apple on the table and there is a banana under it.", "DER is en apple an de TEI-bel and DER is e banana AN-der it."], ["There are two thumbs and there are ten fingers in our hands.", "DER ar TUU thumbs and DER ar TEN fingers in our JANDS."], ["There are six words in the sentence.", "DER ar SIKS words in de sentence."], ["Yes, my name's John, that's right!", "IES, mai NEIMS YAN, DATS RAIT!"], ["The meaning of \"nape\" in Spanish is nuca.", "de MII-ning ev \"NEIP\" in SPA-nish is nuca."], ["This is a semi-colon.", "DIS is e SE-mi-KOU-len."]]}, {"n": 38, "t": "Página 38 · Lesson 8", "s": [["There are three things on this box.", "DER ar ZRII things an DIS BAKS."], ["The name of this thing is pencil sharpener.", "de NEIM ev DIS thing is PEN-sel SHAR-pe-ner."]]}, {"n": 39, "t": "Página 39 · Lesson 9: Have got", "s": [["Yes, I have got a cell phone.", "IES, AI jav GAT e SEL FOUN."], ["Yes, my teacher has got a book.", "IES, mai TII-cher jas GAT e BUK."], ["Yes, I have got a credit card.", "IES, AI jav GAT e KRE-dit KARD."], ["I've got my keys.", "AIV GAT mai keys."]]}, {"n": 40, "t": "Página 40 · Lesson 9", "s": [["I am tall.", "AI am TOL."], ["No, the door of my house isn't low, it's high.", "NOU, de DOR ev mai JAUS I-sent LOU, its JAI."], ["The walls in my classroom are high.", "de walls in mai KLAS-rum ar JAI."], ["Yes, I have got eight fingers.", "IES, AI jav GAT EIT fingers."], ["Yes, you have got two thumbs.", "IES, iu jav GAT TUU thumbs."]]}, {"n": 41, "t": "Página 41 · Lesson 9", "s": [["Has he got a flask?", "jas jii GAT e FLASK?"], ["I've got four books and a pencil case.", "AIV GAT FOR BUKS and e PEN-sel KEIS."], ["Has she got two thumbs?", "jas shii GAT TUU thumbs?"], ["Yes, we have got a pencil case.", "IES, uii jav GAT e PEN-sel KEIS."], ["My favourite colour is blue, but I've got to say that blue is also one of my favourites.", "mai favourite KA-ler is BLUU, bat AIV GAT tu SEI DAT BLUU is also UAN ev mai favourites."]]}, {"n": 42, "t": "Página 42 · Lesson 9", "s": [["It's a pencil.", "its e PEN-sel."], ["It's a car.", "its e KAR."], ["We use \"tall\" and \"short\" for people whilst we use \"high\" and \"low\" for things.", "uii IUUS \"TOL\" and \"SHORT\" for PII-pel UAILST uii IUUS \"JAI\" and \"LOU\" for things."]]}, {"n": 44, "t": "Página 44 · Lesson 10: Countable", "s": [["How many months are there in a year? There are twelve months in a year.", "JAU ME-ni months ar DER in e year? DER ar TUELV months in e year."], ["How many weeks are there in a month? There are four weeks in a month.", "JAU ME-ni weeks ar DER in e month? DER ar FOR weeks in e month."], ["How many brothers and sisters have you got? I've got two brothers and sisters.", "JAU ME-ni brothers and sisters jav iu GAT? AIV GAT TUU brothers and sisters."], ["How many pets have you got? I have got two pets.", "JAU ME-ni pets jav iu GAT? AI jav GAT TUU pets."]]}, {"n": 45, "t": "Página 45 · Lesson 10: some / any", "s": [["Yes, I have got some candies.", "IES, AI jav GAT sam candies."], ["Are there any pictures? No, there aren't any pictures in the classroom.", "ar DER E-ni pictures? NOU, DER ARNT E-ni pictures in de KLAS-rum."], ["Is there any sugar? Yes, there is some sugar in the fridge.", "is DER E-ni SHU-guer? IES, DER is sam SHU-guer in de FRICH."], ["Yes, there are some cellphones on the table.", "IES, DER ar sam cellphones an de TEI-bel."], ["Yes, there are some computers in the laboratory.", "IES, DER ar sam computers in de LA-bre-to-ri."], ["No, there aren't any clocks on the walls.", "NOU, DER ARNT E-ni clocks an de walls."], ["No, there isn't a bin on the floor.", "NOU, DER I-sent e bin an de FLOR."], ["Yes, I have got some dogs. / No, I haven't got any dogs.", "IES, AI jav GAT sam dogs. / NOU, AI JA-vent GAT E-ni dogs."], ["Yes, there is a teacher in the classroom.", "IES, DER is e TII-cher in de KLAS-rum."], ["Yes, there are some lights on the ceiling.", "IES, DER ar sam lights an de SII-ling."]]}, {"n": 46, "t": "Página 46 · Lesson 10", "s": [["Yes, there are some boxes here.", "IES, DER ar sam BAK-ses JIER."], ["No, there aren't any pens in my notebook.", "NOU, DER ARNT E-ni PENS in mai NOUT-buk."], ["Yes, there are some books on the table.", "IES, DER ar sam BUKS an de TEI-bel."], ["Yes, there are some students in this room.", "IES, DER ar sam students in DIS RUM."], ["Have you got any shoes? Yes, I have got some shoes.", "jav iu GAT E-ni SHUUS? IES, AI jav GAT sam SHUUS."], ["Yes, there are some windows in my room.", "IES, DER ar sam UIN-dous in mai RUM."], ["No, there aren't any private numbers in my cellphone.", "NOU, DER ARNT E-ni private numbers in mai cellphone."], ["No, there isn't any water on the floor.", "NOU, DER I-sent E-ni water an de FLOR."], ["There are four people in my family.", "DER ar FOR PII-pel in mai FA-me-li."]]}, {"n": 47, "t": "Página 47 · Lesson 10", "s": [["There are many parts of the human body.", "DER ar ME-ni parts ev de human body."], ["It's got two arms.", "its GAT TUU arms."], ["We use our hands to touch things.", "uii IUUS our JANDS tu TACH things."], ["There are ten fingers in our hands. We've got ten toes.", "DER ar TEN fingers in our JANDS. We've GAT TEN TOUS."], ["The body is amazing.", "de body is amazing."]]}, {"n": 48, "t": "Página 48 · Lesson 10", "s": [["There is one apple on that table.", "DER is UAN apple an DAT TEI-bel."], ["There is one woman in this picture.", "DER is UAN UU-man in DIS PIK-cher."], ["I have got three staplers.", "AI jav GAT ZRII staplers."]]}, {"n": 49, "t": "Página 49 · Lesson 11: Present progressive", "s": [["John is playing the piano.", "YAN is PLEI-ing de pi-A-nou."], ["They are building a new hotel.", "dei ar BIL-ding e new jou-TEL."], ["They are swimming in the river.", "dei ar SUI-ming in de river."], ["You are standing on my foot.", "iu ar STAN-ding an mai foot."], ["I am washing my hair.", "AI am UA-shing mai JER."], ["It is raining.", "it is REI-ning."], ["You are writing a book.", "iu ar RAI-ding e BUK."], ["She is opening the window.", "shii is OUP-ning de UIN-dou."]]}, {"n": 50, "t": "Página 50 · Lesson 11", "s": [["Do I drink?", "DUU AI DRINK?"], ["She doesn't drink.", "shii doesn't DRINK."], ["Does it drink?", "DAS it DRINK?"], ["I am drinking.", "AI am DRIN-king."], ["Are you drinking?", "ar iu DRIN-king?"]]}, {"n": 51, "t": "Página 51 · Lesson 11: do / does", "s": [["Do I remain?", "DUU AI ri-MEIN?"], ["I don't remain.", "AI DOUNT ri-MEIN."], ["She doesn't remain.", "shii doesn't ri-MEIN."], ["Are you remaining?", "ar iu ri-MEI-ning?"], ["The negative of \"do\" is don't.", "de negative ev \"DUU\" is DOUNT."], ["Yes, I speak Spanish.", "IES, AI SPIIK SPA-nish."]]}, {"n": 52, "t": "Página 52 · Lesson 12: Can", "s": [["He can write on the whiteboard.", "jii kan RAIT an de UAIT-bord."], ["Pupils can't read.", "PIU-pels KANT RIID."], ["You can write with a pencil.", "iu kan RAIT uiz e PEN-sel."], ["You can't see without opening your eyes.", "iu KANT SII without OUP-ning ior eyes."], ["No, I can't write without a pen.", "NOU, AI KANT RAIT without e PEN."], ["No, I can't see the pencil in your purse.", "NOU, AI KANT SII de PEN-sel in ior purse."], ["Yes, I can whistle.", "IES, AI kan UI-sel."], ["No, I can't touch the ceiling.", "NOU, AI KANT TACH de SII-ling."], ["Yes, you can meet me later.", "IES, iu kan MIIT mii later."]]}, {"n": 53, "t": "Página 53 · Lesson 12", "s": [["No, not all the students here are women.", "NOU, NAT OL de students JIER ar UI-men."], ["I'm wearing a t-shirt and jeans.", "AIM UE-ring e TII-SHERT and YIINS."], ["No, I'm not wearing a wrist band.", "NOU, AIM NAT UE-ring e RIST band."], ["He is wearing a suit and shoes.", "jii is UE-ring e SUUT and SHUUS."], ["She is wearing a dress and heels.", "shii is UE-ring e DRES and JIILS."], ["He's wearing a t-shirt, jeans and trainers.", "JIIS UE-ring e TII-SHERT, YIINS and TREI-ners."], ["She is wearing a blouse and a black skirt.", "shii is UE-ring e BLAUS and e BLAK SKERT."]]}, {"n": 54, "t": "Página 54 · Lesson 12", "s": [["I like studying English.", "AI LAIK STA-di-ing IN-glish."], ["I love sports.", "AI LAV sports."], ["I like hamburger with mustard.", "AI LAIK hamburger uiz mustard."], ["I hate onions.", "AI JEIT onions."], ["I don't like soda, but I like juice.", "AI DOUNT LAIK SOU-da, bat AI LAIK YUUS."], ["I like classical music.", "AI LAIK classical music."], ["I dislike potato chips, but I prefer French fries.", "AI dis-LAIK potato chips, bat AI pri-FER FRENCH fries."]]}, {"n": 55, "t": "Página 55 · Lesson 13: Have got (possession)", "s": [["No, I haven't got four feet. I've got two feet.", "NOU, AI JA-vent GAT FOR FIIT. AIV GAT TUU FIIT."], ["Yes, I have got a jacket.", "IES, AI jav GAT e jacket."], ["Yes, my teacher has got a car.", "IES, mai TII-cher jas GAT e KAR."], ["Those two sisters have got black hair.", "DOUS TUU sisters jav GAT BLAK JER."], ["My car has got two windows.", "mai KAR jas GAT TUU UIN-dous."], ["Have you got a house?", "jav iu GAT e JAUS?"], ["I haven't got two heads.", "AI JA-vent GAT TUU heads."], ["I have got a cell phone.", "AI jav GAT e SEL FOUN."], ["Has your sister got a boyfriend?", "jas ior sister GAT e boyfriend?"]]}, {"n": 56, "t": "Página 56 · Lesson 13: both / prefer", "s": [["Yes, both my hands are in my pocket.", "IES, BOUZ mai JANDS ar in mai PA-ket."], ["Yes, both Ecuador and Peru are in South America.", "IES, BOUZ E-kua-dor and Peru ar in SAUZ e-ME-ri-ka."], ["Yes, both my uncles are married.", "IES, BOUZ mai uncles ar ME-rid."], ["I prefer a book.", "AI pri-FER e BUK."], ["I prefer milk.", "AI pri-FER MILK."], ["My partner prefers soccer.", "mai PART-ner pri-FERS SA-ker."]]}, {"n": 57, "t": "Página 57 · Lesson 13: half", "s": [["How much is a half of two hundred?", "JAU MACH is e JAF ev TUU JAN-dred?"], ["Is he Mexican or Ecuadorian? No, he's neither Mexican nor Ecuadorian.", "is jii MEK-si-ken or e-kua-DO-rien? NOU, JIIS NII-der MEK-si-ken nor e-kua-DO-rien."], ["I prefer the beach.", "AI pri-FER de beach."], ["I prefer a hamburger.", "AI pri-FER e hamburger."], ["I prefer coffee.", "AI pri-FER coffee."], ["I prefer going to the cinema.", "AI pri-FER GOU-ing tu de cinema."]]}, {"n": 59, "t": "Página 59 · Lesson 13", "s": [["No, half these chairs aren't green.", "NOU, JAF DIIS CHERS ARNT GRIIN."], ["Yes, both your hands are on the table.", "IES, BOUZ ior JANDS ar an de TEI-bel."], ["Yes, both these books are open.", "IES, BOUZ DIIS BUKS ar OU-pen."]]}, {"n": 60, "t": "Página 60 · Lesson 14: somebody / anybody / nobody", "s": [["There is somebody in the kitchen.", "DER is SAM-ba-di in de kitchen."], ["Somebody is at the window.", "SAM-ba-di is at de UIN-dou."], ["There isn't anybody in my house.", "DER I-sent E-ni-ba-di in mai JAUS."], ["I'm waiting for somebody.", "AIM waiting for SAM-ba-di."], ["Is there anybody in this classroom?", "is DER E-ni-ba-di in DIS KLAS-rum?"], ["I don't have anybody to talk to.", "AI DOUNT jav E-ni-ba-di tu talk tu."], ["Yes, there is somebody waiting for me outside the school.", "IES, DER is SAM-ba-di waiting for mii outside de school."], ["Yes, there is somebody special in my life.", "IES, DER is SAM-ba-di special in mai life."], ["No, there isn't anybody knocking at my door.", "NOU, DER I-sent E-ni-ba-di knocking at mai DOR."], ["Yes, there is somebody speaking to me right now.", "IES, DER is SAM-ba-di SPII-king tu mii RAIT NAU."], ["No, there isn't anybody sick in the classroom.", "NOU, DER I-sent E-ni-ba-di SIK in de KLAS-rum."]]}, {"n": 61, "t": "Página 61 · Lesson 14: possessive 's", "s": [["Nobody is speaking Spanish in this room.", "NOU-ba-di is SPII-king SPA-nish in DIS RUM."], ["My mother is in my house now.", "mai MA-der is in mai JAUS NAU."]]}, {"n": 62, "t": "Página 62 · Lesson 14", "s": [["When is your brother's birthday?", "UEN is ior brother's birthday?"], ["Do you like Ann's shoes?", "DUU iu LAIK Ann's SHUUS?"], ["What is Alice's address?", "UAT is Alice's A-dres?"], ["Where is the manager's office?", "UER is de manager's office?"]]}, {"n": 63, "t": "Página 63 · Lesson 14: the same as", "s": [["No, my trousers aren't the same colour as your trousers.", "NOU, mai TRAU-sers ARNT de SEIM KA-ler as ior TRAU-sers."], ["No, my eyes aren't the same colour as my hair.", "NOU, mai eyes ARNT de SEIM KA-ler as mai JER."], ["Yes, it is the same.", "IES, it is de SEIM."], ["No, the pear isn't the same colour as the taxi.", "NOU, de PER I-sent de SEIM KA-ler as de taxi."], ["No, a taxi hasn't got the same colour as my car.", "NOU, e taxi hasn't GAT de SEIM KA-ler as mai KAR."]]}, {"n": 64, "t": "Página 64 · Lesson 14", "s": [["No, I'm not the same as my mother, but I'm different from her.", "NOU, AIM NAT de SEIM as mai MA-der, bat AIM DI-frent from jer."], ["No, my country isn't the same as your country.", "NOU, mai KAN-tri I-sent de SEIM as ior KAN-tri."], ["No, I don't watch the same TV programs as my mother.", "NOU, AI DOUNT UACH de SEIM TV programs as mai MA-der."], ["No, the Peruvians aren't the same as the Ecuadorians.", "NOU, de Peruvians ARNT de SEIM as de Ecuadorians."], ["No, I haven't got the same cellphone as you have.", "NOU, AI JA-vent GAT de SEIM cellphone as iu jav."], ["Yes, I like the same things as my brother.", "IES, AI LAIK de SEIM things as mai brother."], ["Yes, I comb my hair in the same way as my father.", "IES, AI KOUM mai JER in de SEIM way as mai FA-der."]]}, {"n": 65, "t": "Página 65 · Lesson 14", "s": [["Is there anybody wearing boots here?", "is DER E-ni-ba-di UE-ring boots JIER?"], ["I haven't got any. Have you got a cellphone number?", "AI JA-vent GAT E-ni. jav iu GAT e cellphone NAM-ber?"], ["Thanks for that John.", "Thanks for DAT YAN."]]}, {"n": 67, "t": "Página 67 · Lesson 15: Menu", "s": [["Yes, I can sleep on the floor.", "IES, AI kan SLIIP an de FLOR."], ["Yes, I can snap my finger.", "IES, AI kan snap mai FIN-guer."], ["Yes, I can send an E-mail.", "IES, AI kan SEND en II-mail."], ["No, I can't speak Greek.", "NOU, AI KANT SPIIK GRIIK."], ["Yes, I can ride a bicycle.", "IES, AI kan RAID e BAI-si-kel."], ["I think the same as you. English grammar is different from Spanish grammar.", "AI ZINK de SEIM as iu. IN-glish GRA-mer is DI-frent from SPA-nish GRA-mer."], ["Yes, I think speaking is easy!", "IES, AI ZINK SPII-king is easy!"]]}, {"n": 68, "t": "Página 68 · Lesson 15", "s": [["No, English isn't difficult for me.", "NOU, IN-glish I-sent difficult for mii."], ["I prefer English.", "AI pri-FER IN-glish."], ["I come by bus.", "AI KAM by BAS."], ["My sister is single.", "mai sister is SIN-guel."], ["No, my brother hasn't got a wife.", "NOU, mai brother hasn't GAT e UAIF."], ["Yes, I have got a pet.", "IES, AI jav GAT e pet."], ["No, Mr. Jones isn't single, he's married.", "NOU, MIS-ter. YOUNS I-sent SIN-guel, JIIS ME-rid."], ["Yes, my sister is single.", "IES, mai sister is SIN-guel."], ["My mother's husband's name is Carlos.", "mai MA-derS husband's NEIM is Carlos."]]}, {"n": 69, "t": "Página 69 · Lesson 15", "s": [["There are about ten.", "DER ar e-BAUT TEN."], ["I can help you with that my friend.", "AI kan JELP iu uiz DAT mai friend."], ["Have you got a pen?", "jav iu GAT e PEN?"], ["It's alright then, it's 44th street and Summy Lake Avenue.", "its alright then, its FOR-di-FORth street and Summy Lake Avenue."], ["You are welcome.", "iu ar welcome."]]}, {"n": 72, "t": "Página 72 · Lesson 16: What kind of…?", "s": [["No, both my feet aren't on the desk.", "NOU, BOUZ mai FIIT ARNT an de DESK."], ["Yes, both my hands are on the desk.", "IES, BOUZ mai JANDS ar an de DESK."], ["I prefer pop music.", "AI pri-FER pop music."], ["I prefer soccer.", "AI pri-FER SA-ker."], ["It's a sport car.", "its e SPORT KAR."], ["It's a ballpoint pen.", "its e ballpoint PEN."], ["It's a dog.", "its e DOG."], ["I like horror movies.", "AI LAIK horror movies."], ["No, Loja isn't in the north, but it's in the south.", "NOU, Loja I-sent in de NORZ, bat its in de SAUZ."], ["No, Galapagos isn't in the east, but it's in the west.", "NOU, Galapagos I-sent in de IIST, bat its in de UEST."], ["No, Orellana isn't in the south, but it's in the east of Ecuador.", "NOU, Orellana I-sent in de SAUZ, bat its in de IIST ev E-kua-dor."]]}, {"n": 73, "t": "Página 73 · Lesson 16", "s": [["My mother's name is Mary.", "mai MA-derS NEIM is ME-ri."], ["My father's wife's surname is Castro.", "mai FA-derS UAIFS SER-neim is Castro."]]}, {"n": 74, "t": "Página 74 · Lesson 16: Family", "s": [["No, Bart isn't Homer's only child.", "NOU, Bart I-sent Homer's only CHAILD."], ["The plural of child is children.", "de PLU-rel ev CHAILD is CHIL-dren."], ["Yes, there are two children in my family.", "IES, DER ar TUU CHIL-dren in mai FA-me-li."]]}, {"n": 76, "t": "Página 76 · Reading a compass", "s": [["North, South, East and West.", "NORZ, SAUZ, IIST and UEST."]]}, {"n": 77, "t": "Página 77 · Lesson 17: Indefinite pronouns", "s": [["Nobody knows the address of this building.", "NOU-ba-di NOUS de A-dres ev DIS BIL-ding."], ["Everybody smells with the nose.", "Everybody SMELS uiz de NOUS."], ["No, not all the cars in Ecuador are SUVs.", "NOU, NAT OL de cars in E-kua-dor ar SUVs."], ["I'm not wearing anything on my head.", "AIM NAT UE-ring anything an mai JED."], ["There isn't anything to eat at home.", "DER I-sent anything tu IIT at JOUM."], ["I don't have anything to read today.", "AI DOUNT jav anything tu RIID today."], ["There isn't anybody at home.", "DER I-sent E-ni-ba-di at JOUM."], ["There isn't anything to drink.", "DER I-sent anything tu DRINK."], ["There isn't anyone at the theatre.", "DER I-sent anyone at de theatre."]]}, {"n": 78, "t": "Página 78 · Lesson 17", "s": [["Nobody is perfect.", "NOU-ba-di is perfect."], ["I don't know anything about that.", "AI DOUNT NOU anything e-BAUT DAT."], ["There is somebody in that room.", "DER is SAM-ba-di in DAT RUM."], ["There isn't anybody in that room.", "DER I-sent E-ni-ba-di in DAT RUM."], ["I have something on my back.", "AI jav SAM-zing an mai BAK."], ["There is nobody in the office.", "DER is NOU-ba-di in de office."], ["There is nothing on TV tonight.", "DER is NA-zing an TV tonight."], ["There is nobody in the mall.", "DER is NOU-ba-di in de mall."]]}, {"n": 79, "t": "Página 79 · Lesson 17", "s": [["I come from Ecuador. I enjoy writing mails to my friends.", "AI KAM from E-kua-dor. AI enjoy RAI-ding mails tu mai friends."], ["I can tell you about Charles, my best friend.", "AI kan TEL iu e-BAUT Charles, mai best friend."], ["He enjoys playing games with me.", "jii enjoys PLEI-ing games uiz mii."], ["So he's got one and I've got one.", "So JIIS GAT UAN and AIV GAT UAN."], ["John is a very good friend, but there is not anyone like Charles.", "YAN is e very GUD friend, bat DER is NAT anyone LAIK Charles."]]}, {"n": 81, "t": "Página 81 · Lesson 18: many / few", "s": [["It's a book.", "its e BUK."], ["It's the top of the book.", "its de TAP ev de BUK."], ["It's the side of the book.", "its de SAID ev de BUK."], ["No, your ears aren't on the back of your head, they're on the side.", "NOU, ior ears ARNT an de BAK ev ior JED, they're an de SAID."], ["I'm sitting on your right-hand side.", "AIM SI-ding an ior RAIT-JAND SAID."], ["Yes, there are many people in my family.", "IES, DER ar ME-ni PII-pel in mai FA-me-li."], ["No, there are many people in China.", "NOU, DER ar ME-ni PII-pel in China."], ["Yes, there are many people in this room.", "IES, DER ar ME-ni PII-pel in DIS RUM."], ["No, there are many good restaurants in Guayaquil.", "NOU, DER ar ME-ni GUD restaurants in Guayaquil."], ["Yes, there are many cars in this city.", "IES, DER ar ME-ni cars in DIS SI-di."], ["No, there are many cars in Guayaquil.", "NOU, DER ar ME-ni cars in Guayaquil."]]}, {"n": 82, "t": "Página 82 · Lesson 18: into / in · like", "s": [["Yes, I look like my father.", "IES, AI LUK LAIK mai FA-der."], ["Yes, I like to spend time with my family.", "IES, AI LAIK tu SPEND time uiz mai FA-me-li."]]}, {"n": 83, "t": "Página 83 · Lesson 18", "s": [["Are you doing anything this Saturday?", "ar iu DUU-ing anything DIS Saturday?"]]}, {"n": 85, "t": "Página 85 · Lesson 19: Why / Because", "s": [["I have got about ten cousins.", "AI jav GAT e-BAUT TEN cousins."], ["I have got about four aunts.", "AI jav GAT e-BAUT FOR aunts."], ["Because I want to speak English well.", "bi-KOS AI UANT tu SPIIK IN-glish well."], ["No, I can't touch the ceiling.", "NOU, AI KANT TACH de SII-ling."], ["Yes, I can speak Spanish because it's my native language.", "IES, AI kan SPIIK SPA-nish bi-KOS its mai native LAN-güich."]]}, {"n": 87, "t": "Página 87 · Lesson 19", "s": [["I slice some tomatoes.", "AI SLAIS sam tomatoes."], ["I chop some bacon.", "AI CHAP sam BEI-ken."], ["I cut some lettuce.", "AI KAT sam LE-des."], ["I slice some cheese.", "AI SLAIS sam cheese."]]}, {"n": 88, "t": "Página 88 · Lesson 19", "s": [["Is it a horror movie?", "is it e horror movie?"], ["Is it an action movie?", "is it en action movie?"]]}, {"n": 90, "t": "Página 90 · Lesson 20", "s": [["She is good at singing.", "shii is GUD at SIN-ging."], ["She is bad at cooking.", "shii is bad at KU-king."], ["He is good at drawing.", "jii is GUD at DRO-ing."], ["I am good at dancing salsa.", "AI am GUD at DAN-sing salsa."]]}, {"n": 91, "t": "Página 91 · Lesson 20", "s": [["Do you want to come, too?", "DUU iu UANT tu KAM, too?"]]}], "topics": [{"t": "El verbo TO BE (am / is / are)", "s": [["I am a teacher.", "Yo soy profesor.", "AI am e TII-cher."], ["He is Mr. Frank Sinatra.", "Él es el señor Frank Sinatra.", "jii is MIS-ter. FRANK si-NA-tra."], ["She is Mrs. Maggie Smith.", "Ella es la señora Maggie Smith.", "shii is MI-sis. MA-gui SMIZ."], ["The dog is brown.", "El perro es café.", "de DOG is BRAUN."], ["Those pens are black.", "Esos esferos son negros.", "DOUS PENS ar BLAK."]]}, {"t": "What's this? → It's a…", "s": [["What's this?", "¿Qué es esto?", "UATS DIS?"], ["It's a pencil.", "Es un lápiz.", "its e PEN-sel."], ["Is this a chair? Yes, it is.", "¿Esto es una silla? Sí, lo es.", "is DIS e CHER? IES, it is."], ["Is this a card? No, it isn't a card, it's a wall.", "¿Es una tarjeta? No, es una pared.", "is DIS e KARD? NOU, it I-sent e KARD, its e UOL."], ["Is this a window? No, it isn't a window, but it's a pen.", "¿Es una ventana? No, es un esfero.", "is DIS e UIN-dou? NOU, it I-sent e UIN-dou, bat its e PEN."]]}, {"t": "Oraciones negativas (not)", "s": [["Ecuador isn't in Europe.", "Ecuador no está en Europa.", "E-kua-dor I-sent in IU-rep."], ["No, I am not Mr. Smith.", "No, no soy el señor Smith.", "NOU, AI am NAT MIS-ter. SMIZ."], ["No, London isn't a town, but it's a city.", "No, Londres no es un pueblo, es una ciudad.", "NOU, LAN-den I-sent e TAUN, bat its e SI-di."], ["No, you aren't closing the window, but you're opening the window.", "No estás cerrando la ventana, la estás abriendo.", "NOU, iu ARNT KLOU-sing de UIN-dou, bat IUR OUP-ning de UIN-dou."]]}, {"t": "Preguntas: el verbo va primero", "s": [["Is she Mrs. Burnett?", "¿Es ella la señora Burnett?", "is shii MI-sis. ber-NET?"], ["Am I Miss Smith?", "¿Soy yo la señorita Smith?", "am AI MIS SMIZ?"], ["Is he Mr. Robinson?", "¿Es él el señor Robinson?", "is jii MIS-ter. RA-bin-sen?"], ["Are you Mr. Smith?", "¿Es usted el señor Smith?", "ar iu MIS-ter. SMIZ?"]]}, {"t": "Contracciones (formas cortas)", "s": [["It's a door.", "Es una puerta.", "its e DOR."], ["Yes, we're sitting.", "Sí, estamos sentados.", "IES, UIR SI-ding."], ["I'm sitting behind him.", "Estoy sentado detrás de él.", "AIM SI-ding bi-JAIND jim."], ["You're opening the window.", "Estás abriendo la ventana.", "IUR OUP-ning de UIN-dou."]]}, {"t": "in · on · under", "s": [["The dog is under the table.", "El perro está debajo de la mesa.", "de DOG is AN-der de TEI-bel."], ["The pen is on the notebook.", "El esfero está sobre el cuaderno.", "de PEN is an de NOUT-buk."], ["The bananas are on the table.", "Las bananas están sobre la mesa.", "de be-NA-nas ar an de TEI-bel."], ["Where is the cat? It's in the box.", "¿Dónde está el gato? Está en la caja.", "UER is de KAT? its in de BAKS."]]}, {"t": "behind · in front of", "s": [["Yes, the boy is behind the car, and the girl is in front of the car.", "El niño está detrás del carro y la niña delante.", "IES, de BOI is bi-JAIND de KAR, and de GUERL is in FRANT ev de KAR."], ["The pencil is in front of the book.", "El lápiz está delante del libro.", "de PEN-sel is in FRANT ev de BUK."], ["The chair is behind the table.", "La silla está detrás de la mesa.", "de CHER is bi-JAIND de TEI-bel."], ["José is behind Kevin.", "José está detrás de Kevin.", "yo-SEé is bi-JAIND KE-vin."]]}, {"t": "¿I, he, she… o me, him, her…?", "s": [["Is he closing the notebook?", "¿Él está cerrando el cuaderno?", "is jii KLOU-sing de NOUT-buk?"], ["The wall is behind me.", "La pared está detrás de mí.", "de UOL is bi-JAIND mii."], ["She is opening the door.", "Ella está abriendo la puerta.", "shii is OUP-ning de DOR."], ["The board is in front of him.", "La pizarra está delante de él.", "de BORD is in FRANT ev jim."]]}, {"t": "Posesivos: my, your, his, her…", "s": [["What's your name? My name is Tom.", "¿Cómo te llamas? Me llamo Tom.", "UATS ior NEIM? mai NEIM is TAM."], ["Open your book, please!", "¡Abre tu libro, por favor!", "OU-pen ior BUK, PLIIS!"], ["Hello, my name is Johnson. I'm a student.", "Hola, me llamo Johnson. Soy estudiante.", "je-LOU, mai NEIM is YAN-sen. AIM e STUU-dent."], ["Is this her desk? No, it isn't her desk, but it's his desk.", "¿Es su escritorio (de ella)? No, es el de él.", "is DIS jer DESK? NOU, it I-sent jer DESK, bat its jis DESK."]]}, {"t": "this · that · these · those", "s": [["This pencil's black.", "Este lápiz es negro.", "DIS PEN-sels BLAK."], ["That pencil's on the chart.", "Ese lápiz está en la tabla.", "DAT PEN-sels an de CHART."], ["These pencils are on the table.", "Estos lápices están en la mesa.", "DIIS PEN-sels ar an de TEI-bel."], ["Those pencils are on the chart.", "Esos lápices están en la tabla.", "DOUS PEN-sels ar an de CHART."]]}, {"t": "El plural", "s": [["flower → flowers", "flor → flores", "FLAU-er → FLAU-ers"], ["knife → knives", "cuchillo → cuchillos", "NAIF → NAIVS"], ["woman → women", "mujer → mujeres", "UU-man → UI-men"], ["family → families", "familia → familias", "FA-me-li → FA-me-lis"], ["address → addresses", "dirección → direcciones", "A-dres → A-dre-ses"]]}, {"t": "There is / There are (hay)", "s": [["There is one teacher in the class.", "Hay un profesor en la clase.", "DER is UAN TII-cher in de KLAS."], ["There are 9 pupils in class.", "Hay 9 alumnos en clase.", "DER ar NAIN PIU-pels in KLAS."], ["There isn't one chair in the room.", "No hay una silla en el cuarto.", "DER I-sent UAN CHER in de RUM."], ["There aren't 8 boxes in the room.", "No hay 8 cajas en el cuarto.", "DER ARNT EIT BAK-ses in de RUM."], ["Are there pencils in the classroom?", "¿Hay lápices en el salón?", "ar DER PEN-sels in de KLAS-rum?"]]}, {"t": "How many? (¿Cuántos?)", "s": [["How many teachers are there in this room?", "¿Cuántos profesores hay en este cuarto?", "JAU ME-ni TII-chers ar DER in DIS RUM?"], ["There is one teacher in this room.", "Hay un profesor en este cuarto.", "DER is UAN TII-cher in DIS RUM."], ["How many planets are there in the solar system?", "¿Cuántos planetas hay en el sistema solar?", "JAU ME-ni PLA-nets ar DER in de SOU-ler SIS-tem?"], ["There are eight planets in the solar system.", "Hay ocho planetas en el sistema solar.", "DER ar EIT PLA-nets in de SOU-ler SIS-tem."]]}, {"t": "Los números", "s": [["Seven plus five equals twelve.", "7 + 5 = 12", "SE-ven PLAS FAIV II-kuels TUELV."], ["twenty-nine", "29", "TUEN-ti-NAIN"], ["five hundred seventy-seven", "577", "FAIV JAN-dred SE-ven-ti-SE-ven"], ["fifty-nine", "59", "FIF-ti-NAIN"]]}, {"t": "Alfabeto: vocales, before, after, between", "s": [["A is before B.", "A va antes de B.", "EI is bi-FOR BII."], ["H is after G.", "H va después de G.", "EICH is AF-ter YII."], ["K is between J and L.", "K está entre J y L.", "KEI is bi-TUIIN YEI and EL."], ["The five vowels are A, E, I, O, U.", "Las cinco vocales son A, E, I, O, U.", "de FAIV VAU-els ar EI, II, AI, OU, IU."]]}, {"t": "neither … nor (ni … ni)", "s": [["This is neither a dog nor a cat, but it's a donkey.", "No es ni perro ni gato, es un burro.", "DIS is NII-der e DOG nor e KAT, bat its e DAN-ki."], ["It's neither a shirt nor a t-shirt, but it's a coat.", "No es ni camisa ni camiseta, es un abrigo.", "its NII-der e SHERT nor e TII-SHERT, bat its e KOUT."], ["Ecuador is neither a city nor a town, but it's a country.", "Ecuador no es ni ciudad ni pueblo, es un país.", "E-kua-dor is NII-der e SI-di nor e TAUN, bat its e KAN-tri."]]}, {"t": "here · there", "s": [["The book's here on the table.", "El libro está aquí en la mesa.", "de BUKS JIER an de TEI-bel."], ["The pen's there on the floor.", "El esfero está allí en el piso.", "de PENS DER an de FLOR."], ["The sheep is here in the stable.", "La oveja está aquí en el establo.", "de SHIIP is JIER in de STEI-bel."], ["The coat is there on the bed.", "El abrigo está allí en la cama.", "de KOUT is DER an de BED."]]}, {"t": "Números ordinales", "s": [["A's the first letter of the alphabet.", "La A es la primera letra.", "EIS de FERST LE-der ev de AL-fe-bet."], ["E's the fifth letter of the alphabet.", "La E es la quinta letra.", "IIS de FIFZ LE-der ev de AL-fe-bet."], ["G's the seventh letter of the alphabet.", "La G es la séptima letra.", "YIIS de SE-venz LE-der ev de AL-fe-bet."]]}, {"t": "Lo que pasa ahora: am / is / are + -ing", "s": [["She is eating.", "Ella está comiendo.", "shii is II-ding."], ["It is raining.", "Está lloviendo.", "it is REI-ning."], ["They are running.", "Ellos están corriendo.", "dei ar RA-ning."], ["She isn't reading.", "Ella no está leyendo.", "shii I-sent RII-ding."], ["Listen! John is playing the piano.", "¡Escucha! John está tocando el piano.", "LI-sen! YAN is PLEI-ing de pi-A-nou."]]}, {"t": "all · not all", "s": [["Are all the chairs in this room black?", "¿Todas las sillas son negras?", "ar OL de CHERS in DIS RUM BLAK?"], ["No, not all the chairs in this room are black.", "No, no todas las sillas son negras.", "NOU, NAT OL de CHERS in DIS RUM ar BLAK."], ["Yes, all the chairs in this room are low.", "Sí, todas las sillas son bajas.", "IES, OL de CHERS in DIS RUM ar LOU."]]}, {"t": "have got / has got (tener)", "s": [["I have got a credit card.", "Tengo una tarjeta de crédito.", "AI jav GAT e KRE-dit KARD."], ["I haven't got a credit card.", "No tengo tarjeta de crédito.", "AI JA-vent GAT e KRE-dit KARD."], ["Have you got a credit card?", "¿Tienes tarjeta de crédito?", "jav iu GAT e KRE-dit KARD?"], ["My car has got two windows.", "Mi carro tiene dos ventanas.", "mai KAR jas GAT TUU UIN-dous."]]}, {"t": "Contables e incontables", "s": [["Man → countable", "hombre → contable", "MAN → KAUN-te-bel"], ["Air → uncountable", "aire → incontable", "ER → an-KAUN-te-bel"], ["Milk → uncountable", "leche → incontable", "MILK → an-KAUN-te-bel"], ["Car → countable", "carro → contable", "KAR → KAUN-te-bel"]]}, {"t": "some · any", "s": [["There is some sugar in the fridge.", "Hay algo de azúcar en la refri.", "DER is sam SHU-guer in de FRICH."], ["There isn't any sugar in the fridge.", "No hay azúcar en la refri.", "DER I-sent E-ni SHU-guer in de FRICH."], ["Is there any sugar in the fridge?", "¿Hay azúcar en la refri?", "is DER E-ni SHU-guer in de FRICH?"], ["There are some oranges on the table.", "Hay algunas naranjas en la mesa.", "DER ar sam O-rin-ches an de TEI-bel."]]}, {"t": "Presente simple: do / does", "s": [["I speak.", "Yo hablo.", "AI SPIIK."], ["Do you speak? Yes, I speak.", "¿Hablas? Sí, hablo.", "DUU iu SPIIK? IES, AI SPIIK."], ["No, I don't speak.", "No, no hablo.", "NOU, AI DOUNT SPIIK."], ["Does he speak? Yes, he speaks.", "¿Él habla? Sí, habla.", "DAS jii SPIIK? IES, jii SPIIKS."]]}, {"t": "can / can't (poder)", "s": [["Can you swim? Yes, I can swim.", "¿Sabes nadar? Sí, sé nadar.", "kan iu SUIM? IES, AI kan SUIM."], ["Can you speak Italian? No, I can't speak Italian.", "¿Hablas italiano? No.", "kan iu SPIIK i-TA-lien? NOU, AI KANT SPIIK i-TA-lien."], ["The teacher has a marker. He can write on the whiteboard.", "Tiene marcador, puede escribir en la pizarra.", "de TII-cher jas e MAR-ker. jii kan RAIT an de UAIT-bord."], ["The books are closed. Pupils can't read.", "Los libros están cerrados, no pueden leer.", "de BUKS ar KLOUSD. PIU-pels KANT RIID."]]}, {"t": "like · love · hate · prefer", "s": [["I don't like soda, but I like juice.", "No me gusta la soda, pero me gusta el jugo.", "AI DOUNT LAIK SOU-da, bat AI LAIK YUUS."], ["Which do you prefer, milk or soda?", "¿Qué prefieres, leche o soda?", "UICH DUU iu pri-FER, MILK or SOU-da?"], ["Which does your partner prefer, soccer or tennis?", "¿Qué prefiere tu compañero?", "UICH DAS ior PART-ner pri-FER, SA-ker or TE-nis?"]]}, {"t": "both (ambos)", "s": [["Yes, both of us are Mexicans.", "Sí, los dos somos mexicanos.", "IES, BOUZ ev as ar MEK-si-kens."], ["Yes, both of them are French.", "Sí, ellas dos son francesas.", "IES, BOUZ ev dem ar FRENCH."], ["Yes, both these books are closed.", "Sí, estos dos libros están cerrados.", "IES, BOUZ DIIS BUKS ar KLOUSD."], ["Yes, both your hands are on the table.", "Sí, tus dos manos están en la mesa.", "IES, BOUZ ior JANDS ar an de TEI-bel."]]}, {"t": "somebody · anybody · nobody", "s": [["Is there anybody at home?", "¿Hay alguien en casa?", "is DER E-ni-ba-di at JOUM?"], ["There is somebody at the door.", "Hay alguien en la puerta.", "DER is SAM-ba-di at de DOR."], ["There is nobody at the door.", "No hay nadie en la puerta.", "DER is NOU-ba-di at de DOR."], ["There isn't anybody at the door.", "No hay nadie en la puerta.", "DER I-sent E-ni-ba-di at de DOR."]]}, {"t": "De quién es: 's", "s": [["The boy's bicycle is blue.", "La bicicleta del niño es azul.", "de BOIS BAI-si-kel is BLUU."], ["The boys' bicycles are blue.", "Las bicicletas de los niños son azules.", "de BOIS BAI-si-kels ar BLUU."], ["The children's bicycles are blue.", "Las bicicletas de los niños son azules.", "de CHIL-drens BAI-si-kels ar BLUU."], ["I like Joe's watch.", "Me gusta el reloj de Joe.", "AI LAIK YOUS UACH."]]}, {"t": "the same as · different from", "s": [["No, my trousers aren't the same colour as your trousers.", "Mis pantalones no son del mismo color que los tuyos.", "NOU, mai TRAU-sers ARNT de SEIM KA-ler as ior TRAU-sers."], ["No, I'm not the same as my mother, but I'm different from her.", "No soy igual que mi mamá, soy diferente.", "NOU, AIM NAT de SEIM as mai MA-der, bat AIM DI-frent from jer."], ["English grammar is different from Spanish grammar.", "La gramática inglesa es diferente de la española.", "IN-glish GRA-mer is DI-frent from SPA-nish GRA-mer."]]}, {"t": "Palabras para preguntar", "s": [["Where are you from?", "¿De dónde eres?", "UER ar iu from?"], ["Who is she speaking with?", "¿Con quién habla ella?", "JUU is shii SPII-king uiz?"], ["What are you interested in?", "¿En qué estás interesado?", "UAT ar iu IN-tres-ted in?"], ["What do we write with?", "¿Con qué escribimos?", "UAT DUU uii RAIT uiz?"]]}, {"t": "in · into · out of", "s": [["He is coming into the room.", "Él está entrando al cuarto.", "jii is KA-ming IN-tu de RUM."], ["He is in the room now.", "Él está en el cuarto ahora.", "jii is in de RUM NAU."], ["I'm putting my marker into my pocket.", "Estoy metiendo mi marcador en el bolsillo.", "AIM PU-ding mai MAR-ker IN-tu mai PA-ket."], ["I'm taking my marker out of my pocket.", "Estoy sacando mi marcador del bolsillo.", "AIM TEI-king mai MAR-ker AUT ev mai PA-ket."]]}, {"t": "many · few", "s": [["There are many people in a large city.", "Hay mucha gente en una ciudad grande.", "DER ar ME-ni PII-pel in e LARCH SI-di."], ["In a small village, there are few people.", "En un pueblo pequeño hay poca gente.", "in e SMOL VI-lich, DER ar FIU PII-pel."]]}, {"t": "Why? · Because", "s": [["Why do you study English?", "¿Por qué estudias inglés?", "UAI DUU iu STA-di IN-glish?"], ["Can you teach me German? No, I can't teach you German.", "¿Me enseñas alemán? No puedo.", "kan iu TIICH mii YER-men? NOU, AI KANT TIICH iu YER-men."], ["Why not? Because I'm not a German teacher.", "¿Por qué no? Porque no soy profesor de alemán.", "UAI NAT? bi-KOS AIM NAT e YER-men TII-cher."]]}, {"t": "a · an · the", "s": [["They have a car.", "Ellos tienen un carro.", "dei jav e KAR."], ["Isabela is an island.", "Isabela es una isla.", "i-sa-BE-la is en AI-lend."], ["Is there an ashtray there?", "¿Hay un cenicero ahí?", "is DER en ASH-trei DER?"], ["The hotel is beautiful.", "El hotel es hermoso.", "de jou-TEL is BIU-di-ful."]]}, {"t": "good at · bad at", "s": [["She is good at singing.", "Ella canta bien.", "shii is GUD at SIN-ging."], ["Are you good at cooking seafood?", "¿Eres bueno cocinando mariscos?", "ar iu GUD at KU-king SII-fud?"], ["Yes, I'm good at cooking seafood.", "Sí, cocino bien los mariscos.", "IES, AIM GUD at KU-king SII-fud."]]}, {"t": "going to · coming from", "s": [["I'm going to the supermarket.", "Voy al supermercado.", "AIM GOU-ing tu de SUU-per-mar-ket."], ["Yes, you're coming from the bathroom.", "Sí, vienes del baño.", "IES, IUR KA-ming from de BAZ-rum."], ["No, you aren't going to the house, but you're going to the laboratory.", "No vas a la casa, vas al laboratorio.", "NOU, iu ARNT GOU-ing tu de JAUS, bat IUR GOU-ing tu de LA-bre-to-ri."]]}], "phrases": [["What's this?", "¿Qué es esto?", "UATS DIS?"], ["It's a book.", "Es un libro.", "its e BUK."], ["Is this a box?", "¿Esto es una caja?", "is DIS e BAKS?"], ["Yes, it is.", "Sí, lo es.", "IES, it is."], ["No, it isn't a box. It's a chair.", "No, no es una caja. Es una silla.", "NOU, it I-sent e BAKS. its e CHER."], ["Are these books?", "¿Estos son libros?", "ar DIIS BUKS?"], ["Yes, these are books.", "Sí, estos son libros.", "IES, DIIS ar BUKS."]]};
 
+// Practice groups: book phrases, topic examples, then the sentences of each book page.
+const groups = [];
+groups.push({label:'Frases del libro', items:DATA.phrases.map(([en, es, say]) => ({en, es, say}))});
+DATA.topics.forEach(t => groups.push({label:'Tema: ' + t.t, items:t.s.map(([en, es, say]) => ({en, es, say}))}));
+DATA.pages.forEach(p => groups.push({label:/^P\S+ \d/.test(p.t) ? p.t : 'Página ' + p.n + ' · ' + p.t, items:p.s.map(([en, say]) => ({en, es:'', say}))}));
+const $ = id => document.getElementById(id);
+$('group').innerHTML = groups.map((g, i) => `<option value="${i}">${g.label} (${g.items.length})</option>`).join('');
 
-const CART_LINKS = {};
-const COUNTRIES = {
-  mexico:{name:"México",short:"MX",image:"mexico.png"},
-  usa:{name:"Estados Unidos",short:"US",image:"estados_unidos.png"}
-};
+let gi = 0, ii = 0;
+try { const s = JSON.parse(localStorage.getItem('speak-pos') || '{}'); if (groups[s.g]) { gi = s.g; ii = Math.min(s.i || 0, groups[gi].items.length - 1); } } catch (e) {}
+const save = () => { try { localStorage.setItem('speak-pos', JSON.stringify({g:gi, i:ii})); } catch (e) {} };
 
-const NEEDS = {
-  gymrat:{name:"Carrito para Gymrat",short:"Gymrat",icon:"G",desc:"Selección para complementar tu rutina de entrenamiento y acompañar tus objetivos deportivos y de nutrición.",image:"gymrat.jpg"},
-  limpieza:{name:"Limpieza profunda de 10 días",short:"Limpieza",icon:"L",desc:"Selección para acompañar una rutina de bienestar digestivo.",image:"limpieza_10_dias.png"},
-  cardiovascular:{name:"Sistema cardiovascular",short:"Cardio",icon:"C",desc:"Selección para acompañar el bienestar cardiovascular.",image:"sistema_cardiovascular.png"},
-  nervioso:{name:"Sistema Nervioso",short:"Nervioso",icon:"N",desc:"Selección para acompañar concentración, claridad y descanso.",image:"chicamente.jpg"},
-  reproductor_masculino:{name:"Reproductor Masculino",short:"Masculino",icon:"M",desc:"Selección para acompañar el bienestar masculino.",image:"reproductor_masculino.png"},
-  reproductor_femenino:{name:"Reproductor Femenino",short:"Femenino",icon:"F",desc:"Selección para acompañar el bienestar femenino.",image:"reproductor_femenino.png"},
-  renal:{name:"Sistema Renal",short:"Renal",icon:"R",desc:"Selección para acompañar la depuración y el bienestar renal.",image:"sistema_renal.png"},
-  oseo_muscular:{name:"Sistema Óseo y Muscular",short:"Óseo",icon:"O",desc:"Selección para acompañar huesos, músculos y articulaciones.",image:"sistema_oseo_muscular.png"},
-  digestivo:{name:"Sistema Digestivo",short:"Digestivo",icon:"D",desc:"Selección para acompañar el bienestar digestivo.",image:"sistema_digestivo.png"},
-  respiratorio:{name:"Sistema Respiratorio",short:"Respiratorio",icon:"S",desc:"Selección para acompañar el bienestar respiratorio.",image:"sistema_respiratorio.png"},
-  inmunologico:{name:"Sistema inmunológico",short:"Inmunológico",icon:"I",desc:"Selección para apoyar las defensas naturales del organismo.",image:"sistema_inmunologico.png"},
-  energia_deporte:{name:"Energía y deporte",short:"Energía",icon:"E",desc:"Selección para acompañar entrenamientos y actividad física.",image:"runner.jpg"},
-  control_peso:{name:"Control de peso y talla",short:"Peso",icon:"P",desc:"Selección para acompañar tus objetivos de control de peso y talla.",image:"talla.jpg"},
-  personalizado:{name:"Personaliza tus productos",short:"Personalizado",icon:"+",desc:"Arma tu propia selección de productos con orientación personalizada.",image:"personalizacion.jpg"}
-};
-
-const CART_CONTENT_MX = {
-  gymrat:{title:"Carrito para Gymrat",desc:"Hola, armé este carrito especialmente para complementar tu rutina de entrenamiento. Incluye creatina, proteína, Power Maker y Biocros, seleccionados para acompañarte en tus objetivos deportivos y de nutrición.",products:["4 productos","$3,390.00"],points:341},
-  limpieza:{title:"Limpieza profunda de 10 días",desc:"¡Hola! Preparé este carrito con productos seleccionados para acompañar una rutina de bienestar digestivo.",products:["18 productos","$5,565.00"],points:582},
-  cardiovascular:{title:"Sistema cardiovascular",desc:"¡Hola! Preparé este carrito con productos seleccionados para acompañar el cuidado de tu sistema cardiovascular, apoyando una buena circulación y una rutina de bienestar integral.",products:["8 productos","$3,800.00"],points:437},
-  nervioso:{title:"Sistema Nervioso",desc:"¡Hola! Preparé este carrito con productos seleccionados para acompañar tu bienestar mental, favorecer la concentración y claridad de pensamiento, y apoyar una rutina de descanso y relajación.",products:["9 productos","$3,180.00"],points:345},
-  reproductor_masculino:{title:"Reproductor Masculino",desc:"¡Hola! Preparé este carrito con productos seleccionados para acompañar el bienestar masculino, apoyar el equilibrio hormonal y contribuir a una vida íntima y activa.",products:["31 productos","$3,845.00"],points:415},
-  reproductor_femenino:{title:"Reproductor Femenino",desc:"¡Hola! Preparé este carrito con productos seleccionados para acompañar el bienestar femenino, apoyar el equilibrio hormonal y contribuir a una vida íntima y activa.",products:["31 productos","$3,880.00"],points:416},
-  renal:{title:"Sistema Renal",desc:"¡Hola! Preparé este carrito con productos seleccionados para acompañar la depuración y el bienestar del sistema renal, como parte de una rutina integral de cuidado y bienestar.",products:["31 productos","$4,005.00"],points:447},
-  oseo_muscular:{title:"Sistema Óseo y Muscular",desc:"¡Hola! Preparé este carrito con productos seleccionados para acompañar el bienestar óseo y muscular, apoyar el cuidado de huesos, músculos, tejidos, ligamentos y articulaciones.",products:["8 productos","$3,525.00"],points:404},
-  digestivo:{title:"Sistema Digestivo",desc:"¡Hola! Preparé este carrito con productos seleccionados para acompañar el bienestar digestivo, apoyar una buena función del sistema digestivo y complementar una rutina de cuidado y bienestar.",products:["31 productos","$3,710.00"],points:407},
-  respiratorio:{title:"Sistema Respiratorio",desc:"¡Hola! Preparé este carrito con productos seleccionados para acompañar el bienestar respiratorio, apoyar las defensas del organismo y complementar una rutina de bienestar con antioxidantes.",products:["8 productos","$3,635.00"],points:429},
-  inmunologico:{title:"Sistema inmunológico",desc:"¡Hola! Preparé este carrito con productos seleccionados para apoyar las defensas naturales del organismo y acompañar el bienestar del sistema inmunológico.",products:["9 productos","$4,385.00"],points:505},
-  energia_deporte:{title:"Energía y deporte",desc:"¡Hola! Preparé este carrito con productos seleccionados para acompañar tu rendimiento físico, apoyar la hidratación y mantenerte activo durante tus entrenamientos y actividades deportivas.",products:["4 productos","$2,675.00"],points:278},
-  control_peso:{title:"Control de peso y talla",desc:"¡Hola! Preparé este carrito con productos seleccionados para acompañarte en tu objetivo de control de peso y talla y apoyar una rutina enfocada en alcanzar tus metas de bienestar.",products:["3 productos","$1,760.00"],points:169}
-};
-
-const CART_CONTENT_US = {
-  limpieza:{title:"Limpieza profunda de 10 días",desc:"¡Hola! Preparé este carrito con productos seleccionados para acompañar una rutina de bienestar digestivo.",products:["18 productos","$443.52"],points:585},
-  cardiovascular:{title:"Sistema cardiovascular",desc:"¡Hola! Preparé este carrito con productos seleccionados para acompañar el cuidado de tu sistema cardiovascular, apoyando una buena circulación y una rutina de bienestar integral.",products:["8 productos","$304.73"],points:436},
-  nervioso:{title:"Sistema Nervioso",desc:"¡Hola! Preparé este carrito con productos seleccionados para acompañar tu bienestar mental, favorecer la concentración y claridad de pensamiento, y apoyar una rutina de descanso y relajación.",products:["9 productos","$244.79"],points:351},
-  reproductor_masculino:{title:"Reproductor Masculino",desc:"¡Hola! Preparé este carrito con productos seleccionados para acompañar el bienestar masculino, apoyar el equilibrio hormonal y contribuir a una vida íntima y activa.",products:["31 productos","$310.90"],points:432},
-  reproductor_femenino:{title:"Reproductor Femenino",desc:"¡Hola! Preparé este carrito con productos seleccionados para acompañar el bienestar femenino, apoyar el equilibrio hormonal y contribuir a una vida íntima y activa.",products:["31 productos","$312.57"],points:433},
-  renal:{title:"Sistema Renal",desc:"¡Hola! Preparé este carrito con productos seleccionados para acompañar la depuración y el bienestar del sistema renal, como parte de una rutina integral de cuidado y bienestar.",products:["31 productos","$335.88"],points:469},
-  oseo_muscular:{title:"Sistema Óseo y Muscular",desc:"¡Hola! Preparé este carrito con productos seleccionados para acompañar el bienestar óseo y muscular, apoyar el cuidado de huesos, músculos, tejidos, ligamentos y articulaciones.",products:["8 productos","$289.74"],points:421},
-  digestivo:{title:"Sistema Digestivo",desc:"¡Hola! Preparé este carrito con productos seleccionados para acompañar el bienestar digestivo, apoyar una buena función del sistema digestivo y complementar una rutina de cuidado y bienestar.",products:["31 productos","$313.13"],points:418},
-  respiratorio:{title:"Sistema Respiratorio",desc:"¡Hola! Preparé este carrito con productos seleccionados para acompañar el bienestar respiratorio, apoyar las defensas del organismo y complementar una rutina de bienestar con antioxidantes.",products:["8 productos","$306.95"],points:435},
-  inmunologico:{title:"Sistema inmunológico",desc:"¡Hola! Preparé este carrito con productos seleccionados para apoyar las defensas naturales del organismo y acompañar el bienestar del sistema inmunológico.",products:["9 productos","$351.91"],points:504},
-  energia_deporte:{title:"Energía y deporte",desc:"¡Hola! Preparé este carrito con productos seleccionados para acompañar tu rendimiento físico, apoyar la hidratación y mantenerte activo durante tus entrenamientos y actividades deportivas.",products:["4 productos","$189.27"],points:286},
-  control_peso:{title:"Control de peso y talla",desc:"¡Hola! Preparé este carrito con productos seleccionados para acompañarte en tu objetivo de control de peso y talla y apoyar una rutina enfocada en alcanzar tus metas de bienestar.",products:["3 productos","$120.44"],points:172}
-};
-
-const CART_CONTENT_CUSTOM = {
-  title:"Personaliza tus productos",
-  desc:"Arma tu propia selección de productos y recibe orientación personalizada para elegir lo que buscas.",
-  products:[],
-  points:null
-};
-
-function getCartContent(countryId, needId){
-  if(needId === "personalizado") return CART_CONTENT_CUSTOM;
-  return countryId === "usa" ? CART_CONTENT_US[needId] : CART_CONTENT_MX[needId];
+const cur = () => groups[gi].items[ii];
+const words = s => s.split(/\s+/).filter(Boolean);
+function show(){
+  const it = cur();
+  $('group').value = gi;
+  $('count').textContent = `Frase ${ii + 1} de ${groups[gi].items.length}`;
+  $('en').innerHTML = words(it.en).map(w => `<span>${w.replace(/[&<>]/g, c => ({'&':'&amp;', '<':'&lt;', '>':'&gt;'})[c])}</span>`).join(' ');
+  $('say').textContent = it.say || '';
+  $('say').hidden = !it.say;
+  $('es').textContent = it.es ? '🇪🇸 ' + it.es : '';
+  $('result').innerHTML = '<span class="help">Toca <b>🔊 Oír</b>, luego <b>🎤 Decirlo</b> y repite la frase.</span>';
+  save();
 }
+$('group').addEventListener('change', () => { gi = +$('group').value; ii = 0; show(); });
+$('prev').addEventListener('click', () => { ii = (ii - 1 + groups[gi].items.length) % groups[gi].items.length; show(); });
+$('next').addEventListener('click', () => { ii = (ii + 1) % groups[gi].items.length; show(); });
+$('rand').addEventListener('click', () => { const n = groups[gi].items.length; if (n > 1) { let k; do k = Math.floor(Math.random() * n); while (k === ii); ii = k; } show(); });
 
-const PRODUCT_IMAGES_MX = {
-  gymrat:["","","","","",""] ,
-  limpieza:["ego_sixpac.jpg","aloe_x10.jpg","optimus.jpg","dolce.jpg","star_bien.jpg",""],
-  cardiovascular:["stoplus.jpg","actua.jpg","aloex5.jpg","omniplus.jpg","",""],
-  nervioso:["aloex5.jpg","star_bien.jpg","fluyer.jpg","magnus.jpg","optimus.jpg",""],
-  reproductor_masculino:["","","","","",""],
-  reproductor_femenino:["","","","","",""],
-  renal:["","","","","",""],
-  oseo_muscular:["","","","","",""],
-  digestivo:["","","","","",""],
-  respiratorio:["","","","","",""],
-  inmunologico:["","","","","",""],
-  energia_deporte:["","","","","",""],
-  control_peso:["","","","","",""] ,
-  personalizado:["","","","","",""]
-};
-
-// Productos de Estados Unidos: usa aquí los nombres exactos de los archivos que subas al repositorio.
-const PRODUCT_IMAGES_US = {
-  limpieza:["","","","","",""],
-  cardiovascular:["","","","","",""],
-  nervioso:["","","","","",""],
-  reproductor_masculino:["","","","","",""],
-  reproductor_femenino:["","","","","",""],
-  renal:["","","","","",""],
-  oseo_muscular:["","","","","",""],
-  digestivo:["","","","","",""],
-  respiratorio:["","","","","",""],
-  inmunologico:["","","","","",""],
-  energia_deporte:["","","","","",""],
-  control_peso:["","","","","",""] ,
-  personalizado:["","","","","",""]
-};
-
-function getProductImages(countryId, needId){
-  const source = countryId === "usa" ? PRODUCT_IMAGES_US : PRODUCT_IMAGES_MX;
-  return source[needId] || [];
+function speak(text, rate){
+  try {
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text); u.lang = 'en-US'; u.rate = rate;
+    const v = speechSynthesis.getVoices().find(v => /^en[-_]US/i.test(v.lang)); if (v) u.voice = v;
+    speechSynthesis.speak(u);
+  } catch (e) {}
 }
+$('listen').addEventListener('click', () => speak(cur().en, 0.9));
+$('slow').addEventListener('click', () => speak(cur().en, 0.6));
 
-let selectedCountry = null;
-let selectedNeed = null;
-let flowUnlocked = true;
-let flowStarted = false;
-
-const countryGrid=document.getElementById("countryGrid");
-const needGrid=document.getElementById("needGrid");
-const cartArea=document.getElementById("cartArea");
-const cartIntro=document.getElementById("cartIntro");
-
-function isMobile(){return window.matchMedia("(max-width:600px)").matches;}
-
-function showStep(id){
-  const el=document.getElementById(id);
-  if(el) el.classList.remove("is-hidden");
+// Comparing: same spelling rules on both sides (contractions opened, digits as words, no punctuation).
+const ONES = ['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen'];
+const TENS = ['','','twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety'];
+function num(n){
+  if (n < 20) return ONES[n];
+  if (n < 100) return TENS[Math.floor(n / 10)] + (n % 10 ? ' ' + ONES[n % 10] : '');
+  if (n < 1000) return ONES[Math.floor(n / 100)] + ' hundred' + (n % 100 ? ' ' + num(n % 100) : '');
+  if (n < 10000) return num(Math.floor(n / 1000)) + ' thousand' + (n % 1000 ? ' ' + num(n % 1000) : '');
+  return String(n);
 }
-function hideStep(id){
-  const el=document.getElementById(id);
-  if(el) el.classList.add("is-hidden");
+const CONTR = {"what's":'what is', "it's":'it is', "that's":'that is', "there's":'there is', "he's":'he is', "she's":'she is', "who's":'who is', "where's":'where is', "how's":'how is',
+  "isn't":'is not', "aren't":'are not', "i'm":'i am', "you're":'you are', "we're":'we are', "they're":'they are', "don't":'do not', "doesn't":'does not',
+  "can't":'can not', "cannot":'can not', "i've":'i have', "you've":'you have', "we've":'we have', "they've":'they have', "haven't":'have not', "hasn't":'has not',
+  "let's":'let us', "wasn't":'was not', "weren't":'were not', "won't":'will not', "i'll":'i will', "mr":'mister', "mrs":'misses', "ms":'miss', "ok":'okay'};
+function norm(s){
+  return s.toLowerCase().replace(/[’´`]/g, "'").replace(/(\d+)/g, m => ' ' + num(+m) + ' ')
+    .replace(/[^a-z' -]/g, ' ').replace(/-/g, ' ').split(/\s+/).filter(Boolean)
+    .flatMap(w => { w = w.replace(/^'+|'+$/g, ''); return (CONTR[w] || w).split(' '); }).filter(Boolean);
 }
-function showMobileStep(id){showStep(id);}
-
-function setFlowLock(locked){
- 
-  flowUnlocked=!locked;
-  document.documentElement.classList.remove("flow-locked");
-  document.body.classList.remove("flow-locked");
-}
-
-function scrollToStep(id){
-  const el=document.getElementById(id);
-  if(!el) return;
-  el.scrollIntoView({behavior:"smooth",block:"start"});
-}
-
-function updateCountryConfirmation(){
-  const box=document.getElementById("countryConfirm");
-  const message=document.getElementById("countrySelectionMessage");
-  const button=document.getElementById("countryContinue");
-  if(!box||!message||!button) return;
-
-  if(selectedCountry){
-    const country=COUNTRIES[selectedCountry];
-    message.innerHTML=`Seleccionaste <strong>${country.name}</strong>. Ahora puedes continuar al paso 2.`;
-    button.disabled=false;
-  }else{
-    message.textContent="Selecciona una bandera para habilitar Continuar.";
-    button.disabled=true;
+// Word-by-word alignment (longest common subsequence) between what you should say and what was heard.
+function align(target, heard){
+  const n = target.length, m = heard.length, L = Array.from({length:n + 1}, () => new Array(m + 1).fill(0));
+  for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--) L[i][j] = target[i] === heard[j] ? L[i + 1][j + 1] + 1 : Math.max(L[i + 1][j], L[i][j + 1]);
+  const hit = new Array(n).fill(false);
+  for (let i = 0, j = 0; i < n && j < m;) {
+    if (target[i] === heard[j]) { hit[i] = true; i++; j++; } else if (L[i + 1][j] >= L[i][j + 1]) i++; else j++;
   }
+  return hit;
 }
-
-function updateNeedConfirmation(){
-  const box=document.getElementById("needConfirm");
-  const message=document.getElementById("needSelectionMessage");
-  const button=document.getElementById("needContinue");
-  if(!box||!message||!button) return;
-
-  if(selectedNeed){
-    const need=NEEDS[selectedNeed];
-    message.innerHTML=`Seleccionaste <strong>${need.name}</strong>. Ahora puedes continuar al paso 3.`;
-    button.disabled=false;
-  }else{
-    message.textContent="Selecciona una opción para habilitar Continuar.";
-    button.disabled=true;
+function grade(alts){
+  const it = cur(), shown = words(it.en);
+  // Each shown word owns one or more normalized pieces ("What's" -> what, is).
+  const pieces = [], owner = [];
+  shown.forEach((w, k) => norm(w).forEach(p => { pieces.push(p); owner.push(k); }));
+  let best = null;
+  for (const a of alts) {
+    const hit = align(pieces, norm(a));
+    const score = pieces.length ? hit.filter(Boolean).length / pieces.length : 0;
+    if (!best || score > best.score) best = {a, hit, score};
   }
+  const ok = shown.map((_, k) => { const mine = best.hit.filter((_, i) => owner[i] === k); return mine.length === 0 || mine.every(Boolean); });
+  [...$('en').children].forEach((s, k) => s.className = ok[k] ? 'ok' : 'bad');
+  const pct = Math.round(best.score * 100);
+  const sayParts = (it.say || '').split(/\s+/);
+  const missed = shown.map((w, k) => ok[k] ? null : w.replace(/[.,!?;:"]/g, '') + (sayParts.length === shown.length ? ` → <span class="say">${sayParts[k].replace(/[.,!?;:"]/g, '')}</span>` : '')).filter(Boolean);
+  const msg = pct >= 90 ? '¡Excelente! 🎉' : pct >= 60 ? '¡Muy bien! Repite las palabras en rojo.' : 'Escucha otra vez con 🐢 Lento y vuelve a intentar.';
+  $('result').innerHTML = `<div class="score ${pct >= 90 ? 'good' : pct >= 60 ? 'mid' : 'low'}">${pct}% · ${msg}</div>
+    <div class="heard">Te escuché: “${best.a.replace(/[&<>]/g, '')}”</div>
+    ${missed.length ? `<div class="miss">Practica: ${missed.map(m => `<b>${m}</b>`).join(' · ')}</div>` : ''}`;
 }
 
-function renderCountries(){
-  countryGrid.innerHTML=Object.entries(COUNTRIES).map(([id,c])=>`
-    <button class="selection-btn ${selectedCountry===id?"active":""}" data-country="${id}" type="button">
-      <div class="country-flag-wrap"><img class="country-flag" src="${c.image}" alt="Bandera de ${c.name}" loading="eager" decoding="async"></div><strong>${c.name}</strong><span>Seleccionar ${c.name}</span>
-    </button>`).join("");
-
-  countryGrid.querySelectorAll("[data-country]").forEach(btn=>btn.addEventListener("click",()=>{
-    selectedCountry=btn.dataset.country;
-    if(selectedCountry === "usa" && selectedNeed === "gymrat") selectedNeed=null;
-    selectedNeed=null;
-
-    
-    hideStep("necesidades");
-    hideStep("carritos");
-    setFlowLock(true);
-
-    renderCountries();
-    renderNeeds();
-    renderCart();
-    updateCountryConfirmation();
-    updateNeedConfirmation();
-
-    document.getElementById("countryConfirm")?.scrollIntoView({behavior:"smooth",block:"center"});
-  }));
-}
-
-function renderNeeds(){
-  const visibleNeeds=Object.entries(NEEDS).filter(([id])=>selectedCountry!=="usa" || id!=="gymrat");
-  needGrid.innerHTML=visibleNeeds.map(([id,n])=>`
-    <button class="need-card ${selectedNeed===id?"active":""}" data-need="${id}" type="button">
-      <div class="need-card-image-wrap">
-        <img class="need-card-image" src="${n.image}" alt="${n.name}" loading="lazy">
-      </div>
-      <div class="selection-icon">${n.icon}</div><strong>${n.name}</strong><span>${n.desc}</span>
-    </button>`).join("");
-
-  needGrid.querySelectorAll("[data-need]").forEach(btn=>btn.addEventListener("click",()=>{
-    if(!selectedCountry){
-      scrollToStep("paises");
-      return;
-    }
-
-    selectedNeed=btn.dataset.need;
-    renderNeeds();
-    renderCart();
-    updateNeedConfirmation();
-
-    document.getElementById("needConfirm")?.scrollIntoView({behavior:"smooth",block:"center"});
-  }));
-}
-
-function renderCart(){
-  if(!selectedCountry||!selectedNeed){
-    cartIntro.textContent="Selecciona un país y una categoría para ver la opción disponible.";
-    cartArea.innerHTML='<div class="cart-empty">Primero selecciona tu país y después lo que estás buscando.</div>';
-    return;
-  }
-
-  const country=COUNTRIES[selectedCountry], need=NEEDS[selectedNeed], content=getCartContent(selectedCountry,selectedNeed);
-  const isCustom=selectedNeed==="personalizado";
-  const whatsappMessage=isCustom
-    ? "Hola Hamilton, quiero armar mis productos personalizados para "+country.name+". Me gustaría recibir tu ayuda para elegir los productos que necesito y conocer cómo realizar mi pedido."
-    : "Hola Hamilton, ya seleccioné mi carrito de "+need.name+" para "+country.name+" en tu página. Quiero recibir el enlace de mi carrito y también tu asesoramiento para completar mi compra.";
-  const whatsappUrl="https://wa.me/593968107948?text="+encodeURIComponent(whatsappMessage);
-
-  cartIntro.textContent=`Opción seleccionada: ${country.name} · ${need.name}`;
-  const categoryImage=need.image;
-  const productCount=content.products?.[0] || "Carrito prearmado";
-  const cartPrice=content.products?.[1] || "";
-  cartArea.innerHTML=`
-    <article class="cart-stage">
-      <div class="cart-visual" aria-label="Vista visual del carrito recomendado">
-        <div class="cart-handle" aria-hidden="true"></div>
-        <div class="cart-basket">
-          <div class="cart-basket-top"></div>
-          <div class="cart-items">
-            <div class="cart-item">
-              <span class="cart-item-label">${need.short || need.name.slice(0,10)}</span>
-            </div>
-            <div class="cart-item">
-              <span class="cart-item-label">${country.short}</span>
-            </div>
-            <div class="cart-item">
-              <span class="cart-item-label">HG</span>
-            </div>
-          </div>
-        </div>
-        <div class="cart-wheel left" aria-hidden="true"></div>
-        <div class="cart-wheel right" aria-hidden="true"></div>
-        <div class="cart-visual-caption">Tu carrito recomendado</div>
-      </div>
-
-      <div class="cart-info">
-        <span class="cart-badge">${country.name} · ${need.name}</span>
-        <h3>${content.title}</h3>
-        <p>${content.desc}</p>
-
-        <div class="cart-summary">
-          ${isCustom ? `<span>Selección personalizada</span>` : `
-            <span>${productCount}</span>
-            ${cartPrice ? `<span>${cartPrice}</span>` : ""}
-            <span>${content.points} puntos</span>
-            <span>A partir de 200 puntos, tu envío es gratis</span>
-          `}
-        </div>
-
-        ${isCustom ? "" : `<button class="product-details-btn" type="button" data-product-details="${selectedNeed}">Ver productos incluidos <span>→</span></button>`}
-
-        <div class="cart-card-actions">
-          <a id="whatsappCarritoBtn" class="btn btn-primary" href="${whatsappUrl}" target="_blank" rel="noopener">Recibir mi carrito por WhatsApp ↗</a>
-          <p class="cart-note">Tu selección llegará a mi WhatsApp para brindarte asesoramiento personalizado, resolver tus dudas y dar seguimiento a tu proceso.</p>
-        </div>
-      </div>
-    </article>
-
-    <div class="product-modal" id="productModal" hidden aria-hidden="true">
-      <div class="product-modal-card" role="dialog" aria-modal="true" aria-labelledby="productModalTitle">
-        <div class="product-modal-head">
-          <h3 id="productModalTitle">Productos incluidos</h3>
-          <button class="product-modal-close" type="button" id="productModalClose" aria-label="Cerrar">×</button>
-        </div>
-        <div class="product-mini-grid" id="productMiniGrid"></div>
-        <p class="product-modal-note">Aquí se muestran únicamente las imágenes de los productos que agregues.</p>
-      </div>
-    </div>`;
-
-  document.querySelector("[data-product-details]")?.addEventListener("click",()=>openProductDetails(selectedNeed));
-  document.getElementById("productModalClose")?.addEventListener("click",closeProductDetails);
-  document.getElementById("productModal")?.addEventListener("click",e=>{if(e.target.id==="productModal")closeProductDetails()});
-}
-
-function openProductDetails(needId){
-  const modal=document.getElementById("productModal");
-  const grid=document.getElementById("productMiniGrid");
-  if(!modal||!grid) return;
-  const images=getProductImages(selectedCountry,needId).filter(Boolean).slice(0,6);
-  grid.innerHTML=images.map((src,i)=>`<div class="product-mini"><img src="${src}" alt="Producto ${i+1}" loading="lazy" decoding="async"></div>`).join("");
-  if(!images.length){grid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:35px 15px;color:var(--muted)">Próximamente podrás ver aquí los productos de este carrito.</div>';}
-  modal.hidden=false; modal.setAttribute("aria-hidden","false"); document.body.style.overflow="hidden";
-}
-function closeProductDetails(){
-  const modal=document.getElementById("productModal");
-  if(!modal) return;
-  modal.hidden=true; modal.setAttribute("aria-hidden","true"); document.body.style.overflow="";
-}
-
-function escapeAttr(value){return value.replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
-
-function trackCartWhatsAppClick(){
-  if(typeof gtag!=="function") return;
-  const country=selectedCountry?COUNTRIES[selectedCountry]:null;
-  const need=selectedNeed?NEEDS[selectedNeed]:null;
-
-  gtag("event","whatsapp_carrito",{
-    pais:country?country.name:"",
-    necesidad:need?need.name:"",
-    tipo:selectedNeed==="personalizado"?"personalizado":"carrito_prearmado",
-    destino:"WhatsApp"
-  });
-}
-
-document.addEventListener("click",(event)=>{
-  const btn=event.target.closest("#whatsappCarritoBtn");
-  if(btn) trackCartWhatsAppClick();
+// Microphone with the browser's speech recognition (Chrome / Edge).
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+let rec = null;
+if (!SR) { $('noSR').hidden = false; $('mic').disabled = true; }
+function micOn(on){ $('mic').setAttribute('aria-pressed', on); $('mic').textContent = on ? '⏹️ Escuchando… (toca para parar)' : '🎤 Decirlo'; }
+$('mic').addEventListener('click', () => {
+  if (rec) { rec.stop(); return; }
+  try { speechSynthesis.cancel(); } catch (e) {}
+  [...$('en').children].forEach(s => s.className = '');
+  rec = new SR(); rec.lang = 'en-US'; rec.interimResults = true; rec.continuous = false; rec.maxAlternatives = 5;
+  let finalAlts = null, live = '';
+  rec.onresult = e => {
+    const r = e.results[e.results.length - 1];
+    live = Array.from(e.results).map(x => x[0].transcript).join(' ');
+    if (r.isFinal) finalAlts = Array.from(r).map(x => Array.from(e.results).slice(0, -1).map(y => y[0].transcript).concat(x.transcript).join(' '));
+    $('result').innerHTML = `<span class="heard">Escuchando: “${live.replace(/[&<>]/g, '')}”</span>`;
+  };
+  rec.onerror = e => {
+    const why = {'not-allowed':'No diste permiso al micrófono. Toca el candado 🔒 de la barra de direcciones, permite el micrófono y recarga.',
+      'service-not-allowed':'El navegador no deja reconocer la voz aquí. Usa Chrome o Edge.',
+      'audio-capture':'No encontré un micrófono conectado.',
+      'network':'El reconocimiento de voz necesita internet. Revisa tu conexión.',
+      'no-speech':'No te escuché. Toca 🎤 Decirlo y habla cerca del micrófono.'}[e.error];
+    if (why) $('result').innerHTML = `<span class="score low" style="font-size:17px">${why}</span>`;
+    finalAlts = null;
+  };
+  rec.onend = () => {
+    rec = null; micOn(false);
+    if (finalAlts && finalAlts.length) grade(finalAlts); else if (live) grade([live]);
+  };
+  try { rec.start(); micOn(true); $('result').innerHTML = '<span class="heard">Habla ahora…</span>'; }
+  catch (e) { rec = null; $('result').innerHTML = '<span class="score low" style="font-size:17px">No pude encender el micrófono. Recarga la página.</span>'; }
 });
 
-document.addEventListener("DOMContentLoaded",()=>{
-  renderCountries();
-  renderNeeds();
-  renderCart();
-
-  
-  hideStep("necesidades");
-  hideStep("carritos");
-  setFlowLock(false);
-
-  updateCountryConfirmation();
-  updateNeedConfirmation();
-
-  
-  const countrySection = document.getElementById("paises");
-  if(countrySection){
-    const flowObserver = new IntersectionObserver((entries)=>{
-      const entry = entries[0];
-      if(!entry.isIntersecting || flowStarted) return;
-      flowStarted = true;
-      setFlowLock(true);
-      countrySection.scrollIntoView({behavior:"smooth",block:"start"});
-    },{threshold:0.45});
-    flowObserver.observe(countrySection);
-  }
-
-  
-  document.getElementById("countryContinue")?.addEventListener("click",()=>{
-    if(!selectedCountry) return;
-
-    showStep("necesidades");
-    hideStep("carritos");
-    updateNeedConfirmation();
-
-    scrollToStep("necesidades");
-  });
-
-  
-  document.getElementById("needContinue")?.addEventListener("click",()=>{
-    if(!selectedNeed) return;
-
-    showStep("carritos");
-    renderCart();
-    setFlowLock(false);
-
-    scrollToStep("carritos");
-  });
-
-  const toggle=document.getElementById("mobileNavToggle"),menu=document.getElementById("mobileMenu");
-  toggle.addEventListener("click",()=>{
-    const open=toggle.classList.toggle("is-open");
-    menu.classList.toggle("is-open",open);toggle.setAttribute("aria-expanded",String(open));
-  });
-  menu.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{toggle.classList.remove("is-open");menu.classList.remove("is-open");toggle.setAttribute("aria-expanded","false");}));
-
-  const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("is-visible")}),{threshold:.08});
-  document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
-
-  document.querySelectorAll(".faq-list details").forEach(d=>d.addEventListener("toggle",()=>{if(d.open)document.querySelectorAll(".faq-list details").forEach(o=>{if(o!==d)o.removeAttribute("open")})}));
-
-  if(localStorage.getItem("hg_cookie_consent")!=="yes"){
-    document.getElementById("cookieNotice").hidden=false;
-  }
-  document.getElementById("cookieAccept").addEventListener("click",()=>{localStorage.setItem("hg_cookie_consent","yes");document.getElementById("cookieNotice").hidden=true});
-  document.getElementById("cookieReject").addEventListener("click",()=>{localStorage.setItem("hg_cookie_consent","no");document.getElementById("cookieNotice").hidden=true});
-
-});
+show();
 </script>
 </body>
 </html>
